@@ -1,38 +1,54 @@
 import Image from "next/image";
 import { Button } from "@/components/ui/Button";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { bookCtaParagraph } from "@/lib/site-config";
 
 export function BookCtaSection() {
   return (
     <section
       aria-labelledby="book-heading"
-      className="relative overflow-hidden bg-charcoal-light"
+      className="relative w-full overflow-hidden"
     >
-      <div className="grid lg:grid-cols-2">
-        <div className="relative min-h-[320px] lg:min-h-[480px]">
-          <Image
-            src="/images/book-appointment.png"
-            alt="Mr Najib Daulatzai speaking with a patient during a consultation appointment in London or Hertfordshire"
-            fill
-            className="object-cover object-center"
-            sizes="(max-width: 1024px) 100vw, 50vw"
-          />
-          <div className="absolute inset-0 bg-charcoal/20 lg:hidden" />
-        </div>
+      <div className="relative min-h-[360px] w-full lg:min-h-[480px]">
+        <Image
+          src="/images/images/Najib With Patient (1).jpg"
+          alt="Mr Najib Daulatzai speaking with a patient during a consultation appointment in London or Hertfordshire"
+          fill
+          className="object-cover object-center"
+          sizes="100vw"
+        />
 
-        <div className="relative flex items-center bg-charcoal/90 px-6 py-16 backdrop-blur-sm lg:px-16 lg:py-24">
-          <div className="mx-auto max-w-md text-center lg:mx-0 lg:text-left">
-            <h2
-              id="book-heading"
-              className="text-3xl font-light leading-tight tracking-tight text-white sm:text-4xl lg:text-5xl"
+        <div className="relative flex min-h-[360px] w-full flex-col lg:min-h-[480px] lg:flex-row">
+          <div className="relative min-h-[200px] flex-1 lg:min-h-full" />
+
+          <div className="relative flex w-full flex-1 items-center lg:w-1/2 lg:flex-none">
+            <div
+              aria-hidden="true"
+              className="book-cta-frost pointer-events-none absolute inset-0"
+            />
+
+            <ScrollReveal
+              variant="fade-left"
+              className="relative z-10 flex w-full justify-end px-3 py-12 sm:px-4 md:px-5 lg:px-10 lg:py-24 lg:pr-16 xl:pr-24"
             >
-              Book Your
-              <span className="block">Appointment Today</span>
-            </h2>
-            <div className="mt-10 flex justify-center lg:justify-start">
-              <Button href="/contact" variant="light">
-                Book Now
-              </Button>
-            </div>
+              <div className="max-w-md text-right">
+                <h2
+                  id="book-heading"
+                  className="text-3xl font-semibold leading-tight tracking-tight text-charcoal [text-shadow:0_1px_18px_rgba(255,255,255,0.55)] sm:text-4xl lg:text-5xl"
+                >
+                  Book Your
+                  <span className="block">Appointment Today</span>
+                </h2>
+                <p className="mt-4 text-sm leading-relaxed text-charcoal/85 sm:text-base">
+                  {bookCtaParagraph}
+                </p>
+                <div className="mt-8 flex justify-end">
+                  <Button href="/contact" variant="dark">
+                    Book Now
+                  </Button>
+                </div>
+              </div>
+            </ScrollReveal>
           </div>
         </div>
       </div>

@@ -1,18 +1,30 @@
 import type { Metadata } from "next";
-import { PlaceholderPage } from "@/components/layout/PlaceholderPage";
+import { ContactPageContent } from "@/components/contact/ContactPageContent";
+import { ContactPageHero } from "@/components/contact/ContactPageHero";
+import { pageDescriptions } from "@/lib/page-descriptions";
+import { pageTitles } from "@/lib/page-titles";
+import { buildPageMetadata } from "@/lib/seo/build-page-metadata";
+import { pageKeywords } from "@/lib/seo/keywords";
+import { Footer } from "@/components/layout/Footer";
+import { SiteContainer } from "@/components/layout/SiteContainer";
 
-export const metadata: Metadata = {
-  title: "Contact",
-  description:
-    "Contact Mr Najib Daulatzai to book an appointment at NHS or private practice locations in London and Hertfordshire.",
-  alternates: { canonical: "/contact" },
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: pageTitles.contact,
+  description: pageDescriptions.contact,
+  path: "/contact",
+  keywords: pageKeywords.contact,
+});
 
 export default function ContactPage() {
   return (
-    <PlaceholderPage
-      title="Contact"
-      description="Contact details and booking information will appear here."
-    />
+    <>
+      <ContactPageHero />
+      <div className="bg-white pb-20">
+        <SiteContainer className="pt-12 lg:pt-14">
+          <ContactPageContent />
+        </SiteContainer>
+      </div>
+      <Footer />
+    </>
   );
 }

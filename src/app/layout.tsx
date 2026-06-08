@@ -1,12 +1,16 @@
 import type { Metadata, Viewport } from "next";
-import { Inter } from "next/font/google";
+import { DM_Sans } from "next/font/google";
+import { CookieConsentProvider } from "@/components/cookies/CookieConsentProvider";
+import { Header } from "@/components/layout/Header";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { VercelInsights } from "@/components/seo/VercelInsights";
 import { homeMetadata } from "@/lib/metadata";
 import "./globals.css";
 
-const inter = Inter({
-  variable: "--font-inter",
+const dmSans = DM_Sans({
+  variable: "--font-dm-sans",
   subsets: ["latin"],
+  weight: ["400", "500", "600", "700"],
   display: "swap",
 });
 
@@ -24,13 +28,14 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en-GB" className={`${inter.variable} h-full antialiased`}>
-      <head>
-        <link rel="icon" href="/logo.svg" type="image/svg+xml" />
-      </head>
-      <body className="min-h-full flex flex-col bg-white text-charcoal">
-        <JsonLd />
-        {children}
+    <html lang="en-GB" className={`${dmSans.variable} h-full antialiased`}>
+      <body className="flex min-h-full flex-col overflow-x-clip bg-white text-charcoal">
+        <CookieConsentProvider>
+          <JsonLd />
+          <VercelInsights />
+          <Header />
+          {children}
+        </CookieConsentProvider>
       </body>
     </html>
   );

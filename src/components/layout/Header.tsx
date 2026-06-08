@@ -1,17 +1,53 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
+import { createPortal } from "react-dom";
+import { SiteContainer } from "@/components/layout/SiteContainer";
 import { Logo } from "./Logo";
 import { MobileMenu } from "./MobileMenu";
 
-type HeaderProps = {
-  theme?: "light" | "dark";
-};
+const LIGHT_HEADER_PREFIXES = [
+  "/about",
+  "/research",
+  "/testimonials",
+  "/procedures",
+  "/robotic-surgery",
+  "/blog",
+  "/gp-referrals",
+  "/patient-faq",
+  "/contact",
+  "/privacy",
+];
 
-export function Header({ theme = "dark" }: HeaderProps) {
+function useHeaderTheme() {
+  const pathname = usePathname();
+  const isHome = pathname === "/";
+  const isLight = LIGHT_HEADER_PREFIXES.some(
+    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
+  );
+
+  return {
+    homeMenu: isHome,
+    isLight,
+  };
+}
+
+export function Header() {
   const [open, setOpen] = useState(false);
-  const isLight = theme === "light";
+  const [mounted, setMounted] = useState(false);
+  const [scrolled, setScrolled] = useState(false);
+  const { homeMenu, isLight } = useHeaderTheme();
+
+  const showSolidHeader =
+    (isLight && !open) || (homeMenu && scrolled && !open);
+  const useLightTheme = isLight || open || (homeMenu && scrolled);
+  const showHomeMenuButton = homeMenu && !open && !scrolled;
+
+  useEffect(() => {
+    setMounted(true);
+  }, []);
 
   useEffect(() => {
     document.body.style.overflow = open ? "hidden" : "";
@@ -20,17 +56,42 @@ export function Header({ theme = "dark" }: HeaderProps) {
     };
   }, [open]);
 
-  return (
+  useEffect(() => {
+    if (!homeMenu) {
+      setScrolled(false);
+      return;
+    }
+
+    const onScroll = () => {
+      setScrolled(window.scrollY > 48);
+    };
+
+    onScroll();
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, [homeMenu]);
+
+  if (!mounted) {
+    return null;
+  }
+
+  return createPortal(
     <>
-      <header className="fixed inset-x-0 top-0 z-50">
-        <div className="mx-auto flex max-w-7xl items-center justify-between px-6 py-5 lg:px-10">
+      <header
+        className={`site-header !fixed inset-x-0 top-0 z-[100] w-full ${
+          showSolidHeader ? "site-header--solid" : ""
+        }`}
+      >
+        <SiteContainer className="flex items-center justify-between py-5">
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
-            className={`group flex h-11 w-11 items-center justify-center transition hover:opacity-80 ${
-              open || isLight ? "text-charcoal" : "text-white"
+            className={`group flex h-11 w-11 items-center justify-center transition ${
+              showHomeMenuButton
+                ? "rounded-full bg-white/92 text-charcoal shadow-md ring-1 ring-charcoal/10 backdrop-blur-sm hover:bg-white"
+                : `hover:opacity-80 ${useLightTheme ? "text-charcoal" : "text-white"}`
             }`}
           >
             <span className="relative block h-4 w-6">
@@ -55,14 +116,15 @@ export function Header({ theme = "dark" }: HeaderProps) {
           <Link
             href="/"
             aria-label="Najib Daulatzai home"
-            className={open || isLight ? "text-charcoal" : "text-white"}
+            className={useLightTheme ? "text-charcoal" : "text-white"}
           >
-            <Logo className="h-8 w-auto md:h-10" />
+            <Logo inverted={!useLightTheme} className="h-10 md:h-14" />
           </Link>
-        </div>
+        </SiteContainer>
       </header>
 
       <MobileMenu open={open} onClose={() => setOpen(false)} />
-    </>
+    </>,
+    document.body,
   );
 }

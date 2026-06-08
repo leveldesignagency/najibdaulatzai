@@ -1,28 +1,22 @@
 import type { Metadata } from "next";
+import { pageDescriptions } from "./page-descriptions";
+import { pageTitles } from "./page-titles";
+import { getGeoMetaTags } from "./seo/geo";
+import { homeKeywords } from "./seo/keywords";
 import { siteConfig } from "./site-config";
 
 export const homeMetadata: Metadata = {
   metadataBase: new URL(siteConfig.url),
   title: {
-    default: siteConfig.title,
+    default: pageTitles.home,
     template: `%s | ${siteConfig.name}`,
   },
-  description: siteConfig.description,
-  keywords: [
-    "Najib Daulatzai",
-    "colorectal surgeon London",
-    "general surgeon Hertfordshire",
-    "colorectal surgeon Hertfordshire",
-    "private colorectal surgeon London",
-    "NHS colorectal surgeon Watford",
-    "Spire Bushey Hospital surgeon",
-    "HCA Wellington Hospital surgeon",
-    "HCA Elstree surgeon",
-    "robotic colorectal surgery London",
-  ],
-  authors: [{ name: "Mr Najib Daulatzai" }],
+  description: pageDescriptions.home,
+  keywords: [...homeKeywords],
+  authors: [{ name: "Mr Najib Daulatzai", url: siteConfig.url }],
   creator: "LEVEL DESIGN AGENCY LTD",
   publisher: "LEVEL DESIGN AGENCY LTD",
+  category: "health",
   formatDetection: {
     email: false,
     address: false,
@@ -31,16 +25,29 @@ export const homeMetadata: Metadata = {
   alternates: {
     canonical: "/",
   },
+  icons: {
+    icon: [
+      { url: "/favicon/favicon-16.png", sizes: "16x16", type: "image/png" },
+      { url: "/favicon/favicon-32.png", sizes: "32x32", type: "image/png" },
+    ],
+    apple: [
+      {
+        url: "/favicon/apple-touch-icon.png",
+        sizes: "180x180",
+        type: "image/png",
+      },
+    ],
+  },
   openGraph: {
     type: "website",
     locale: siteConfig.locale,
     url: siteConfig.url,
     siteName: siteConfig.name,
-    title: siteConfig.title,
-    description: siteConfig.description,
+    title: pageTitles.home,
+    description: pageDescriptions.home,
     images: [
       {
-        url: "/images/hero-consultation.png",
+        url: "/images/hero-consultation.jpg",
         width: 1200,
         height: 630,
         alt: "Mr Najib Daulatzai, colorectal and general surgeon, consulting with a patient in his London and Hertfordshire practice",
@@ -49,9 +56,9 @@ export const homeMetadata: Metadata = {
   },
   twitter: {
     card: "summary_large_image",
-    title: siteConfig.title,
-    description: siteConfig.description,
-    images: ["/images/hero-consultation.png"],
+    title: pageTitles.home,
+    description: pageDescriptions.home,
+    images: ["/images/hero-consultation.jpg"],
   },
   robots: {
     index: true,
@@ -65,9 +72,7 @@ export const homeMetadata: Metadata = {
     },
   },
   other: {
-    "geo.region": "GB-LND",
-    "geo.placename": "London, Hertfordshire",
-    "geo.position": "51.6565;-0.3903",
-    ICBM: "51.6565, -0.3903",
+    ...getGeoMetaTags("/"),
+    "llms.txt": `${siteConfig.url}/llms.txt`,
   },
 };

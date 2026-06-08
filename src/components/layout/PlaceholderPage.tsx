@@ -1,5 +1,5 @@
 import { Footer } from "@/components/layout/Footer";
-import { Header } from "@/components/layout/Header";
+import { SiteContainer } from "@/components/layout/SiteContainer";
 import { Button } from "@/components/ui/Button";
 
 export function PlaceholderPage({
@@ -12,9 +12,8 @@ export function PlaceholderPage({
   return (
     <>
       <div className="relative min-h-[50vh] bg-charcoal pb-20 pt-28">
-        <Header />
-        <div className="mx-auto max-w-3xl px-6 text-center lg:px-10">
-          <h1 className="text-4xl font-light tracking-tight text-white lg:text-5xl">
+        <SiteContainer className="max-w-3xl text-center">
+          <h1 className="text-4xl tracking-tight text-white lg:text-5xl">
             {title}
           </h1>
           <p className="mt-6 text-lg leading-relaxed text-white/80">{description}</p>
@@ -30,7 +29,7 @@ export function PlaceholderPage({
               Contact
             </Button>
           </div>
-        </div>
+        </SiteContainer>
       </div>
       <Footer />
     </>

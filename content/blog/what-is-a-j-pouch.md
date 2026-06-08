@@ -1,0 +1,15 @@
+Pouch surgery, or ileal pouch-anal anastomosis, is one of the most transformative procedures in colorectal surgery. For patients with ulcerative colitis or familial adenomatous polyposis (FAP) facing the prospect of a permanent stoma, the pouch offers an alternative: the chance to maintain bowel continuity and, for many, a significantly improved quality of life. It is also one of the most technically demanding operations in my specialty.
+
+## What is a J-pouch?
+A J-pouch is an internal reservoir created from the last portion of the small bowel (the ileum). After the colon and rectum are removed, the surgeon folds the ileum back on itself in a J-shape and staples or sews it together to form a pouch. This pouch is then connected to the anal canal, allowing the patient to pass stools normally through the anus rather than through a stoma.
+The pouch effectively replaces the storage function of the rectum. Over time, typically six to twelve months after the operation, most patients find that the pouch adapts and they achieve acceptable function, passing stools three to eight times per day with good control.
+
+## Who is suitable for a J-pouch?
+Not every patient is suitable for pouch surgery. Suitability depends on a number of factors including the underlying diagnosis, the health and function of the anal sphincter, the patient's overall fitness, and their expectations of the outcome. Patients with Crohn's disease are generally not offered a pouch in the standard setting, as the risk of pouch failure due to recurrent disease is significantly higher. I will assess your individual circumstances carefully and be honest with you about whether a pouch is likely to give you a good result.
+
+## How is pouch surgery performed?
+Pouch surgery is typically performed in two or three stages. In a two-stage approach, the colon and rectum are removed, the pouch is formed, and a temporary loop ileostomy is created at the same operation to protect the pouch whilst it heals. After approximately eight to twelve weeks, once the pouch has been confirmed to be healing well, the ileostomy is reversed and the patient begins using the pouch. In a three-stage approach, the colon is removed first, with the pouch formation and ileostomy reversal performed as separate subsequent procedures. This is used in patients who are unwell, malnourished, or on high-dose immunosuppression at the time of their first operation.
+I perform pouch surgery using robotic techniques wherever possible, which reduces blood loss, improves the precision of dissection in the pelvis, and supports a faster recovery. I trained in pouch surgery at St Mark's Hospital London, one of the world's foremost centres for this procedure.
+
+## What are the risks?
+Pouch surgery is a major operation and carries risks that should be discussed in detail before proceeding. The most important include anastomotic leak, pouchitis (inflammation of the pouch, which is common and usually treatable with antibiotics), pouch failure requiring conversion to a permanent stoma, and functional problems with frequency, urgency, or leakage. I will discuss all of these with you candidly at your consultation.

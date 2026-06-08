@@ -1,18 +1,23 @@
 import type { Metadata } from "next";
-import { PlaceholderPage } from "@/components/layout/PlaceholderPage";
+import { Footer } from "@/components/layout/Footer";
+import { ProceduresPageContent } from "@/components/procedures/ProceduresPageContent";
+import { pageDescriptions } from "@/lib/page-descriptions";
+import { pageTitles } from "@/lib/page-titles";
+import { buildPageMetadata } from "@/lib/seo/build-page-metadata";
+import { pageKeywords } from "@/lib/seo/keywords";
 
-export const metadata: Metadata = {
-  title: "Procedures",
-  description:
-    "Surgical procedures offered by Mr Najib Daulatzai through NHS and private practice in London and Hertfordshire.",
-  alternates: { canonical: "/procedures" },
-};
+export const metadata: Metadata = buildPageMetadata({
+  title: pageTitles.procedures,
+  description: pageDescriptions.procedures,
+  path: "/procedures",
+  keywords: pageKeywords.procedures,
+});
 
 export default function ProceduresPage() {
   return (
-    <PlaceholderPage
-      title="Procedures"
-      description="Detailed procedure information will appear here."
-    />
+    <>
+      <ProceduresPageContent />
+      <Footer />
+    </>
   );
 }

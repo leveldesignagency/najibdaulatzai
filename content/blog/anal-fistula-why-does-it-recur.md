@@ -1,0 +1,14 @@
+Anal fistula is a condition that frustrates both patients and surgeons in equal measure. It is notoriously prone to recurrence, and many patients present to me having already undergone one or more previous procedures that have not fully resolved the problem. If you have been treated for a fistula and found that it has returned, you are not alone, and there are reasons why this happens.
+
+## What is an anal fistula?
+An anal fistula is an abnormal tunnel connecting the inside of the anal canal to the skin around the anus. It most commonly develops following an anal abscess, when the abscess fails to heal completely, it can leave a persistent track between the two surfaces. The result is a discharge of fluid or pus from an opening near the anus, which may be associated with pain, swelling, and recurrent infection.
+
+## Why do fistulas recur?
+Fistulas recur for several reasons, and understanding them is essential to choosing the right treatment.
+The primary reason is incomplete treatment of the fistula tract. If any part of the track is left behind at the time of surgery, it can re-epithelialise and reform. This is particularly likely with complex or branching fistulas, where the anatomy is difficult to delineate clearly.
+The relationship between the fistula and the anal sphincter is the central challenge in fistula surgery. The sphincter is the muscle that controls continence, and any treatment that divides too much of it risks causing incontinence. This means that for fistulas that pass through a significant portion of the sphincter, a simple cut-and-cure approach is not safe, and staged or sphincter-preserving techniques must be used instead. These approaches, whilst safer for continence, carry a higher risk of recurrence.
+Crohn's disease is another important cause of recurrent fistula. Fistulas in patients with Crohn's behave differently from cryptoglandular fistulas and require a different, often combined surgical and medical approach.
+
+## What options are available for recurrent fistulas?
+For patients with recurrent or complex fistulas, a thorough assessment is essential before any further intervention. This typically includes examination under anaesthetic and, in selected cases, MRI imaging of the fistula to map its anatomy precisely. Treatment options include seton placement to control the fistula and allow staged management, advancement flap procedures, the LIFT (ligation of intersphincteric fistula tract) technique, and in selected cases, the use of biological plugs or glue.
+I have specialist training and experience in the management of complex and recurrent anal fistulas, and I will take the time to review your history carefully before recommending any further treatment. The goal is always to achieve resolution of the fistula whilst preserving continence.

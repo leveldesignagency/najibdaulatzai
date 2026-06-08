@@ -2,23 +2,42 @@ export const siteConfig = {
   name: "Najib Daulatzai",
   title: "Najib Daulatzai Colorectal & General Surgeon in London & Hertfordshire",
   description:
-    "Mr Najib Daulatzai is a consultant colorectal and general surgeon serving patients across London and Hertfordshire through NHS and private practice.",
+    "Mr Najib Daulatzai is a NHS and private consultant colorectal & general surgeon in London & Hertfordshire, specialising in robotic and minimally invasive surgery.",
   url: "https://www.ndsurgeon.com",
   locale: "en_GB",
-  phone: "",
-  email: "",
+  phone: "+447733 897972",
+  phoneHref: "tel:+447733897972",
+  email: "info@ndaulatzai.com",
+  emailHref: "mailto:info@ndaulatzai.com",
 } as const;
+
+export const bookCtaParagraph =
+  "Consultations are available through NHS and private practice at locations across London and Hertfordshire.";
 
 export const menuLinks = [
   { label: "HOME", href: "/", icon: "home" as const },
   { label: "PROCEDURES", href: "/procedures" },
+  { label: "ROBOTIC SURGERY", href: "/robotic-surgery" },
+  { label: "ARTICLES", href: "/blog" },
   { label: "ABOUT", href: "/about" },
   { label: "RESEARCH", href: "/research" },
   { label: "TESTIMONIALS", href: "/testimonials" },
+  { label: "GP REFERRALS", href: "/gp-referrals" },
+  { label: "PATIENT FAQ", href: "/patient-faq" },
   { label: "CONTACT", href: "/contact" },
 ] as const;
 
-export const footerNavLinks = menuLinks.filter((link) => link.href !== "/");
+export const footerNavLinks = [
+  { label: "PROCEDURES", href: "/procedures" },
+  { label: "ROBOTIC SURGERY", href: "/robotic-surgery" },
+  { label: "ARTICLES", href: "/blog" },
+  { label: "ABOUT", href: "/about" },
+  { label: "RESEARCH", href: "/research" },
+  { label: "TESTIMONIALS", href: "/testimonials" },
+  { label: "GP REFERRALS", href: "/gp-referrals" },
+  { label: "PATIENT FAQ", href: "/patient-faq" },
+  { label: "CONTACT", href: "/contact" },
+] as const;
 
 export const values = [
   "Patient-Centered Care",
@@ -34,36 +53,31 @@ export const nhsLocation = {
   lines: ["Vicarage Road", "Watford", "WD18 0HB"],
   mapQuery: "West Hertfordshire Teaching Hospitals NHS Trust, Vicarage Road, Watford WD18 0HB",
   mapEmbed:
-    "https://maps.google.com/maps?q=West+Hertfordshire+Teaching+Hospitals+NHS+Trust,+Vicarage+Road,+Watford+WD18+0HB&output=embed",
+    "https://www.google.com/maps?q=West+Hertfordshire+Teaching+Hospitals+NHS+Trust,+Vicarage+Road,+Watford+WD18+0HB&output=embed",
 } as const;
 
 export const privateLocations = [
   {
-    name: "HCA Elstree Waterfront Outpatients Centre",
-    lines: [
-      "Beaufort House",
-      "Elstree Road",
-      "Elstree",
-      "Borehamwood",
-      "WD6 3BS",
-    ],
-    mapQuery: "HCA Elstree Waterfront Outpatients Centre, Beaufort House, Elstree Road, Borehamwood WD6 3BS",
+    name: "HCA Golders Green Outpatients",
+    lines: ["Roman House", "296 Golders Green Road", "London NW11 9PY"],
+    mapQuery:
+      "HCA Golders Green Outpatients, Roman House, 296 Golders Green Road, London NW11 9PY",
     mapEmbed:
-      "https://maps.google.com/maps?q=HCA+Elstree+Waterfront+Outpatients+Centre,+Beaufort+House,+Elstree+Road,+Borehamwood+WD6+3BS&output=embed",
+      "https://www.google.com/maps?q=HCA+Golders+Green+Outpatients,+Roman+House,+296+Golders+Green+Road,+London+NW11+9PY&output=embed",
   },
   {
     name: "Spire Bushey Hospital",
     lines: ["Heathbourne Road", "Bushey", "WD23 1RD"],
     mapQuery: "Spire Bushey Hospital, Heathbourne Road, Bushey WD23 1RD",
     mapEmbed:
-      "https://maps.google.com/maps?q=Spire+Bushey+Hospital,+Heathbourne+Road,+Bushey+WD23+1RD&output=embed",
+      "https://www.google.com/maps?q=Spire+Bushey+Hospital,+Heathbourne+Road,+Bushey+WD23+1RD&output=embed",
   },
   {
     name: "HCA The Wellington Hospital",
     lines: ["8A Wellington Place", "London", "NW8 9LE"],
     mapQuery: "HCA The Wellington Hospital, 8A Wellington Place, London NW8 9LE",
     mapEmbed:
-      "https://maps.google.com/maps?q=HCA+The+Wellington+Hospital,+8A+Wellington+Place,+London+NW8+9LE&output=embed",
+      "https://www.google.com/maps?q=HCA+The+Wellington+Hospital,+8A+Wellington+Place,+London+NW8+9LE&output=embed",
   },
 ] as const;
 
@@ -76,7 +90,7 @@ export const faqItems = [
   {
     question: "Where does Mr Najib Daulatzai practise?",
     answer:
-      "Mr Najib Daulatzai sees patients at West Hertfordshire Teaching Hospitals NHS Trust in Watford, and at private locations including HCA Elstree Waterfront Outpatients Centre, Spire Bushey Hospital, and HCA The Wellington Hospital in London.",
+      "Mr Najib Daulatzai sees patients at West Hertfordshire Teaching Hospitals NHS Trust in Watford, and at private locations including HCA Golders Green Outpatients, Spire Bushey Hospital, and HCA The Wellington Hospital in London.",
   },
   {
     question: "What type of surgeon is Najib Daulatzai?",
