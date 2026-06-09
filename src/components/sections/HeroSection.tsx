@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { FocalImage } from "@/components/ui/FocalImage";
 import { Button } from "@/components/ui/Button";
 import { HeroServiceNav } from "@/components/sections/HeroServiceNav";
 import { SiteContainer } from "@/components/layout/SiteContainer";
@@ -10,12 +10,12 @@ export function HeroSection() {
 
       <div className="absolute inset-0 overflow-hidden">
         <div className="hero-image-zoom absolute inset-[-6%]">
-          <Image
+          <FocalImage
             src="/images/hero-consultation.jpg"
             alt="Mr Najib Daulatzai, colorectal and general surgeon in London and Hertfordshire, seated at his desk in professional attire"
             fill
             priority
-            className="object-cover object-[50%_50%]"
+            className="object-cover"
             sizes="100vw"
           />
         </div>

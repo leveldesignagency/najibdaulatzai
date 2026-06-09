@@ -1,4 +1,5 @@
 import { BLOG_PUBLICATION_ORDER, type BlogSlug } from "./schedule";
+import { getImageObjectPosition } from "@/lib/get-image-object-position";
 import type { BlogPostImage } from "./types";
 
 const BLOG_IMAGE_DIR = "/images/blog";
@@ -102,7 +103,9 @@ function articleImageForNumber(
   return {
     src: `${BLOG_IMAGE_DIR}/${file}`,
     alt: meta.alt,
-    ...(meta.objectPosition ? { objectPosition: meta.objectPosition } : {}),
+    objectPosition:
+      meta.objectPosition ??
+      getImageObjectPosition(`${BLOG_IMAGE_DIR}/${file}`),
   };
 }
 

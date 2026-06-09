@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { FocalImage } from "@/components/ui/FocalImage";
 import Link from "next/link";
 import { DaVinciGallery } from "@/components/robotic-surgery/DaVinciGallery";
 import { RoboticSurgeryVideo } from "@/components/robotic-surgery/RoboticSurgeryVideo";
@@ -69,12 +69,12 @@ export function RoboticSurgeryContent() {
 
         <ScrollReveal variant="fade-left" delay={120}>
           <figure className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 lg:aspect-[5/4]">
-            <Image
+            <FocalImage
               src={roboticSurgeryMainImage.src}
               alt={roboticSurgeryMainImage.alt}
               fill
               priority
-              className="object-cover object-center"
+              className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </figure>
@@ -98,11 +98,11 @@ export function RoboticSurgeryContent() {
       >
         <ScrollReveal variant="fade-right" className="order-2 lg:order-1">
           <figure className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100">
-            <Image
+            <FocalImage
               src={roboticSurgerySecondaryImage.src}
               alt={roboticSurgerySecondaryImage.alt}
               fill
-              className="object-cover object-center"
+              className="object-cover"
               sizes="(max-width: 1024px) 100vw, 50vw"
             />
           </figure>

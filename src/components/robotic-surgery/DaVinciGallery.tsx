@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { FocalImage } from "@/components/ui/FocalImage";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import {
   daVinciGallerySection,
@@ -27,12 +27,12 @@ function CollageCell({ image }: { image: DaVinciGalleryImage }) {
         }`}
         style={{ aspectRatio: isAnchor ? undefined : image.aspectRatio }}
       >
-        <Image
+        <FocalImage
           src={image.src}
           alt={image.alt}
           fill
+          focalPoint={image.objectPosition}
           className="object-contain p-2 transition-opacity duration-300 group-hover:opacity-85 sm:p-3"
-          style={{ objectPosition: image.objectPosition ?? "center" }}
           sizes={
             isAnchor || isWide
               ? "(max-width: 1024px) 100vw, 960px"

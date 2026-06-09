@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { FocalImage } from "@/components/ui/FocalImage";
 import {
   contactEmail,
   contactEmailHref,
@@ -59,12 +59,12 @@ export function ContactPageHero() {
           </header>
 
           <figure className="relative mx-auto aspect-[4/3] w-full max-w-lg overflow-hidden bg-neutral-100 lg:mx-0 lg:ml-auto lg:max-w-none">
-            <Image
+            <FocalImage
               src={contactHeroImage.src}
               alt={contactHeroImage.alt}
               fill
               priority
-              className="object-cover object-[center_28%]"
+              className="object-cover"
               sizes="(max-width: 1024px) 90vw, 45vw"
             />
           </figure>

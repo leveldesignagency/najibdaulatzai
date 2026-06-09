@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { FocalImage } from "@/components/ui/FocalImage";
 import Link from "next/link";
 import { NewestRibbon } from "@/components/blog/NewestRibbon";
 import { getArticleExcerpt } from "@/lib/blog/excerpt";
@@ -16,11 +16,6 @@ const cardLinkClass =
 
 const coverImageClass = "object-cover transition duration-500 group-hover:scale-[1.03]";
 
-function coverImageStyle(post: BlogPost) {
-  if (!post.image?.objectPosition) return undefined;
-  return { objectPosition: post.image.objectPosition };
-}
-
 type CardMediaProps = {
   post: BlogPost;
   aspectClass: string;
@@ -35,13 +30,13 @@ function BlogPostCardMedia({ post, aspectClass, sizes, priority, isNewest }: Car
   return (
     <div className={`relative w-full shrink-0 overflow-hidden bg-neutral-100 ${aspectClass}`}>
       {isNewest ? <NewestRibbon /> : null}
-      <Image
+      <FocalImage
         src={post.image.src}
         alt={post.image.alt}
         fill
         priority={priority}
+        focalPoint={post.image.objectPosition}
         className={coverImageClass}
-        style={coverImageStyle(post)}
         sizes={sizes}
       />
     </div>

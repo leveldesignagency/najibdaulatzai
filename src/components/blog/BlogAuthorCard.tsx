@@ -1,15 +1,15 @@
-import Image from "next/image";
+import { FocalImage } from "@/components/ui/FocalImage";
 import { blogAuthor } from "@/lib/blog/author";
 
 export function BlogAuthorCard() {
   return (
     <div className="flex items-center gap-5 border-t border-charcoal/10 pt-8">
       <div className="relative h-20 w-20 shrink-0 overflow-hidden bg-neutral-100">
-        <Image
+        <FocalImage
           src={blogAuthor.image}
           alt={blogAuthor.imageAlt}
           fill
-          className="object-cover object-[28%_top]"
+          className="object-cover"
           sizes="80px"
         />
       </div>

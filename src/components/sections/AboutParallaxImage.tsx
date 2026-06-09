@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { FocalImage } from "@/components/ui/FocalImage";
 import { useEffect, useRef, useState } from "react";
 
 const PARALLAX_FACTOR = 0.18;
@@ -76,7 +76,7 @@ export function AboutParallaxImage() {
               transform: `translate3d(0, ${backgroundShift}px, 0)`,
             }}
           >
-            <Image
+            <FocalImage
               src={IMAGE_SRC}
               alt=""
               fill
@@ -94,7 +94,7 @@ export function AboutParallaxImage() {
           }}
         >
           <div className="absolute inset-[-8%]">
-            <Image
+            <FocalImage
               src={IMAGE_SRC}
               alt={IMAGE_ALT}
               fill

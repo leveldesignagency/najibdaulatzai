@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { FocalImage } from "@/components/ui/FocalImage";
 import { SiteContainer } from "@/components/layout/SiteContainer";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { aboutValues, valuesIntro } from "@/lib/about-content";
@@ -18,11 +18,11 @@ export function AboutValuesSection() {
             {valuesIntro}
           </p>
           <div className="relative mt-10 aspect-[4/5] w-full overflow-hidden bg-charcoal-dark lg:aspect-auto lg:min-h-[240px] lg:flex-1">
-            <Image
+            <FocalImage
               src="/images/about secondary.jpg"
               alt="Mr Najib Daulatzai, consultant colorectal surgeon"
               fill
-              className="object-cover object-top"
+              className="object-cover"
               sizes="(max-width: 1024px) 90vw, 40vw"
             />
           </div>

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { FocalImage } from "@/components/ui/FocalImage";
 import { BlogArticleBackLink } from "@/components/blog/BlogArticleBackLink";
 import { BlogAuthorCard } from "@/components/blog/BlogAuthorCard";
 import { BlogPostJsonLd } from "@/components/blog/BlogPostJsonLd";
@@ -38,17 +38,13 @@ export function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
 
         {post.image ? (
           <figure className="relative mt-10 aspect-[16/5] w-full overflow-hidden rounded-sm border border-charcoal/10 bg-neutral-100">
-            <Image
+            <FocalImage
               src={post.image.src}
               alt={post.image.alt}
               fill
               priority
+              focalPoint={post.image.objectPosition}
               className="object-cover"
-              style={
-                post.image.objectPosition
-                  ? { objectPosition: post.image.objectPosition }
-                  : undefined
-              }
               sizes="(max-width: 768px) 100vw, 768px"
             />
           </figure>

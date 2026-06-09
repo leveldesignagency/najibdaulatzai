@@ -1,6 +1,6 @@
 "use client";
 
-import Image from "next/image";
+import { FocalImage } from "@/components/ui/FocalImage";
 import { useCallback, useEffect, useState } from "react";
 import { SiteContainer } from "@/components/layout/SiteContainer";
 import { MinimallyInvasiveSection } from "@/components/procedures/MinimallyInvasiveSection";
@@ -35,13 +35,14 @@ export function ProceduresPageContent() {
   return (
     <>
       <header className="relative flex min-h-[48vh] w-full flex-col overflow-hidden bg-charcoal sm:min-h-[52vh]">
-        <Image
+        <FocalImage
           src={heroImage.src}
           alt={heroImage.alt}
           fill
           priority
-          className="object-cover object-[28%_42%] scale-[1.08] translate-y-6 sm:translate-y-8"
+          className="object-cover scale-[1.08] translate-y-6 sm:translate-y-8"
           sizes="100vw"
+          quality={75}
         />
         <div
           className="absolute inset-0 bg-gradient-to-t from-charcoal/92 via-charcoal/20 to-charcoal/5"

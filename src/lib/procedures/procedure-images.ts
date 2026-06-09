@@ -1,4 +1,5 @@
 import type { ProcedureSnippetSlug } from "./procedure-snippets";
+import { getImageObjectPosition } from "@/lib/get-image-object-position";
 
 const PROCEDURE_IMAGE_DIR = "/images/procedures";
 
@@ -155,7 +156,8 @@ function toProcedureImage(
     src: asset.src,
     alt: asset.alt,
     copyrightNotice: asset.copyrightNotice,
-    objectPosition: procedureImageObjectPosition[slug],
+    objectPosition:
+      procedureImageObjectPosition[slug] ?? getImageObjectPosition(asset.src),
   };
 }
 

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { FocalImage } from "@/components/ui/FocalImage";
 import { FaqAccordion } from "@/components/faq/FaqAccordion";
 import { Footer } from "@/components/layout/Footer";
 import { SiteContainer } from "@/components/layout/SiteContainer";
@@ -31,17 +31,13 @@ export function ProcedureDetailView({ page }: ProcedureDetailViewProps) {
   return (
     <>
       <header className="relative flex min-h-[40vh] w-full flex-col overflow-hidden bg-charcoal">
-        <Image
+        <FocalImage
           src={page.heroImage}
           alt={page.heroImageAlt}
           fill
           priority
           className="object-cover"
-          style={
-            page.heroImageObjectPosition
-              ? { objectPosition: page.heroImageObjectPosition }
-              : { objectPosition: "center" }
-          }
+          focalPoint={page.heroImageObjectPosition}
           sizes="100vw"
         />
         <div

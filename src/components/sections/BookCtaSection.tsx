@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { FocalImage } from "@/components/ui/FocalImage";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { bookCtaParagraph } from "@/lib/site-config";
@@ -10,12 +10,14 @@ export function BookCtaSection() {
       className="relative w-full overflow-hidden"
     >
       <div className="relative min-h-[360px] w-full lg:min-h-[480px]">
-        <Image
-          src="/images/images/Najib With Patient (1).jpg"
+        <FocalImage
+          src="/images/book-cta-patient.jpg"
           alt="Mr Najib Daulatzai speaking with a patient during a consultation appointment in London or Hertfordshire"
           fill
           className="object-cover object-center"
           sizes="100vw"
+          quality={75}
+          loading="lazy"
         />
 
         <div className="relative flex min-h-[360px] w-full flex-col lg:min-h-[480px] lg:flex-row">

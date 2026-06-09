@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { FocalImage } from "@/components/ui/FocalImage";
 import Link from "next/link";
 import type { ProcedureCard as ProcedureCardType } from "@/lib/procedures";
 
@@ -13,16 +13,12 @@ export function ProcedureCard({ card }: ProcedureCardProps) {
       className="procedure-card group relative block min-h-[220px] overflow-hidden sm:min-h-[260px] lg:min-h-[280px]"
     >
       <div className="absolute inset-0 overflow-hidden">
-        <Image
+        <FocalImage
           src={card.image}
           alt={card.imageAlt}
           fill
+          focalPoint={card.imageObjectPosition}
           className="procedure-card-image object-cover transition-transform duration-700 group-hover:scale-105"
-          style={
-            card.imageObjectPosition
-              ? { objectPosition: card.imageObjectPosition }
-              : undefined
-          }
           sizes="(max-width: 768px) 100vw, 50vw"
         />
       </div>

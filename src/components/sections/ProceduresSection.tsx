@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { FocalImage } from "@/components/ui/FocalImage";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
@@ -35,12 +35,14 @@ export function ProceduresSection() {
       </ScrollReveal>
 
       <ScrollReveal variant="fade-left" delay={120} className="relative min-h-[50vh] lg:min-h-full">
-        <Image
+        <FocalImage
           src="/images/procedures-home.jpg"
           alt="Mr Najib Daulatzai seated beside da Vinci robotic surgical systems used for advanced colorectal procedures"
           fill
           className="object-cover object-center"
           sizes="(max-width: 1024px) 100vw, 50vw"
+          quality={75}
+          loading="lazy"
         />
       </ScrollReveal>
     </section>

@@ -1,4 +1,4 @@
-import Image from "next/image";
+import { FocalImage } from "@/components/ui/FocalImage";
 import Link from "next/link";
 import { minimallyInvasiveSurgery } from "@/lib/procedures";
 
@@ -42,16 +42,12 @@ export function MinimallyInvasiveSection() {
 
         <figure className="mx-auto w-full max-w-md lg:mx-0 lg:ml-auto lg:max-w-lg">
           <div className="relative aspect-[4/3] overflow-hidden bg-neutral-200 shadow-sm">
-            <Image
+            <FocalImage
               src={image.src}
               alt={image.alt}
               fill
+              focalPoint={image.objectPosition}
               className="object-cover"
-              style={
-                image.objectPosition
-                  ? { objectPosition: image.objectPosition }
-                  : undefined
-              }
               sizes="(max-width: 1024px) 90vw, 420px"
             />
           </div>
