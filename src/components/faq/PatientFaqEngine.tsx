@@ -1,7 +1,7 @@
 "use client";
 
 import Link from "next/link";
-import { useMemo, useState } from "react";
+import { useEffect, useId, useMemo, useRef, useState, type KeyboardEvent } from "react";
 import { Button } from "@/components/ui/Button";
 import type { PatientFaq } from "@/lib/patient-faq-content";
 import {
@@ -11,6 +11,7 @@ import {
   faqCategoryLabels,
   faqSuggestedQueries,
   getAllSearchableFaqs,
+  getFaqTypeaheadSuggestions,
   searchFaqs,
   type FaqCategory,
   type SearchableFaq,
@@ -90,10 +91,192 @@ function FaqResultCard({
   );
 }
 
+function FaqSearchInput({
+  query,
+  onQueryChange,
+  suggestions,
+}: {
+  query: string;
+  onQueryChange: (value: string) => void;
+  suggestions: SearchableFaq[];
+}) {
+  const listboxId = useId();
+  const [isOpen, setIsOpen] = useState(false);
+  const [activeIndex, setActiveIndex] = useState(-1);
+  const containerRef = useRef<HTMLDivElement>(null);
+
+  const trimmedQuery = query.trim();
+  const showStaticSuggestions = isOpen && !trimmedQuery;
+  const showFaqSuggestions = isOpen && trimmedQuery.length > 0 && suggestions.length > 0;
+  const showDropdown = showStaticSuggestions || showFaqSuggestions;
+
+  const optionCount = showStaticSuggestions
+    ? faqSuggestedQueries.length
+    : showFaqSuggestions
+      ? suggestions.length
+      : 0;
+
+  useEffect(() => {
+    setActiveIndex(-1);
+  }, [query, suggestions.length]);
+
+  useEffect(() => {
+    function handlePointerDown(event: MouseEvent) {
+      if (!containerRef.current?.contains(event.target as Node)) {
+        setIsOpen(false);
+      }
+    }
+
+    document.addEventListener("mousedown", handlePointerDown);
+    return () => document.removeEventListener("mousedown", handlePointerDown);
+  }, []);
+
+  function selectSuggestion(value: string) {
+    onQueryChange(value);
+    setIsOpen(false);
+    setActiveIndex(-1);
+  }
+
+  function handleKeyDown(event: KeyboardEvent<HTMLInputElement>) {
+    if (!showDropdown || optionCount === 0) {
+      if (event.key === "Escape") setIsOpen(false);
+      return;
+    }
+
+    if (event.key === "ArrowDown") {
+      event.preventDefault();
+      setActiveIndex((index) => (index + 1) % optionCount);
+      return;
+    }
+
+    if (event.key === "ArrowUp") {
+      event.preventDefault();
+      setActiveIndex((index) => (index <= 0 ? optionCount - 1 : index - 1));
+      return;
+    }
+
+    if (event.key === "Enter" && activeIndex >= 0) {
+      event.preventDefault();
+      if (showStaticSuggestions) {
+        selectSuggestion(faqSuggestedQueries[activeIndex] ?? "");
+      } else {
+        selectSuggestion(suggestions[activeIndex]?.question ?? "");
+      }
+      return;
+    }
+
+    if (event.key === "Escape") {
+      setIsOpen(false);
+      setActiveIndex(-1);
+    }
+  }
+
+  return (
+    <div ref={containerRef} className="relative mt-8">
+      <label htmlFor="faq-search" className="block">
+        <span className="sr-only">Search patient FAQs</span>
+        <input
+          id="faq-search"
+          type="search"
+          role="combobox"
+          value={query}
+          onChange={(event) => {
+            onQueryChange(event.target.value);
+            setIsOpen(true);
+          }}
+          onFocus={() => setIsOpen(true)}
+          onKeyDown={handleKeyDown}
+          placeholder="e.g. How quickly can I be seen privately?"
+          className="w-full border border-charcoal/15 bg-white px-5 py-4 text-base text-charcoal outline-none ring-charcoal/20 transition placeholder:text-charcoal/40 focus:border-charcoal/35 focus:ring-2 sm:px-6 sm:py-5 sm:text-lg"
+          autoComplete="off"
+          spellCheck
+          aria-autocomplete="list"
+          aria-expanded={showDropdown}
+          aria-controls={showDropdown ? listboxId : undefined}
+          aria-activedescendant={
+            showDropdown && activeIndex >= 0
+              ? `${listboxId}-option-${activeIndex}`
+              : undefined
+          }
+        />
+      </label>
+
+      {showDropdown ? (
+        <ul
+          id={listboxId}
+          role="listbox"
+          aria-label="Suggested questions"
+          className="absolute z-20 mt-1 max-h-72 w-full overflow-y-auto border border-charcoal/15 bg-white shadow-lg"
+        >
+          {showStaticSuggestions
+            ? faqSuggestedQueries.map((suggestion, index) => (
+                <li key={suggestion} role="presentation">
+                  <button
+                    id={`${listboxId}-option-${index}`}
+                    type="button"
+                    role="option"
+                    aria-selected={activeIndex === index}
+                    onMouseDown={(event) => event.preventDefault()}
+                    onClick={() => selectSuggestion(suggestion)}
+                    className={`block w-full px-5 py-3 text-left text-sm leading-snug transition sm:text-base ${
+                      activeIndex === index
+                        ? "bg-charcoal text-white"
+                        : "text-charcoal/80 hover:bg-neutral-50 hover:text-charcoal"
+                    }`}
+                  >
+                    {suggestion}
+                  </button>
+                </li>
+              ))
+            : null}
+
+          {showFaqSuggestions
+            ? suggestions.map((faq, index) => (
+                <li key={faq.id} role="presentation">
+                  <button
+                    id={`${listboxId}-option-${index}`}
+                    type="button"
+                    role="option"
+                    aria-selected={activeIndex === index}
+                    onMouseDown={(event) => event.preventDefault()}
+                    onClick={() => selectSuggestion(faq.question)}
+                    className={`block w-full px-5 py-3 text-left transition ${
+                      activeIndex === index
+                        ? "bg-charcoal text-white"
+                        : "text-charcoal/80 hover:bg-neutral-50 hover:text-charcoal"
+                    }`}
+                  >
+                    <span className="block text-xs font-semibold uppercase tracking-[0.18em] text-inherit opacity-60">
+                      {faqCategoryLabels[faq.category]}
+                    </span>
+                    <span className="mt-1 block text-sm leading-snug sm:text-base">
+                      {faq.question}
+                    </span>
+                  </button>
+                </li>
+              ))
+            : null}
+        </ul>
+      ) : null}
+
+      {isOpen && trimmedQuery.length > 0 && suggestions.length === 0 ? (
+        <p className="absolute z-20 mt-1 w-full border border-charcoal/15 bg-white px-5 py-3 text-sm text-charcoal/60 shadow-lg">
+          No matching questions. Try different words or browse all answers below.
+        </p>
+      ) : null}
+    </div>
+  );
+}
+
 export function PatientFaqEngine() {
   const allFaqs = useMemo(() => getAllSearchableFaqs(), []);
   const [query, setQuery] = useState("");
   const [category, setCategory] = useState<FaqCategory>("all");
+
+  const typeaheadSuggestions = useMemo(
+    () => getFaqTypeaheadSuggestions(allFaqs, query, 6),
+    [allFaqs, query],
+  );
 
   const results = useMemo(
     () => searchFaqs(allFaqs, query, category),
@@ -126,19 +309,11 @@ export function PatientFaqEngine() {
               We&apos;ll search answers from this website first.
             </p>
 
-            <label htmlFor="faq-search" className="mt-8 block">
-              <span className="sr-only">Search patient FAQs</span>
-              <input
-                id="faq-search"
-                type="search"
-                value={query}
-                onChange={(event) => setQuery(event.target.value)}
-                placeholder="e.g. How quickly can I be seen privately?"
-                className="w-full border border-charcoal/15 bg-white px-5 py-4 text-base text-charcoal outline-none ring-charcoal/20 transition placeholder:text-charcoal/40 focus:border-charcoal/35 focus:ring-2 sm:px-6 sm:py-5 sm:text-lg"
-                autoComplete="off"
-                spellCheck
-              />
-            </label>
+            <FaqSearchInput
+              query={query}
+              onQueryChange={setQuery}
+              suggestions={typeaheadSuggestions}
+            />
           </div>
 
           <div className="lg:pt-8">

@@ -1,6 +1,7 @@
 "use client";
 
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 import {
   createContext,
   useCallback,
@@ -43,6 +44,8 @@ type CookieConsentProviderProps = {
 };
 
 export function CookieConsentProvider({ children }: CookieConsentProviderProps) {
+  const pathname = usePathname();
+  const isLoginPage = pathname === "/login";
   const [preferences, setPreferences] = useState<CookieConsentPreferences | null>(null);
   const [hasHydrated, setHasHydrated] = useState(false);
   const [showBanner, setShowBanner] = useState(false);
@@ -103,47 +106,49 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
     <CookieConsentContext.Provider value={value}>
       {children}
 
-      {hasHydrated && showBanner ? (
+      {hasHydrated && showBanner && !isLoginPage ? (
         <div
           role="dialog"
           aria-labelledby="cookie-consent-title"
           aria-describedby="cookie-consent-description"
-          className="fixed inset-x-0 bottom-0 z-[100] border-t border-charcoal/15 bg-white p-4 shadow-[0_-8px_30px_rgba(0,0,0,0.12)] sm:p-6"
+          className="fixed inset-x-0 bottom-0 z-[100] border-t border-charcoal/15 bg-white px-4 py-3 shadow-[0_-8px_30px_rgba(0,0,0,0.12)] sm:px-6 sm:py-4"
         >
-          <div className="mx-auto max-w-4xl">
+          <div className="mx-auto w-full max-w-7xl">
             {!showPreferences ? (
-              <>
-                <h2
-                  id="cookie-consent-title"
-                  className="text-lg font-medium text-charcoal lg:text-xl"
-                >
-                  Cookies on this website
-                </h2>
-                <p
-                  id="cookie-consent-description"
-                  className="mt-3 text-sm leading-relaxed text-charcoal/80 lg:text-base"
-                >
-                  We use strictly necessary cookies to remember your choices. With your
-                  permission, we load embedded Google Maps and privacy-friendly Vercel Web
-                  Analytics to understand how the site is used. We do not use advertising
-                  cookies. See our{" "}
-                  <Link href="/privacy" className="underline underline-offset-2">
-                    Privacy &amp; Cookies notice
-                  </Link>{" "}
-                  for more information.
-                </p>
-                <div className="mt-5 flex flex-col gap-3 sm:flex-row sm:flex-wrap">
+              <div className="flex flex-col gap-4 md:flex-row md:items-center md:gap-6">
+                <div className="min-w-0 flex-1 md:max-w-xl lg:max-w-2xl">
+                  <h2
+                    id="cookie-consent-title"
+                    className="text-base font-medium text-charcoal lg:text-lg"
+                  >
+                    Cookies on this website
+                  </h2>
+                  <p
+                    id="cookie-consent-description"
+                    className="mt-1 text-xs leading-snug text-charcoal/80 sm:text-sm"
+                  >
+                    We use strictly necessary cookies to remember your choices. With your
+                    permission, we load embedded Google Maps and privacy-friendly Vercel Web
+                    Analytics to understand how the site is used. We do not use advertising
+                    cookies. See our{" "}
+                    <Link href="/privacy" className="underline underline-offset-2">
+                      Privacy &amp; Cookies notice
+                    </Link>{" "}
+                    for more information.
+                  </p>
+                </div>
+                <div className="flex shrink-0 flex-row flex-wrap items-center gap-2 md:justify-end">
                   <button
                     type="button"
                     onClick={acceptAll}
-                    className="bg-charcoal px-5 py-3 text-sm font-medium uppercase tracking-[0.2em] text-white transition hover:bg-charcoal-dark"
+                    className="whitespace-nowrap bg-charcoal px-3 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white transition hover:bg-charcoal-dark sm:px-4 sm:py-2.5 sm:text-xs sm:tracking-[0.16em]"
                   >
                     Accept all
                   </button>
                   <button
                     type="button"
                     onClick={rejectNonEssential}
-                    className="border border-charcoal/25 px-5 py-3 text-sm font-medium uppercase tracking-[0.2em] text-charcoal transition hover:border-charcoal/50"
+                    className="whitespace-nowrap border border-charcoal/25 px-3 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-charcoal transition hover:border-charcoal/50 sm:px-4 sm:py-2.5 sm:text-xs sm:tracking-[0.16em]"
                   >
                     Reject non-essential
                   </button>
@@ -154,12 +159,12 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
                       setDraftAnalytics(preferences?.analytics ?? false);
                       setShowPreferences(true);
                     }}
-                    className="border border-charcoal/25 px-5 py-3 text-sm font-medium uppercase tracking-[0.2em] text-charcoal transition hover:border-charcoal/50"
+                    className="whitespace-nowrap border border-charcoal/25 px-3 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-charcoal transition hover:border-charcoal/50 sm:px-4 sm:py-2.5 sm:text-xs sm:tracking-[0.16em]"
                   >
                     Manage preferences
                   </button>
                 </div>
-              </>
+              </div>
             ) : (
               <>
                 <h2 className="text-lg font-medium text-charcoal lg:text-xl">

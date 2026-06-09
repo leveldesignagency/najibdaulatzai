@@ -145,6 +145,18 @@ export function searchFaqs(
     .map(({ faq }) => faq);
 }
 
+/** Top FAQ matches for the search input typeahead dropdown */
+export function getFaqTypeaheadSuggestions(
+  faqs: readonly SearchableFaq[],
+  rawQuery: string,
+  limit = 6,
+): SearchableFaq[] {
+  const query = rawQuery.trim();
+  if (!query) return [];
+
+  return searchFaqs(faqs, query, "all").slice(0, limit);
+}
+
 export function buildGoogleSiteSearchUrl(query: string) {
   const scopedQuery = `site:${new URL(siteConfig.url).host} ${query.trim()}`;
   return `https://www.google.com/search?q=${encodeURIComponent(scopedQuery)}`;

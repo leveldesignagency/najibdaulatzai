@@ -35,6 +35,7 @@ function useHeaderTheme() {
 }
 
 export function Header() {
+  const pathname = usePathname();
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
@@ -70,6 +71,10 @@ export function Header() {
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
   }, [homeMenu]);
+
+  if (pathname === "/login") {
+    return null;
+  }
 
   if (!mounted) {
     return null;

@@ -29,7 +29,18 @@ After deploy, enable **Analytics** and **Speed Insights** in the Vercel project 
    - Build command: `npm run build` (default)
    - Output: Next.js default
 
-3. **Environment variables** — none required for a standard static/marketing site. If you add forms or APIs later, set them under **Project → Settings → Environment Variables**.
+3. **Environment variables** — add these under **Project → Settings → Environment Variables** for Production (and Preview if you want the wall on preview URLs too):
+
+   | Variable | Value |
+   |----------|--------|
+   | `SITE_AUTH_ENABLED` | `true` |
+   | `SITE_AUTH_USERNAME` | `najibwebsite` |
+   | `SITE_AUTH_PASSWORD` | *(see secure note below)* |
+   | `SITE_AUTH_SESSION_TOKEN` | *(see secure note below)* |
+
+   Set `SITE_AUTH_ENABLED=false` when you are ready to launch publicly.
+
+   If you add forms or APIs later, set any additional vars under the same screen.
 
 4. **Deploy** — Vercel runs `npm install` and `npm run build`. First build should succeed on Node 20+.
 
@@ -41,6 +52,8 @@ After deploy, enable **Analytics** and **Speed Insights** in the Vercel project 
 6. **Verify production URL** — `siteConfig.url` in `src/lib/site-config.ts` is set to `https://www.ndsurgeon.com`. Update only if the live domain differs.
 
 7. **Post-deploy checks**
+   - [ ] Unauthenticated visit redirects to `/login`
+   - [ ] Login with preview credentials opens the site
    - [ ] Homepage loads over HTTPS
    - [ ] `/sitemap.xml` and `/robots.txt` accessible
    - [ ] `/llms.txt` accessible (GEO / AI discovery)
@@ -62,6 +75,14 @@ npm start    # optional smoke test on :3000
 - **Node.js Version**: 20.x (Settings → General)
 - **Region**: London (`lhr1`) if available, for UK visitors
 - **Preview deployments**: enabled for PR review
+
+## Temporary login wall (pre-launch)
+
+While `SITE_AUTH_ENABLED=true`, every page except `/login` and static assets requires a successful login. A session cookie lasts 30 days.
+
+**To go live:** set `SITE_AUTH_ENABLED=false` in Vercel environment variables and redeploy.
+
+**Local dev:** copy `.env.example` to `.env.local` and fill in `SITE_AUTH_PASSWORD` and `SITE_AUTH_SESSION_TOKEN` (generate a token with `openssl rand -hex 32`).
 
 ## SEO / GEO / AEO assets (already in repo)
 
