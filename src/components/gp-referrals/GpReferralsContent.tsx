@@ -1,4 +1,6 @@
 import type { ReactNode } from "react";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { scrollStagger } from "@/lib/scroll-stagger";
 import {
   conditionsAccepted,
   conditionsHeading,
@@ -22,19 +24,25 @@ import {
 type ReferralsSectionProps = {
   id: string;
   heading: string;
-  children: React.ReactNode;
+  delay: number;
+  children: ReactNode;
 };
 
-function ReferralsSection({ id, heading, children }: ReferralsSectionProps) {
+function ReferralsSection({ id, heading, delay, children }: ReferralsSectionProps) {
   return (
-    <section aria-labelledby={id} className="mt-14 border-t border-charcoal/10 pt-14 first:mt-0 first:border-t-0 first:pt-0">
-      <h2
-        id={id}
-        className="border-l-[3px] border-charcoal pl-4 text-2xl tracking-tight text-charcoal lg:text-3xl"
-      >
-        {heading}
-      </h2>
-      <div className="mt-6">{children}</div>
+    <section
+      aria-labelledby={id}
+      className="mt-10 border-t border-charcoal/10 pt-10 sm:mt-14 sm:pt-14"
+    >
+      <ScrollReveal variant="fade-up" delay={delay}>
+        <h2
+          id={id}
+          className="border-l-[3px] border-charcoal pl-4 text-2xl tracking-tight text-charcoal lg:text-3xl"
+        >
+          {heading}
+        </h2>
+        <div className="mt-6">{children}</div>
+      </ScrollReveal>
     </section>
   );
 }
@@ -42,16 +50,20 @@ function ReferralsSection({ id, heading, children }: ReferralsSectionProps) {
 export function GpReferralsContent() {
   return (
     <div className="max-w-3xl">
-      <p className="text-lg leading-relaxed text-charcoal/85 lg:text-xl">{gpReferralsIntro}</p>
+      <ScrollReveal variant="blur-up">
+        <p className="text-lg leading-relaxed text-charcoal/85 lg:text-xl">
+          {gpReferralsIntro}
+        </p>
+      </ScrollReveal>
 
-      <ReferralsSection id="how-to-refer-heading" heading={howToReferHeading}>
+      <ReferralsSection id="how-to-refer-heading" heading={howToReferHeading} delay={100}>
         <div className="space-y-6 text-base leading-relaxed text-charcoal/85 lg:text-lg">
           <p>{nhsReferralParagraph}</p>
           <p>{privateReferralParagraph}</p>
         </div>
       </ReferralsSection>
 
-      <ReferralsSection id="secretary-heading" heading={secretaryHeading}>
+      <ReferralsSection id="secretary-heading" heading={secretaryHeading} delay={scrollStagger(1, 100, 100)}>
         <dl className="space-y-4 text-base leading-relaxed text-charcoal/85 lg:text-lg">
           <div>
             <dt className="text-sm font-semibold uppercase tracking-[0.16em] text-charcoal/55">
@@ -96,13 +108,21 @@ export function GpReferralsContent() {
         </dl>
       </ReferralsSection>
 
-      <ReferralsSection id="insurers-heading" heading={insurersAcceptedHeading}>
+      <ReferralsSection
+        id="insurers-heading"
+        heading={insurersAcceptedHeading}
+        delay={scrollStagger(2, 100, 100)}
+      >
         <p className="text-base leading-relaxed text-charcoal/85 lg:text-lg">
           {insurersAcceptedParagraph}
         </p>
       </ReferralsSection>
 
-      <ReferralsSection id="conditions-heading" heading={conditionsHeading}>
+      <ReferralsSection
+        id="conditions-heading"
+        heading={conditionsHeading}
+        delay={scrollStagger(3, 100, 100)}
+      >
         <ul className="list-none space-y-3 text-base leading-relaxed text-charcoal/85 lg:text-lg">
           {conditionsAccepted.map((condition) => (
             <li key={condition} className="flex gap-3">
@@ -115,7 +135,11 @@ export function GpReferralsContent() {
         </ul>
       </ReferralsSection>
 
-      <ReferralsSection id="urgent-referrals-heading" heading={urgentReferralsHeading}>
+      <ReferralsSection
+        id="urgent-referrals-heading"
+        heading={urgentReferralsHeading}
+        delay={scrollStagger(4, 100, 100)}
+      >
         <p className="text-base leading-relaxed text-charcoal/85 lg:text-lg">
           {urgentReferralsParagraph}
         </p>

@@ -3,6 +3,8 @@
 import { ProcedureCard } from "@/components/procedures/ProcedureCard";
 import { RoboticMinimallyInvasivePanel } from "@/components/procedures/RoboticMinimallyInvasivePanel";
 import { Button } from "@/components/ui/Button";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { scrollStagger } from "@/lib/scroll-stagger";
 import {
   getProcedureSpecialtyHref,
   procedureSpecialties,
@@ -25,19 +27,27 @@ export function ProceduresTabbedGrid({ activeSlug }: ProceduresTabbedGridProps) 
   return (
     <div>
       <div className="grid gap-4 sm:grid-cols-2">
-        {activeSpecialty.cards.map((card) => (
-          <ProcedureCard key={card.slug} card={card} />
+        {activeSpecialty.cards.map((card, index) => (
+          <ScrollReveal
+            key={card.slug}
+            variant={index % 2 === 0 ? "fade-up" : "scale-up"}
+            delay={scrollStagger(index, 75, 60)}
+          >
+            <ProcedureCard card={card} />
+          </ScrollReveal>
         ))}
       </div>
 
-      <div className="mt-8">
-        <Button
-          href={getProcedureSpecialtyHref(activeSpecialty.slug)}
-          variant="dark"
-        >
-          Read Full {activeSpecialty.pageTitle} Guide
-        </Button>
-      </div>
+      <ScrollReveal variant="fade-up" delay={200}>
+        <div className="mt-8">
+          <Button
+            href={getProcedureSpecialtyHref(activeSpecialty.slug)}
+            variant="dark"
+          >
+            Read Full {activeSpecialty.pageTitle} Guide
+          </Button>
+        </div>
+      </ScrollReveal>
     </div>
   );
 }

@@ -3,21 +3,26 @@ import type { ReactNode } from "react";
 type SectionHeadingProps = {
   id: string;
   theme?: "light" | "dark";
+  mobileCenter?: boolean;
   children: ReactNode;
 };
 
 export function SectionHeading({
   id,
   theme = "dark",
+  mobileCenter = false,
   children,
 }: SectionHeadingProps) {
   const borderColor = theme === "light" ? "border-white/80" : "border-charcoal";
   const textColor = theme === "light" ? "text-white" : "text-charcoal";
+  const mobileCenterClass = mobileCenter
+    ? "max-md:border-l-0 max-md:pl-0 max-md:text-center"
+    : "";
 
   return (
     <h2
       id={id}
-      className={`border-l-[3px] ${borderColor} pl-3 text-3xl tracking-tight ${textColor} sm:pl-4 sm:text-4xl lg:pl-5 lg:text-5xl`}
+      className={`border-l-[3px] ${borderColor} pl-3 text-3xl tracking-tight ${textColor} sm:pl-4 sm:text-4xl lg:pl-5 lg:text-5xl ${mobileCenterClass}`}
     >
       {children}
     </h2>

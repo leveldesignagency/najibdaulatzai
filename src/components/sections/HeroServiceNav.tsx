@@ -8,7 +8,7 @@ export function HeroServiceNav() {
   return (
     <nav
       aria-label="Surgical services"
-      className="hero-content-in hero-content-in--delay-2 ml-auto w-full max-w-2xl sm:max-w-3xl lg:mr-[2%]"
+      className="hero-content-in hero-content-in--delay-2 hidden w-full max-w-2xl md:ml-auto md:block sm:max-w-3xl lg:mr-[2%]"
     >
       <div className="flex w-full flex-wrap overflow-hidden border border-white/35 lg:flex-nowrap">
         {heroServices.map((service) => (

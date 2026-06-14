@@ -1,4 +1,6 @@
 import { BlogPostCard } from "@/components/blog/BlogPostCard";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { scrollStagger } from "@/lib/scroll-stagger";
 import type { BlogPost } from "@/lib/blog/types";
 
 type BlogIndexLayoutProps = {
@@ -27,9 +29,11 @@ export function BlogIndexLayout({
   if (!showFeaturedLayout) {
     return (
       <ul className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-        {posts.map((post) => (
+        {posts.map((post, index) => (
           <li key={post.slug}>
-            <BlogPostCard post={post} variant="grid" isNewest={isNewest(post.slug)} />
+            <ScrollReveal variant="fade-up" delay={scrollStagger(index, 70, 60)}>
+              <BlogPostCard post={post} variant="grid" isNewest={isNewest(post.slug)} />
+            </ScrollReveal>
           </li>
         ))}
       </ul>
@@ -43,17 +47,17 @@ export function BlogIndexLayout({
           aria-label="Featured articles"
           className="mt-8 grid gap-6 lg:grid-cols-3 lg:grid-rows-2"
         >
-          <div className="flex flex-col gap-6 lg:col-span-2 lg:row-span-2">
+          <ScrollReveal variant="fade-right" className="flex flex-col gap-6 lg:col-span-2 lg:row-span-2">
             <BlogPostCard post={first} variant="featured-stack" isNewest={isNewest(first.slug)} />
             <BlogPostCard post={second} variant="featured-stack" />
-          </div>
+          </ScrollReveal>
           <div className="flex flex-col gap-6 lg:col-span-1 lg:row-span-2">
-            <div className="flex-1">
+            <ScrollReveal variant="scale-up" delay={120} className="flex-1">
               <BlogPostCard post={third} variant="featured-small" isNewest={isNewest(third.slug)} />
-            </div>
-            <div className="flex-1">
+            </ScrollReveal>
+            <ScrollReveal variant="fade-up" delay={200} className="flex-1">
               <BlogPostCard post={fourth} variant="featured-small" isNewest={isNewest(fourth.slug)} />
-            </div>
+            </ScrollReveal>
           </div>
         </section>
 
@@ -66,9 +70,11 @@ export function BlogIndexLayout({
               More articles
             </h2>
             <ul className="mt-8 grid gap-8 sm:grid-cols-2 lg:grid-cols-3">
-              {rest.map((post) => (
+              {rest.map((post, index) => (
                 <li key={post.slug}>
-                  <BlogPostCard post={post} variant="grid" isNewest={isNewest(post.slug)} />
+                  <ScrollReveal variant="fade-up" delay={scrollStagger(index, 70, 80)}>
+                    <BlogPostCard post={post} variant="grid" isNewest={isNewest(post.slug)} />
+                  </ScrollReveal>
                 </li>
               ))}
             </ul>

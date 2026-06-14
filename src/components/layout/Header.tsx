@@ -41,10 +41,11 @@ export function Header() {
   const [scrolled, setScrolled] = useState(false);
   const { homeMenu, isLight } = useHeaderTheme();
 
+  const showHeroMobileHeader = homeMenu && !open && !scrolled;
   const showSolidHeader =
     (isLight && !open) || (homeMenu && scrolled && !open);
   const useLightTheme = isLight || open || (homeMenu && scrolled);
-  const showHomeMenuButton = homeMenu && !open && !scrolled;
+  const useWhiteLogo = !useLightTheme && !showHeroMobileHeader;
 
   useEffect(() => {
     setMounted(true);
@@ -85,18 +86,20 @@ export function Header() {
       <header
         className={`site-header !fixed inset-x-0 top-0 z-[100] w-full ${
           showSolidHeader ? "site-header--solid" : ""
-        }`}
+        } ${showHeroMobileHeader ? "site-header--hero-home" : ""}`}
       >
-        <SiteContainer className="flex items-center justify-between py-5">
+        <SiteContainer className="grid grid-cols-[2.75rem_1fr_2.75rem] items-center py-5 md:flex md:justify-between">
           <button
             type="button"
             aria-label={open ? "Close menu" : "Open menu"}
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
-            className={`group flex h-11 w-11 items-center justify-center transition ${
-              showHomeMenuButton
-                ? "rounded-full bg-white/92 text-charcoal shadow-md ring-1 ring-charcoal/10 backdrop-blur-sm hover:bg-white"
-                : `hover:opacity-80 ${useLightTheme ? "text-charcoal" : "text-white"}`
+            className={`site-header__menu-btn group col-start-1 flex h-11 w-11 shrink-0 items-center justify-center transition hover:opacity-80 ${
+              useLightTheme && !showHeroMobileHeader
+                ? "text-charcoal"
+                : showHeroMobileHeader
+                  ? "text-charcoal md:text-white site-header__menu-btn--hero"
+                  : "text-white"
             }`}
           >
             <span className="relative block h-4 w-6">
@@ -121,10 +124,22 @@ export function Header() {
           <Link
             href="/"
             aria-label="Najib Daulatzai home"
-            className={useLightTheme ? "text-charcoal" : "text-white"}
+            className={`site-header__logo col-start-2 justify-self-center md:col-start-auto md:ml-auto ${
+              useLightTheme && !showHeroMobileHeader
+                ? "text-charcoal"
+                : showHeroMobileHeader
+                  ? "text-charcoal md:text-white"
+                  : "text-white"
+            }`}
           >
-            <Logo inverted={!useLightTheme} className="h-10 md:h-14" />
+            <Logo
+              inverted={useWhiteLogo}
+              charcoal={showHeroMobileHeader}
+              className="site-header__logo-img h-12 w-auto md:h-16"
+            />
           </Link>
+
+          <div className="col-start-3 md:hidden" aria-hidden="true" />
         </SiteContainer>
       </header>
 

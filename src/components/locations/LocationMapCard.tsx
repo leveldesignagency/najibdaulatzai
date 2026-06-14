@@ -13,6 +13,7 @@ type LocationMapCardProps = {
   /** Stack map beneath address instead of beside it */
   mapLayout?: "beside" | "below";
   practiceType?: "nhs" | "private";
+  mobileCenter?: boolean;
 };
 
 const practiceLabels = {
@@ -32,6 +33,7 @@ export function LocationMapCard({
   compact = false,
   mapLayout = "beside",
   practiceType,
+  mobileCenter = false,
 }: LocationMapCardProps) {
   const isDark = theme === "dark";
   const addressOnly = showAddress && !showMap;
@@ -54,9 +56,12 @@ export function LocationMapCard({
       ? `grid ${gridGap} lg:grid-cols-[1fr_1.15fr] lg:items-stretch`
       : "grid gap-4";
 
+  const mobileCenterClass = mobileCenter ? "max-md:text-center" : "";
+  const badgeClass = mobileCenter ? "max-md:mx-auto max-md:block max-md:w-fit" : "";
+
   return (
     <article
-      className={`${layoutClass} ${
+      className={`${layoutClass} ${mobileCenterClass} ${
         isDark
           ? `h-full border border-white/10 bg-white/5 ${shellPadding}`
           : `border border-charcoal/10 bg-neutral-50 ${shellPadding}`
@@ -66,7 +71,7 @@ export function LocationMapCard({
         <div>
           {practiceType ? (
             <p
-              className={`inline-block px-3 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.28em] ${
+              className={`inline-block px-3 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.28em] ${badgeClass} ${
                 practiceType === "nhs"
                   ? isDark
                     ? "bg-[#005EB8] text-white"

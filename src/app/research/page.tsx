@@ -3,6 +3,8 @@ import { Footer } from "@/components/layout/Footer";
 import { PageShell } from "@/components/layout/PageShell";
 import { ResearchPublicationCard } from "@/components/research/ResearchPublicationCard";
 import { Button } from "@/components/ui/Button";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { scrollStagger } from "@/lib/scroll-stagger";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { pageDescriptions } from "@/lib/page-descriptions";
 import { pageTitles } from "@/lib/page-titles";
@@ -22,31 +24,40 @@ export default function ResearchPage() {
   return (
     <>
       <PageShell>
-        <SectionHeading id="research-heading">Research</SectionHeading>
+        <ScrollReveal variant="blur-up">
+          <SectionHeading id="research-heading">Research</SectionHeading>
+        </ScrollReveal>
 
-        <div className="mt-10 max-w-4xl sm:mt-14">
-          <p className="text-base leading-relaxed text-charcoal/85 sm:text-lg lg:text-xl">
-            {researchIntro}
-          </p>
-        </div>
+        <ScrollReveal variant="fade-up" delay={100}>
+          <div className="mt-10 max-w-4xl sm:mt-14">
+            <p className="text-base leading-relaxed text-charcoal/85 sm:text-lg lg:text-xl">
+              {researchIntro}
+            </p>
+          </div>
+        </ScrollReveal>
 
         <div className="mt-12 grid gap-6 sm:mt-16 lg:grid-cols-2">
           {researchPublications.map((publication, index) => (
-            <ResearchPublicationCard
+            <ScrollReveal
               key={`${index}-${publication.citation.slice(0, 48)}`}
-              publication={publication}
-            />
+              variant={index % 2 === 0 ? "fade-up" : "scale-up"}
+              delay={scrollStagger(index, 90, 140)}
+            >
+              <ResearchPublicationCard publication={publication} />
+            </ScrollReveal>
           ))}
         </div>
 
-        <div className="mt-12 flex flex-wrap gap-4 sm:mt-14">
-          <Button href="/contact" variant="dark">
-            Get in Touch
-          </Button>
-          <Button href="/about" variant="outline-dark">
-            About Mr Daulatzai
-          </Button>
-        </div>
+        <ScrollReveal variant="fade-up" delay={200}>
+          <div className="mt-12 flex flex-wrap gap-4 sm:mt-14">
+            <Button href="/contact" variant="dark">
+              Get in Touch
+            </Button>
+            <Button href="/about" variant="outline-dark">
+              About Mr Daulatzai
+            </Button>
+          </div>
+        </ScrollReveal>
       </PageShell>
       <Footer />
     </>

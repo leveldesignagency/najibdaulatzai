@@ -1,71 +1,53 @@
-"use client";
-
-import { useState } from "react";
 import { SiteContainer } from "@/components/layout/SiteContainer";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { scrollStagger } from "@/lib/scroll-stagger";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { aboutValues, valuesIntro } from "@/lib/about-content";
 
-export function ValuesSection() {
-  const [activeIndex, setActiveIndex] = useState<number | null>(null);
+const valuesSummary = valuesIntro.split(". ")[0] + ".";
 
+export function ValuesSection() {
   return (
     <section
       id="values"
       aria-labelledby="values-heading"
-      className="flex min-h-screen items-center overflow-x-clip bg-white py-20 lg:py-28"
+      className="overflow-hidden bg-white py-20 lg:py-28"
     >
-      <SiteContainer className="grid w-full gap-12 lg:grid-cols-2 lg:gap-16">
-        <ScrollReveal variant="fade-right">
-          <div>
-            <SectionHeading id="values-heading">Our Values</SectionHeading>
-            <p className="mt-10 text-lg leading-relaxed text-charcoal/85 lg:text-xl">
-              {valuesIntro}
-            </p>
-            <div className="mt-10">
-              <Button href="/testimonials" variant="dark">
-                Testimonials
-              </Button>
+      <SiteContainer>
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
+          <ScrollReveal variant="fade-right">
+            <div className="max-md:mx-auto max-md:text-center">
+              <SectionHeading id="values-heading" mobileCenter>
+                Our Values
+              </SectionHeading>
+              <p className="mt-6 text-lg leading-relaxed text-charcoal/85 lg:mt-8 lg:text-xl">
+                {valuesSummary}
+              </p>
+              <div className="mt-8 max-md:flex max-md:justify-center lg:mt-10">
+                <Button href="/testimonials" variant="dark">
+                  Testimonials
+                </Button>
+              </div>
             </div>
-          </div>
-        </ScrollReveal>
+          </ScrollReveal>
 
-        <div className="flex flex-col gap-3">
-          {aboutValues.map((value, index) => {
-            const isActive = activeIndex === index;
-
-            return (
-              <ScrollReveal key={value.title} variant="fade-left" delay={index * 90}>
-                <button
-                  type="button"
-                  onMouseEnter={() => setActiveIndex(index)}
-                  onMouseLeave={() => setActiveIndex(null)}
-                  onFocus={() => setActiveIndex(index)}
-                  onBlur={() => setActiveIndex(null)}
-                  className={`group relative w-full overflow-hidden border border-transparent bg-charcoal px-6 py-5 text-left transition-all duration-500 ${
-                    isActive ? "shadow-lg shadow-charcoal/20" : ""
-                  }`}
+          <ul className="flex flex-col gap-3.5 sm:gap-4">
+            {aboutValues.map((value, index) => (
+              <li key={value.title}>
+                <ScrollReveal
+                  variant={index % 2 === 0 ? "fade-left" : "scale-up"}
+                  delay={scrollStagger(index, 75, 100)}
                 >
-                  <span className="absolute inset-y-0 left-0 w-1 origin-top scale-y-0 bg-white transition-transform duration-500 group-hover:scale-y-100 group-focus-visible:scale-y-100" />
-                  <span className="relative block text-base font-medium uppercase tracking-[0.12em] text-white md:text-lg">
-                    {value.title}
-                  </span>
-                  <span className="relative mt-3 block text-sm leading-relaxed text-white/80 md:text-base lg:hidden">
-                    {value.description}
-                  </span>
-                  <span
-                    className={`relative mt-3 hidden text-sm leading-relaxed text-white/80 transition-opacity duration-500 md:text-base lg:block ${
-                      isActive ? "opacity-100" : "opacity-0"
-                    }`}
-                    aria-hidden={!isActive}
-                  >
-                    {value.description}
-                  </span>
-                </button>
-              </ScrollReveal>
-            );
-          })}
+                  <article className="group border border-charcoal/10 border-l-[3px] border-l-charcoal/40 bg-neutral-50/60 px-5 py-4 transition-all duration-300 hover:border-charcoal/20 hover:border-l-charcoal hover:bg-charcoal hover:shadow-md hover:shadow-charcoal/15 sm:px-6 sm:py-5">
+                    <h3 className="text-sm font-semibold uppercase leading-snug tracking-[0.08em] text-charcoal transition-colors duration-300 group-hover:text-white sm:text-base sm:leading-snug lg:text-[1.0625rem]">
+                      {value.title}
+                    </h3>
+                  </article>
+                </ScrollReveal>
+              </li>
+            ))}
+          </ul>
         </div>
       </SiteContainer>
     </section>

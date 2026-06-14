@@ -7,6 +7,7 @@ import {
   hasActiveBlogFilters,
 } from "@/components/blog/BlogArticleFilters";
 import { BlogIndexLayout } from "@/components/blog/BlogIndexLayout";
+import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { listItemToBlogPost, type BlogListItem } from "@/lib/blog/blog-list-item";
 
@@ -70,8 +71,10 @@ export function BlogIndexClient({ posts }: BlogIndexClientProps) {
   return (
     <>
       <header>
-        <SectionHeading id="blog-heading">Clinical Articles</SectionHeading>
-        <div className="mt-5 sm:mt-6">
+        <ScrollReveal variant="blur-up">
+          <SectionHeading id="blog-heading">Clinical Articles</SectionHeading>
+        </ScrollReveal>
+        <ScrollReveal variant="fade-up" delay={100} className="mt-5 sm:mt-6">
           <BlogArticleFilters
             years={years}
             value={filters}
@@ -79,7 +82,7 @@ export function BlogIndexClient({ posts }: BlogIndexClientProps) {
             resultCount={filteredPosts.length}
             totalCount={posts.length}
           />
-        </div>
+        </ScrollReveal>
       </header>
 
       <BlogIndexLayout

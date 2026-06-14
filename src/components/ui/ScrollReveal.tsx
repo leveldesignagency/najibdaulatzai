@@ -10,9 +10,12 @@ import {
 
 export type ScrollRevealVariant =
   | "fade-up"
+  | "fade-down"
   | "fade-in"
   | "fade-left"
-  | "fade-right";
+  | "fade-right"
+  | "scale-up"
+  | "blur-up";
 
 type ScrollRevealProps = {
   children: ReactNode;

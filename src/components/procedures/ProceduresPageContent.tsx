@@ -50,26 +50,29 @@ export function ProceduresPageContent() {
 
   return (
     <>
-      <header className="relative flex min-h-[48vh] w-full flex-col overflow-hidden bg-charcoal sm:min-h-[52vh]">
-        <FocalImage
-          src={heroImage.src}
-          alt={heroImage.alt}
-          fill
-          priority
-          className="object-cover scale-[1.08] translate-y-6 sm:translate-y-8"
-          sizes="100vw"
-          quality={75}
-        />
-        <div
-          className="absolute inset-0 bg-gradient-to-t from-charcoal/92 via-charcoal/20 to-charcoal/5"
-          aria-hidden="true"
-        />
+      <header className="relative w-full overflow-hidden bg-charcoal">
+        <div className="absolute inset-0">
+          <FocalImage
+            src={heroImage.src}
+            alt={heroImage.alt}
+            fill
+            priority
+            focalPoint="32% 34%"
+            className="object-cover max-sm:scale-100 max-sm:translate-y-0 sm:scale-[1.08] sm:translate-y-8"
+            sizes="100vw"
+            quality={75}
+          />
+          <div
+            className="absolute inset-0 bg-gradient-to-t from-charcoal/92 via-charcoal/20 to-charcoal/5"
+            aria-hidden="true"
+          />
+        </div>
 
-        <div className="relative z-10 flex min-h-[48vh] w-full flex-col justify-end sm:min-h-[52vh]">
-          <SiteContainer className="pt-28">
+        <div className="relative z-10 flex flex-col">
+          <SiteContainer className="flex min-h-[54vh] flex-col justify-end pb-5 pt-28 sm:min-h-[44vh] sm:pb-8">
             <h1
               id="procedures-heading"
-              className="max-w-3xl pb-8 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl"
+              className="max-w-3xl text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl"
             >
               Procedures
             </h1>

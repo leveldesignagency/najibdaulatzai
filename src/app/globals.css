@@ -53,6 +53,36 @@ body {
   border-bottom: 1px solid rgba(74, 74, 74, 0.08);
 }
 
+/* Homepage hero — legibility on desktop only (mobile uses charcoal icons) */
+@media (min-width: 768px) {
+  .site-header__menu-btn--hero {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55))
+      drop-shadow(0 0 10px rgba(0, 0, 0, 0.4));
+  }
+
+  .site-header__menu-btn--hero:hover {
+    filter: drop-shadow(0 1px 3px rgba(0, 0, 0, 0.65))
+      drop-shadow(0 0 12px rgba(0, 0, 0, 0.45));
+  }
+}
+
+.logo-tone-charcoal {
+  filter: brightness(0) saturate(100%) invert(29%) sepia(0%) saturate(0%)
+    hue-rotate(0deg) brightness(100%) contrast(100%);
+}
+
+@media (max-width: 767px) {
+  .site-header--hero-home .site-header__menu-btn {
+    color: var(--charcoal);
+  }
+}
+
+@media (min-width: 768px) {
+  .site-header--hero-home .site-header__logo-img.logo-tone-charcoal {
+    filter: brightness(0) invert(1);
+  }
+}
+
 h1,
 h2,
 h3 {
@@ -121,6 +151,36 @@ address {
   will-change: transform;
 }
 
+.hero-image-zoom img {
+  object-position: 35.4% 42% !important;
+}
+
+.hero-image-mobile img {
+  object-position: center center !important;
+}
+
+@media (max-width: 767px) {
+  .hero-image-mobile {
+    inset: 0;
+  }
+}
+
+@media (min-width: 768px) {
+  .hero-image-zoom img {
+    object-position: 35.4% 50% !important;
+  }
+}
+
+.book-cta-image img {
+  object-position: 38% 62% !important;
+}
+
+@media (min-width: 1024px) {
+  .book-cta-image img {
+    object-position: 35.4% 50% !important;
+  }
+}
+
 .procedure-card-image {
   transition: transform 8s ease-in-out;
   will-change: transform;
@@ -148,6 +208,7 @@ address {
     animation: none;
     opacity: 1;
     transform: none;
+    filter: none;
     transition: none;
   }
 }
@@ -155,30 +216,45 @@ address {
 .scroll-reveal {
   opacity: 0;
   transition:
-    opacity 0.85s cubic-bezier(0.22, 1, 0.36, 1),
-    transform 0.85s cubic-bezier(0.22, 1, 0.36, 1);
-  will-change: opacity, transform;
+    opacity 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    transform 0.9s cubic-bezier(0.22, 1, 0.36, 1),
+    filter 0.9s cubic-bezier(0.22, 1, 0.36, 1);
+  will-change: opacity, transform, filter;
 }
 
 .scroll-reveal--fade-up {
-  transform: translateY(1.75rem);
+  transform: translateY(2rem);
+}
+
+.scroll-reveal--fade-down {
+  transform: translateY(-2rem);
 }
 
 .scroll-reveal--fade-left {
-  transform: translateX(-1.75rem);
+  transform: translateX(-2rem);
 }
 
 .scroll-reveal--fade-right {
-  transform: translateX(1.75rem);
+  transform: translateX(2rem);
 }
 
 .scroll-reveal--fade-in {
   transform: none;
 }
 
+.scroll-reveal--scale-up {
+  transform: translateY(1.25rem) scale(0.94);
+}
+
+.scroll-reveal--blur-up {
+  transform: translateY(1.5rem);
+  filter: blur(10px);
+}
+
 .scroll-reveal.is-visible {
   opacity: 1;
   transform: none;
+  filter: blur(0);
 }
 
 @keyframes hero-content-in {
