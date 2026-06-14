@@ -12,7 +12,7 @@ type ProceduresHeroNavProps = {
 };
 
 const navButtonClass =
-  "w-full border-b border-white/25 px-2 py-3.5 text-center text-[0.6rem] font-semibold uppercase leading-tight tracking-[0.12em] transition-colors last:border-b-0 sm:min-w-[33.333%] sm:w-auto sm:flex-1 sm:border-b-0 sm:border-r sm:last:border-r-0 sm:px-3 sm:text-[0.65rem] md:min-w-0 md:text-xs lg:tracking-[0.14em]";
+  "w-full border-b border-white/25 px-2 py-3.5 text-center text-xs font-semibold uppercase leading-snug tracking-[0.1em] transition-colors last:border-b-0 sm:min-w-[33.333%] sm:w-auto sm:flex-1 sm:border-b-0 sm:border-r sm:last:border-r-0 sm:px-3 sm:text-sm md:min-w-0 lg:tracking-[0.12em]";
 
 function NavLabel({ item }: { item: ProceduresHeroNavItem }) {
   if (item.shortLabel) {

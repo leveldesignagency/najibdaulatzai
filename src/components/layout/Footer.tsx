@@ -44,19 +44,35 @@ export function Footer({ includeBookCta = true }: FooterProps) {
           </ScrollReveal>
 
           <ScrollReveal variant="fade-up" delay={180}>
-            <div className="mt-12 flex flex-col items-center gap-3">
-              <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2">
-                <Link
-                  href="/privacy"
-                  className="text-xs uppercase tracking-[0.28em] text-white/85 transition hover:text-white"
-                >
-                  Privacy &amp; Cookies
-                </Link>
-                <CookieSettingsButton />
+            <div className="mt-12 w-full md:mt-14">
+              <div className="flex flex-col items-center gap-3 md:flex-row md:items-end md:justify-between md:gap-6">
+                <div className="flex flex-col items-center gap-3 md:items-start">
+                  <div className="flex flex-wrap items-center justify-center gap-x-6 gap-y-2 md:justify-start">
+                    <Link
+                      href="/privacy"
+                      className="text-xs uppercase tracking-[0.28em] text-white/85 transition hover:text-white"
+                    >
+                      Privacy &amp; Cookies
+                    </Link>
+                    <CookieSettingsButton />
+                  </div>
+                  <p className="text-xs tracking-[0.08em] text-white/60">
+                    © 2026 ndsurgeon.com
+                  </p>
+                </div>
+
+                <p className="text-xs tracking-[0.08em] text-white/60 md:text-right">
+                  Designed by{" "}
+                  <a
+                    href="https://leveldesignagency.com"
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="font-medium text-white/60 transition-colors duration-300 hover:text-[#e30613]"
+                  >
+                    LEVEL DESIGN AGENCY LTD
+                  </a>
+                </p>
               </div>
-              <p className="text-xs tracking-[0.08em] text-white/60">
-                © 2026 ndsurgeon.com
-              </p>
             </div>
           </ScrollReveal>
         </SiteContainer>

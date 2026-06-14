@@ -11,6 +11,7 @@ export function FocalImage({
   focalPoint,
   className,
   style,
+  quality = 75,
   ...props
 }: FocalImageProps) {
   const srcKey = typeof src === "string" ? src : "";
@@ -19,6 +20,7 @@ export function FocalImage({
   return (
     <Image
       src={src}
+      quality={quality}
       className={className}
       style={objectPosition ? { ...style, objectPosition } : style}
       {...props}

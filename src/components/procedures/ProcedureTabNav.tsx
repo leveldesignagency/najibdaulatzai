@@ -29,7 +29,7 @@ export function ProcedureTabNav({ activeSlug }: ProcedureTabNavProps) {
           <Link
             key={specialty.slug}
             href={getProcedureSpecialtyHref(specialty.slug)}
-            className={`px-2 py-4 text-center text-[0.65rem] font-semibold uppercase leading-tight tracking-[0.14em] transition-colors sm:px-3 sm:text-xs lg:px-4 lg:text-sm lg:tracking-[0.18em] ${
+            className={`px-3 py-4 text-center text-xs font-semibold uppercase leading-snug tracking-[0.12em] transition-colors sm:px-3 sm:text-sm lg:px-4 lg:tracking-[0.16em] ${
               isActive
                 ? "bg-neutral-100 text-charcoal"
                 : "bg-charcoal text-white hover:bg-charcoal-dark"

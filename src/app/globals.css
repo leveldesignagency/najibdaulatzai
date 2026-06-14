@@ -72,6 +72,10 @@ body {
 }
 
 @media (max-width: 767px) {
+  html {
+    font-size: 18px;
+  }
+
   .site-header--hero-home .site-header__menu-btn {
     color: var(--charcoal);
   }
