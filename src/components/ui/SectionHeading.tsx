@@ -17,7 +17,7 @@ export function SectionHeading({
   return (
     <h2
       id={id}
-      className={`border-l-[3px] ${borderColor} pl-4 text-4xl tracking-tight ${textColor} lg:pl-5 lg:text-5xl`}
+      className={`border-l-[3px] ${borderColor} pl-3 text-3xl tracking-tight ${textColor} sm:pl-4 sm:text-4xl lg:pl-5 lg:text-5xl`}
     >
       {children}
     </h2>

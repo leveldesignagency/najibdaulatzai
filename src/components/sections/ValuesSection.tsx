@@ -14,9 +14,9 @@ export function ValuesSection() {
     <section
       id="values"
       aria-labelledby="values-heading"
-      className="overflow-x-clip bg-white py-20 lg:py-28"
+      className="flex min-h-screen items-center overflow-x-clip bg-white py-20 lg:py-28"
     >
-      <SiteContainer className="grid gap-12 lg:grid-cols-2 lg:gap-16">
+      <SiteContainer className="grid w-full gap-12 lg:grid-cols-2 lg:gap-16">
         <ScrollReveal variant="fade-right">
           <div>
             <SectionHeading id="values-heading">Our Values</SectionHeading>
@@ -55,11 +55,10 @@ export function ValuesSection() {
                     {value.description}
                   </span>
                   <span
-                    className={`relative mt-3 hidden text-sm leading-relaxed text-white/80 transition-all duration-500 md:text-base lg:block ${
-                      isActive
-                        ? "max-h-40 opacity-100"
-                        : "max-h-0 overflow-hidden opacity-0"
+                    className={`relative mt-3 hidden text-sm leading-relaxed text-white/80 transition-opacity duration-500 md:text-base lg:block ${
+                      isActive ? "opacity-100" : "opacity-0"
                     }`}
+                    aria-hidden={!isActive}
                   >
                     {value.description}
                   </span>

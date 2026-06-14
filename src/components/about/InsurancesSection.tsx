@@ -1,42 +1,37 @@
 import Image from "next/image";
-import { SiteContainer } from "@/components/layout/SiteContainer";
+import { PageSection } from "@/components/layout/PageSection";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { insuranceProviders, selfPayLine } from "@/lib/about-content";
 
 export function InsurancesSection() {
   return (
-    <section
-      aria-labelledby="insurances-heading"
-      className="border-t border-charcoal/10 bg-white py-20 lg:py-28"
-    >
-      <SiteContainer>
-        <SectionHeading id="insurances-heading">
-          Insurances We Work With
-        </SectionHeading>
+    <PageSection aria-labelledby="insurances-heading">
+      <SectionHeading id="insurances-heading">
+        Insurances We Work With
+      </SectionHeading>
 
-        <p className="mt-8 text-center text-base leading-relaxed text-charcoal/85 lg:text-lg">
-          {selfPayLine}
-        </p>
+      <p className="mt-6 text-base leading-relaxed text-charcoal/85 sm:mt-8 sm:text-center lg:text-lg">
+        {selfPayLine}
+      </p>
 
-        <div className="mt-14 flex flex-wrap items-center justify-center lg:divide-x lg:divide-charcoal/15">
-          {insuranceProviders.map((provider) => (
-            <div
-              key={provider.name}
-              className="flex w-1/2 items-center justify-center px-4 py-4 sm:w-1/3 lg:w-auto lg:flex-1 lg:px-6"
-            >
-              <div className="flex h-16 w-28 items-center justify-center sm:h-20 sm:w-32">
-                <Image
-                  src={provider.logo}
-                  alt={`${provider.name} logo`}
-                  width={provider.width}
-                  height={provider.height}
-                  className="max-h-full w-auto object-contain"
-                />
-              </div>
+      <ul className="mt-10 grid grid-cols-1 divide-y divide-charcoal/10 sm:mt-14 lg:flex lg:divide-x lg:divide-y-0 lg:divide-charcoal/15">
+        {insuranceProviders.map((provider) => (
+          <li
+            key={provider.name}
+            className="flex items-center justify-center px-4 py-8 sm:px-6 lg:flex-1 lg:py-6"
+          >
+            <div className="flex h-16 w-full max-w-[180px] items-center justify-center sm:h-20 sm:max-w-[200px]">
+              <Image
+                src={provider.logo}
+                alt={`${provider.name} logo`}
+                width={provider.width}
+                height={provider.height}
+                className="max-h-full w-auto object-contain"
+              />
             </div>
-          ))}
-        </div>
-      </SiteContainer>
-    </section>
+          </li>
+        ))}
+      </ul>
+    </PageSection>
   );
 }

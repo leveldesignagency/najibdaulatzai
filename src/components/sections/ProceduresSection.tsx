@@ -1,6 +1,7 @@
 import { FocalImage } from "@/components/ui/FocalImage";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { SiteContainer } from "@/components/layout/SiteContainer";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 
 export function ProceduresSection() {
@@ -12,26 +13,28 @@ export function ProceduresSection() {
     >
       <ScrollReveal
         variant="fade-right"
-        className="flex items-center bg-charcoal px-3 py-20 sm:px-4 md:px-5 lg:px-6 lg:py-28"
+        className="flex items-center bg-charcoal py-20 lg:py-28"
       >
-        <div className="mx-auto max-w-xl">
-          <SectionHeading id="procedures-heading" theme="light">
-            Procedures
-          </SectionHeading>
-          <p className="mt-10 text-lg leading-relaxed text-white/85 lg:text-xl">
+        <SiteContainer>
+          <div className="max-w-xl">
+            <SectionHeading id="procedures-heading" theme="light">
+              Procedures
+            </SectionHeading>
+            <p className="mt-8 text-base leading-relaxed text-white/85 sm:mt-10 sm:text-lg lg:text-xl">
             We provide a range of surgical procedures through both the NHS and
             private practice, all aimed at giving you the best possible
             treatment.
           </p>
-          <div className="mt-10 flex flex-wrap gap-4">
-            <Button href="/procedures" variant="light">
-              All procedures
-            </Button>
-            <Button href="/robotic-surgery" variant="outline-light">
-              Robotic surgery
-            </Button>
+            <div className="mt-8 flex flex-wrap gap-4 sm:mt-10">
+              <Button href="/procedures" variant="light">
+                All procedures
+              </Button>
+              <Button href="/robotic-surgery" variant="outline-light">
+                Robotic surgery
+              </Button>
+            </div>
           </div>
-        </div>
+        </SiteContainer>
       </ScrollReveal>
 
       <ScrollReveal variant="fade-left" delay={120} className="relative min-h-[50vh] lg:min-h-full">

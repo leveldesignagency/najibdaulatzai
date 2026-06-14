@@ -25,22 +25,22 @@ export function BookCtaSection() {
           <div className="relative flex w-full flex-1 items-center lg:w-1/2 lg:flex-none">
             <div
               aria-hidden="true"
-              className="book-cta-frost pointer-events-none absolute inset-0"
+              className="pointer-events-none absolute inset-0 bg-gradient-to-t from-white from-[40%] via-white/80 via-[58%] to-transparent lg:bg-gradient-to-l lg:from-[42%] lg:from-white lg:via-white/75 lg:via-[58%] lg:to-transparent"
             />
 
             <ScrollReveal
               variant="fade-left"
-              className="relative z-10 flex w-full justify-end px-3 py-12 sm:px-4 md:px-5 lg:px-10 lg:py-24 lg:pr-16 xl:pr-24"
+              className="relative z-10 flex w-full justify-end px-3 py-10 sm:px-4 sm:py-12 md:px-5 lg:px-10 lg:py-24 lg:pr-16 xl:pr-24"
             >
-              <div className="max-w-md text-right">
+              <div className="max-w-md rounded-sm bg-white/88 px-4 py-5 text-right sm:bg-white/82 lg:bg-transparent lg:p-0">
                 <h2
                   id="book-heading"
-                  className="text-3xl font-semibold leading-tight tracking-tight text-charcoal [text-shadow:0_1px_18px_rgba(255,255,255,0.55)] sm:text-4xl lg:text-5xl"
+                  className="text-3xl font-semibold leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl"
                 >
                   Book Your
                   <span className="block">Appointment Today</span>
                 </h2>
-                <p className="mt-4 text-sm leading-relaxed text-charcoal/85 sm:text-base">
+                <p className="mt-4 text-sm leading-relaxed text-charcoal sm:text-base">
                   {bookCtaParagraph}
                 </p>
                 <div className="mt-8 flex justify-end">

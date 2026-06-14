@@ -21,11 +21,11 @@ export function ContactPageHero() {
       aria-labelledby="contact-heading"
       className="border-b border-charcoal/8 bg-white pt-28"
     >
-      <SiteContainer className="py-12 lg:py-16">
+      <SiteContainer className="py-10 sm:py-12 lg:py-16">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
           <header className="max-w-xl">
             <SectionHeading id="contact-heading">Contact</SectionHeading>
-            <p className="mt-6 text-lg leading-relaxed text-charcoal/85 lg:mt-8 lg:text-xl">
+            <p className="mt-5 text-base leading-relaxed text-charcoal/85 sm:mt-6 sm:text-lg lg:mt-8 lg:text-xl">
               {contactIntro}
             </p>
 

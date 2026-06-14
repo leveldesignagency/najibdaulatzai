@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { Footer } from "@/components/layout/Footer";
-import { SiteContainer } from "@/components/layout/SiteContainer";
+import { PageShell } from "@/components/layout/PageShell";
 import { FaqPageJsonLd } from "@/components/seo/FaqPageJsonLd";
 import { RoboticSurgeryContent } from "@/components/robotic-surgery/RoboticSurgeryContent";
 import { pageTitles } from "@/lib/page-titles";
@@ -27,11 +27,9 @@ export default function RoboticSurgeryPage() {
         id={`${siteConfig.url}/robotic-surgery#faq`}
         url={`${siteConfig.url}/robotic-surgery`}
       />
-      <div className="bg-white pb-20 pt-28">
-        <SiteContainer className="lg:pt-4">
-          <RoboticSurgeryContent />
-        </SiteContainer>
-      </div>
+      <PageShell containerClassName="lg:pt-4">
+        <RoboticSurgeryContent />
+      </PageShell>
       <Footer />
     </>
   );

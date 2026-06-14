@@ -1,5 +1,5 @@
 import { Footer } from "@/components/layout/Footer";
-import { SiteContainer } from "@/components/layout/SiteContainer";
+import { PageShell } from "@/components/layout/PageShell";
 import { Button } from "@/components/ui/Button";
 import { procedureSlug } from "@/lib/procedures/slug";
 import type { ProcedureSpecialty } from "@/lib/procedures";
@@ -56,14 +56,12 @@ export function ProceduresPageShell({
 }) {
   return (
     <>
-      <div className="bg-white pb-20 pt-28">
-        <SiteContainer>
-          <p className="text-xs font-medium uppercase tracking-[0.35em] text-charcoal/50">
-            {title}
-          </p>
-          {children}
-        </SiteContainer>
-      </div>
+      <PageShell>
+        <p className="text-xs font-medium uppercase tracking-[0.35em] text-charcoal/50">
+          {title}
+        </p>
+        {children}
+      </PageShell>
       <Footer />
     </>
   );

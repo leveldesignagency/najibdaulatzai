@@ -4,7 +4,7 @@ import { pageTitles } from "@/lib/page-titles";
 import { buildPageMetadata } from "@/lib/seo/build-page-metadata";
 import { pageKeywords } from "@/lib/seo/keywords";
 import { Footer } from "@/components/layout/Footer";
-import { SiteContainer } from "@/components/layout/SiteContainer";
+import { PageShell } from "@/components/layout/PageShell";
 import { FaqPageJsonLd } from "@/components/seo/FaqPageJsonLd";
 import { ReviewPlatformLinks } from "@/components/testimonials/ReviewPlatformLinks";
 import { TestimonialGrid } from "@/components/testimonials/TestimonialGrid";
@@ -30,28 +30,26 @@ export default function TestimonialsPage() {
         id={`${siteConfig.url}/testimonials#faq`}
         url={`${siteConfig.url}/testimonials`}
       />
-      <div className="bg-neutral-100 pb-20 pt-28">
-        <SiteContainer>
-          <SectionHeading id="testimonials-heading">Testimonials</SectionHeading>
+      <PageShell background="neutral-100">
+        <SectionHeading id="testimonials-heading">Testimonials</SectionHeading>
 
-          <p className="mt-10 max-w-3xl text-lg leading-relaxed text-charcoal/85 lg:text-xl">
-            {testimonialsIntro}
-          </p>
+        <p className="mt-8 max-w-3xl text-base leading-relaxed text-charcoal/85 sm:mt-10 sm:text-lg lg:text-xl">
+          {testimonialsIntro}
+        </p>
 
-          <TestimonialTrustBar />
-          <ReviewPlatformLinks />
-          <TestimonialGrid items={testimonials} />
+        <TestimonialTrustBar />
+        <ReviewPlatformLinks />
+        <TestimonialGrid items={testimonials} />
 
-          <div className="mt-14 flex flex-wrap gap-4">
-            <Button href="/contact" variant="dark">
-              Get in Touch
-            </Button>
-            <Button href="/about" variant="outline-dark">
-              About Mr Daulatzai
-            </Button>
-          </div>
-        </SiteContainer>
-      </div>
+        <div className="mt-12 flex flex-wrap gap-4 sm:mt-14">
+          <Button href="/contact" variant="dark">
+            Get in Touch
+          </Button>
+          <Button href="/about" variant="outline-dark">
+            About Mr Daulatzai
+          </Button>
+        </div>
+      </PageShell>
       <Footer />
     </>
   );

@@ -6,7 +6,7 @@ import { pageTitles } from "@/lib/page-titles";
 import { buildPageMetadata } from "@/lib/seo/build-page-metadata";
 import { pageKeywords } from "@/lib/seo/keywords";
 import { Footer } from "@/components/layout/Footer";
-import { SiteContainer } from "@/components/layout/SiteContainer";
+import { PageShell } from "@/components/layout/PageShell";
 
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitles.contact,
@@ -19,11 +19,9 @@ export default function ContactPage() {
   return (
     <>
       <ContactPageHero />
-      <div className="bg-white pb-20">
-        <SiteContainer className="pt-12 lg:pt-14">
-          <ContactPageContent />
-        </SiteContainer>
-      </div>
+      <PageShell headerOffset={false} containerClassName="pt-10 sm:pt-12 lg:pt-14">
+        <ContactPageContent />
+      </PageShell>
       <Footer />
     </>
   );

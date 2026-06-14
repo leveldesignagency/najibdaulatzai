@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { BlogIndexClient } from "@/components/blog/BlogIndexClient";
 import { Footer } from "@/components/layout/Footer";
+import { PageShell } from "@/components/layout/PageShell";
 import { toBlogListItem } from "@/lib/blog/blog-list-item";
 import { getAllBlogPosts } from "@/lib/blog/get-posts";
 import { pageDescriptions } from "@/lib/page-descriptions";
@@ -22,9 +23,9 @@ export default function BlogPage() {
 
   return (
     <>
-      <div className="bg-neutral-50 pb-20">
+      <PageShell background="neutral-50">
         <BlogIndexClient posts={posts} />
-      </div>
+      </PageShell>
       <Footer />
     </>
   );

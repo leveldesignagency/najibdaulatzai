@@ -1,7 +1,7 @@
 import type { Metadata } from "next";
 import { GpReferralsContent } from "@/components/gp-referrals/GpReferralsContent";
 import { Footer } from "@/components/layout/Footer";
-import { SiteContainer } from "@/components/layout/SiteContainer";
+import { PageShell } from "@/components/layout/PageShell";
 import { FaqPageJsonLd } from "@/components/seo/FaqPageJsonLd";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { pageDescriptions } from "@/lib/page-descriptions";
@@ -26,14 +26,12 @@ export default function GpReferralsPage() {
         id={`${siteConfig.url}/gp-referrals#faq`}
         url={`${siteConfig.url}/gp-referrals`}
       />
-      <div className="bg-white pb-20 pt-28">
-        <SiteContainer>
-          <SectionHeading id="gp-referrals-heading">GP Referrals</SectionHeading>
-          <div className="mt-14">
-            <GpReferralsContent />
-          </div>
-        </SiteContainer>
-      </div>
+      <PageShell>
+        <SectionHeading id="gp-referrals-heading">GP Referrals</SectionHeading>
+        <div className="mt-10 sm:mt-14">
+          <GpReferralsContent />
+        </div>
+      </PageShell>
       <Footer />
     </>
   );

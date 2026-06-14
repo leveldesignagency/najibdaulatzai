@@ -7,7 +7,6 @@ import {
   hasActiveBlogFilters,
 } from "@/components/blog/BlogArticleFilters";
 import { BlogIndexLayout } from "@/components/blog/BlogIndexLayout";
-import { SiteContainer } from "@/components/layout/SiteContainer";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { listItemToBlogPost, type BlogListItem } from "@/lib/blog/blog-list-item";
 
@@ -69,10 +68,10 @@ export function BlogIndexClient({ posts }: BlogIndexClientProps) {
   const newestSlug = posts[0]?.slug;
 
   return (
-    <SiteContainer className="pb-12 pt-32 lg:pt-36">
+    <>
       <header>
         <SectionHeading id="blog-heading">Clinical Articles</SectionHeading>
-        <div className="mt-5">
+        <div className="mt-5 sm:mt-6">
           <BlogArticleFilters
             years={years}
             value={filters}
@@ -88,6 +87,6 @@ export function BlogIndexClient({ posts }: BlogIndexClientProps) {
         showFeaturedLayout={!filtersActive}
         newestSlug={newestSlug}
       />
-    </SiteContainer>
+    </>
   );
 }

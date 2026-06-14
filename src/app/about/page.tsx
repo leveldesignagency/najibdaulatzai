@@ -8,7 +8,7 @@ import { pageKeywords } from "@/lib/seo/keywords";
 import { AboutValuesSection } from "@/components/about/AboutValuesSection";
 import { InsurancesSection } from "@/components/about/InsurancesSection";
 import { Footer } from "@/components/layout/Footer";
-import { SiteContainer } from "@/components/layout/SiteContainer";
+import { PageShell } from "@/components/layout/PageShell";
 import { BookCtaSection } from "@/components/sections/BookCtaSection";
 
 export const metadata: Metadata = buildPageMetadata({
@@ -21,14 +21,12 @@ export const metadata: Metadata = buildPageMetadata({
 export default function AboutPage() {
   return (
     <>
-      <div className="bg-white pt-28">
-        <SiteContainer className="pb-20">
-          <AboutBioSection />
-          <CredentialsSection />
-        </SiteContainer>
-        <InsurancesSection />
-        <AboutValuesSection />
-      </div>
+      <PageShell>
+        <AboutBioSection />
+        <CredentialsSection />
+      </PageShell>
+      <InsurancesSection />
+      <AboutValuesSection />
       <BookCtaSection />
       <Footer includeBookCta={false} />
     </>

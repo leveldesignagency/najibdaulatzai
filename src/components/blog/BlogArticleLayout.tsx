@@ -21,11 +21,11 @@ export function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
       <SiteContainer className="max-w-3xl pb-20 pt-28">
         <BlogArticleBackLink />
 
-        <p className="mt-8 text-xs font-medium uppercase tracking-[0.28em] text-charcoal/55">
+        <p className="mt-6 text-xs font-medium uppercase tracking-[0.28em] text-charcoal/55 sm:mt-8">
           {post.category}
         </p>
 
-        <h1 className="mt-3 border-l-[3px] border-charcoal pl-4 text-3xl font-semibold tracking-tight text-charcoal sm:text-4xl lg:pl-5 lg:text-5xl">
+        <h1 className="mt-3 border-l-[3px] border-charcoal pl-3 text-3xl font-semibold tracking-tight text-charcoal sm:pl-4 sm:text-4xl lg:pl-5 lg:text-5xl">
           {post.title}
         </h1>
 
