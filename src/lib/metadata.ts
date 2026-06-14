@@ -3,6 +3,7 @@ import { pageDescriptions } from "./page-descriptions";
 import { pageTitles } from "./page-titles";
 import { getGeoMetaTags } from "./seo/geo";
 import { homeKeywords } from "./seo/keywords";
+import { publicRobots } from "./seo/robots";
 import { siteConfig } from "./site-config";
 
 export const homeMetadata: Metadata = {
@@ -14,8 +15,8 @@ export const homeMetadata: Metadata = {
   description: pageDescriptions.home,
   keywords: [...homeKeywords],
   authors: [{ name: "Mr Najib Daulatzai", url: siteConfig.url }],
-  creator: "LEVEL DESIGN AGENCY LTD",
-  publisher: "LEVEL DESIGN AGENCY LTD",
+  creator: siteConfig.name,
+  publisher: siteConfig.url.replace("https://www.", ""),
   category: "health",
   formatDetection: {
     email: false,
@@ -60,19 +61,11 @@ export const homeMetadata: Metadata = {
     description: pageDescriptions.home,
     images: ["/images/hero-consultation.jpg"],
   },
-  robots: {
-    index: true,
-    follow: true,
-    googleBot: {
-      index: true,
-      follow: true,
-      "max-video-preview": -1,
-      "max-image-preview": "large",
-      "max-snippet": -1,
-    },
-  },
+  robots: publicRobots,
   other: {
     ...getGeoMetaTags("/"),
     "llms.txt": `${siteConfig.url}/llms.txt`,
+    "llms-full.txt": `${siteConfig.url}/llms-full.txt`,
+    "ai.txt": `${siteConfig.url}/ai.txt`,
   },
 };

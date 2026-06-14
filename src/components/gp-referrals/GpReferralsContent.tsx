@@ -8,11 +8,13 @@ import {
   insurersAcceptedParagraph,
   nhsReferralParagraph,
   privateReferralParagraph,
+  secretaryAddressHeading,
   secretaryAddressLines,
+  secretaryEmail,
+  secretaryEmailHref,
   secretaryHeading,
-  secretaryEmailPlaceholder,
-  secretaryNamePlaceholder,
-  secretaryTelephonePlaceholder,
+  secretaryTelephone,
+  secretaryTelephoneHref,
   urgentReferralsHeading,
   urgentReferralsParagraph,
 } from "@/lib/gp-referrals-content";
@@ -50,18 +52,48 @@ export function GpReferralsContent() {
       </ReferralsSection>
 
       <ReferralsSection id="secretary-heading" heading={secretaryHeading}>
-        <div className="space-y-4 text-base leading-relaxed text-charcoal/85 lg:text-lg">
-          <p>{secretaryNamePlaceholder}</p>
-          <p>{secretaryTelephonePlaceholder}</p>
-          <p>{secretaryEmailPlaceholder}</p>
-          <address className="not-italic">
-            {secretaryAddressLines.map((line) => (
-              <span key={line} className="block">
-                {line}
-              </span>
-            ))}
-          </address>
-        </div>
+        <dl className="space-y-4 text-base leading-relaxed text-charcoal/85 lg:text-lg">
+          <div>
+            <dt className="text-sm font-semibold uppercase tracking-[0.16em] text-charcoal/55">
+              Telephone
+            </dt>
+            <dd className="mt-1">
+              <a
+                href={secretaryTelephoneHref}
+                className="font-medium text-charcoal underline-offset-4 hover:underline"
+              >
+                {secretaryTelephone}
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt className="text-sm font-semibold uppercase tracking-[0.16em] text-charcoal/55">
+              Email
+            </dt>
+            <dd className="mt-1">
+              <a
+                href={secretaryEmailHref}
+                className="font-medium text-charcoal underline-offset-4 hover:underline"
+              >
+                {secretaryEmail}
+              </a>
+            </dd>
+          </div>
+          <div>
+            <dt className="text-sm font-semibold uppercase tracking-[0.16em] text-charcoal/55">
+              {secretaryAddressHeading}
+            </dt>
+            <dd className="mt-1">
+              <address className="not-italic">
+                {secretaryAddressLines.map((line) => (
+                  <span key={line} className="block">
+                    {line}
+                  </span>
+                ))}
+              </address>
+            </dd>
+          </div>
+        </dl>
       </ReferralsSection>
 
       <ReferralsSection id="insurers-heading" heading={insurersAcceptedHeading}>

@@ -8,6 +8,7 @@ import {
   getBlogPostForMetadata,
 } from "@/lib/blog/get-posts";
 import { absolutePageTitle } from "@/lib/page-titles";
+import { publicRobots, privatePreviewRobots } from "@/lib/seo/robots";
 import { siteConfig } from "@/lib/site-config";
 
 type BlogArticlePageProps = {
@@ -31,7 +32,7 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
   if (!post.isPublished) {
     return {
       title: absolutePageTitle(post.title),
-      robots: { index: false, follow: false },
+      robots: privatePreviewRobots,
     };
   }
 
@@ -39,6 +40,7 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
     title: absolutePageTitle(post.title),
     description: post.seoDescription,
     alternates: { canonical: `/blog/${slug}` },
+    robots: publicRobots,
     openGraph: {
       title: post.title,
       description: post.seoDescription,

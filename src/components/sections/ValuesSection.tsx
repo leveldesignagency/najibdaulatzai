@@ -5,7 +5,7 @@ import { SiteContainer } from "@/components/layout/SiteContainer";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { values } from "@/lib/site-config";
+import { aboutValues, valuesIntro } from "@/lib/about-content";
 
 export function ValuesSection() {
   const [activeIndex, setActiveIndex] = useState<number | null>(null);
@@ -21,14 +21,7 @@ export function ValuesSection() {
           <div>
             <SectionHeading id="values-heading">Our Values</SectionHeading>
             <p className="mt-10 text-lg leading-relaxed text-charcoal/85 lg:text-xl">
-              Our core values drive everything we do. We are committed to
-              delivering precise, effective care with integrity and transparency.
-              Our focus is on achieving the best outcomes through advanced
-              techniques and personalised treatment plans. We work closely with
-              our patients and a skilled multidisciplinary team to ensure every
-              decision is informed and deliberate. Continuous improvement and
-              innovation are central to our practice, ensuring we provide care of
-              the highest standard.
+              {valuesIntro}
             </p>
             <div className="mt-10">
               <Button href="/testimonials" variant="dark">
@@ -39,25 +32,41 @@ export function ValuesSection() {
         </ScrollReveal>
 
         <div className="flex flex-col gap-3">
-          {values.map((value, index) => (
-            <ScrollReveal key={value} variant="fade-left" delay={index * 90}>
-              <button
-                type="button"
-                onMouseEnter={() => setActiveIndex(index)}
-                onMouseLeave={() => setActiveIndex(null)}
-                onFocus={() => setActiveIndex(index)}
-                onBlur={() => setActiveIndex(null)}
-                className={`group relative w-full overflow-hidden border border-transparent bg-charcoal px-6 py-5 text-left transition-all duration-500 ${
-                  activeIndex === index ? "shadow-lg shadow-charcoal/20" : ""
-                }`}
-              >
-                <span className="absolute inset-y-0 left-0 w-1 origin-top scale-y-0 bg-white transition-transform duration-500 group-hover:scale-y-100 group-focus-visible:scale-y-100" />
-                <span className="relative block text-base font-medium uppercase tracking-[0.12em] text-white md:text-lg">
-                  {value}
-                </span>
-              </button>
-            </ScrollReveal>
-          ))}
+          {aboutValues.map((value, index) => {
+            const isActive = activeIndex === index;
+
+            return (
+              <ScrollReveal key={value.title} variant="fade-left" delay={index * 90}>
+                <button
+                  type="button"
+                  onMouseEnter={() => setActiveIndex(index)}
+                  onMouseLeave={() => setActiveIndex(null)}
+                  onFocus={() => setActiveIndex(index)}
+                  onBlur={() => setActiveIndex(null)}
+                  className={`group relative w-full overflow-hidden border border-transparent bg-charcoal px-6 py-5 text-left transition-all duration-500 ${
+                    isActive ? "shadow-lg shadow-charcoal/20" : ""
+                  }`}
+                >
+                  <span className="absolute inset-y-0 left-0 w-1 origin-top scale-y-0 bg-white transition-transform duration-500 group-hover:scale-y-100 group-focus-visible:scale-y-100" />
+                  <span className="relative block text-base font-medium uppercase tracking-[0.12em] text-white md:text-lg">
+                    {value.title}
+                  </span>
+                  <span className="relative mt-3 block text-sm leading-relaxed text-white/80 md:text-base lg:hidden">
+                    {value.description}
+                  </span>
+                  <span
+                    className={`relative mt-3 hidden text-sm leading-relaxed text-white/80 transition-all duration-500 md:text-base lg:block ${
+                      isActive
+                        ? "max-h-40 opacity-100"
+                        : "max-h-0 overflow-hidden opacity-0"
+                    }`}
+                  >
+                    {value.description}
+                  </span>
+                </button>
+              </ScrollReveal>
+            );
+          })}
         </div>
       </SiteContainer>
     </section>

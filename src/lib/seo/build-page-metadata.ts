@@ -1,6 +1,14 @@
 import type { Metadata } from "next";
 import { siteConfig } from "../site-config";
+import { defaultOgImage as defaultOgImageAsset } from "./entity";
 import { getGeoMetaTags } from "./geo";
+import { publicRobots, privatePreviewRobots } from "./robots";
+
+const aiDiscoveryMeta = {
+  "llms.txt": `${siteConfig.url}/llms.txt`,
+  "llms-full.txt": `${siteConfig.url}/llms-full.txt`,
+  "ai.txt": `${siteConfig.url}/ai.txt`,
+} as const;
 
 export type BuildPageMetadataOptions = {
   title: string;
@@ -12,14 +20,12 @@ export type BuildPageMetadataOptions = {
   noIndex?: boolean;
 };
 
-const defaultOgImage = "/images/hero-consultation.jpg";
-
 export function buildPageMetadata({
   title,
   description,
   path,
   keywords,
-  ogImage = defaultOgImage,
+  ogImage = defaultOgImageAsset.path,
   ogImageAlt,
   noIndex = false,
 }: BuildPageMetadataOptions): Metadata {
@@ -41,8 +47,8 @@ export function buildPageMetadata({
       images: [
         {
           url: ogImage,
-          width: 1200,
-          height: 630,
+          width: defaultOgImageAsset.width,
+          height: defaultOgImageAsset.height,
           alt: ogImageAlt ?? title,
         },
       ],
@@ -53,19 +59,10 @@ export function buildPageMetadata({
       description,
       images: [ogImage],
     },
-    robots: noIndex
-      ? { index: false, follow: true }
-      : {
-          index: true,
-          follow: true,
-          googleBot: {
-            index: true,
-            follow: true,
-            "max-video-preview": -1,
-            "max-image-preview": "large",
-            "max-snippet": -1,
-          },
-        },
-    other: getGeoMetaTags(canonical),
+    robots: noIndex ? privatePreviewRobots : publicRobots,
+    other: {
+      ...getGeoMetaTags(canonical),
+      ...aiDiscoveryMeta,
+    },
   };
 }

@@ -1,8 +1,13 @@
 "use client";
 
 import { ProcedureCard } from "@/components/procedures/ProcedureCard";
+import { RoboticMinimallyInvasivePanel } from "@/components/procedures/RoboticMinimallyInvasivePanel";
 import { Button } from "@/components/ui/Button";
-import { procedureSpecialties, type ProcedureSpecialtySlug } from "@/lib/procedures";
+import {
+  getProcedureSpecialtyHref,
+  procedureSpecialties,
+  type ProcedureSpecialtySlug,
+} from "@/lib/procedures";
 
 type ProceduresTabbedGridProps = {
   activeSlug: ProcedureSpecialtySlug;
@@ -13,6 +18,10 @@ export function ProceduresTabbedGrid({ activeSlug }: ProceduresTabbedGridProps) 
     procedureSpecialties.find((specialty) => specialty.slug === activeSlug) ??
     procedureSpecialties[0];
 
+  if (activeSpecialty.slug === "robotic-minimally-invasive") {
+    return <RoboticMinimallyInvasivePanel />;
+  }
+
   return (
     <div>
       <div className="grid gap-4 sm:grid-cols-2">
@@ -22,7 +31,10 @@ export function ProceduresTabbedGrid({ activeSlug }: ProceduresTabbedGridProps) 
       </div>
 
       <div className="mt-8">
-        <Button href={`/procedures/${activeSpecialty.slug}`} variant="dark">
+        <Button
+          href={getProcedureSpecialtyHref(activeSpecialty.slug)}
+          variant="dark"
+        >
           Read Full {activeSpecialty.pageTitle} Guide
         </Button>
       </div>

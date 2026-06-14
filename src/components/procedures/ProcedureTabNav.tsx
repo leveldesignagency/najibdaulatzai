@@ -2,7 +2,10 @@
 
 import Link from "next/link";
 import { usePathname } from "next/navigation";
-import { procedureSpecialties } from "@/lib/procedures";
+import {
+  getProcedureSpecialtyHref,
+  procedureSpecialties,
+} from "@/lib/procedures";
 
 type ProcedureTabNavProps = {
   activeSlug?: string;
@@ -25,15 +28,22 @@ export function ProcedureTabNav({ activeSlug }: ProcedureTabNavProps) {
         return (
           <Link
             key={specialty.slug}
-            href={`/procedures/${specialty.slug}`}
-            className={`px-3 py-4 text-center text-xs font-semibold uppercase tracking-[0.18em] transition-colors sm:px-4 sm:text-sm ${
+            href={getProcedureSpecialtyHref(specialty.slug)}
+            className={`px-2 py-4 text-center text-[0.65rem] font-semibold uppercase leading-tight tracking-[0.14em] transition-colors sm:px-3 sm:text-xs lg:px-4 lg:text-sm lg:tracking-[0.18em] ${
               isActive
                 ? "bg-neutral-100 text-charcoal"
                 : "bg-charcoal text-white hover:bg-charcoal-dark"
             }`}
             aria-current={isActive ? "page" : undefined}
           >
-            {specialty.label}
+            {specialty.shortLabel ? (
+              <>
+                <span className="lg:hidden">{specialty.shortLabel}</span>
+                <span className="hidden lg:inline">{specialty.label}</span>
+              </>
+            ) : (
+              specialty.label
+            )}
           </Link>
         );
       })}

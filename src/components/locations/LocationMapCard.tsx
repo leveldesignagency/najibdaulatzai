@@ -122,12 +122,7 @@ export function LocationMapCard({
                 : "border-charcoal/10"
             }`}
           >
-            <LocationMapEmbed
-              mapEmbed={mapEmbed}
-              mapQuery={mapQuery}
-              mapTitle={mapTitle}
-              theme={theme}
-            />
+            <LocationMapEmbed mapQuery={mapQuery} mapTitle={mapTitle} theme={theme} />
           </div>
         </div>
       ) : null}

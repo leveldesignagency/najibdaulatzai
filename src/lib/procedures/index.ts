@@ -26,11 +26,16 @@ export const minimallyInvasiveSurgery = {
 } as const;
 
 export type ProcedureSpecialtySlug =
-  | "proctology"
   | "colorectal"
   | "hernia"
+  | "proctology"
   | "endoscopy"
-  | "additional";
+  | "robotic-minimally-invasive";
+
+export type ProcedureGuideSpecialtySlug = Exclude<
+  ProcedureSpecialtySlug,
+  "robotic-minimally-invasive"
+>;
 
 export type ProcedureCard = {
   slug: ProcedureSnippetSlug;
@@ -47,11 +52,14 @@ export type ProcedureCard = {
 export type ProcedureSpecialty = {
   slug: ProcedureSpecialtySlug;
   label: string;
+  shortLabel?: string;
   metaTitle: string;
   metaDescription: string;
   pageTitle: string;
   intro: string;
   cards: ProcedureCard[];
+  /** When false, no dedicated /procedures/[slug] guide page (tab content only). */
+  guidePage?: boolean;
 };
 
 function procedureCard(
@@ -75,28 +83,11 @@ function procedureCard(
 
 export const procedureSpecialties: ProcedureSpecialty[] = [
   {
-    slug: "proctology",
-    label: "PROCTOLOGY",
-    metaTitle: "Proctology Procedures",
-    metaDescription:
-      "Expert proctology care from Mr Najib Daulatzai including treatment for haemorrhoids, anal fissures, fistulas, and pilonidal disease in London and Hertfordshire.",
-    pageTitle: "Proctology",
-    intro:
-      "Proctology focuses on conditions affecting the anus, rectum, and surrounding tissues. Mr Najib Daulatzai provides comprehensive assessment and surgical management for a wide range of proctological conditions through both NHS and private practice.",
-    cards: [
-      procedureCard("proctology", "haemorrhoids", "Haemorrhoids"),
-      procedureCard("proctology", "anal-fissures", "Anal Fissures"),
-      procedureCard("proctology", "anal-fistulas", "Anal Fistulas"),
-      procedureCard("proctology", "pilonidal-disease", "Pilonidal Disease"),
-      procedureCard("proctology", "rectal-prolapse", "Rectal Prolapse"),
-    ],
-  },
-  {
     slug: "colorectal",
     label: "COLORECTAL",
     metaTitle: "Colorectal Surgery Procedures",
     metaDescription:
-      "Specialist colorectal surgery by Mr Najib Daulatzai including colorectal cancer, inflammatory bowel disease, pouch surgery, and diverticular disease in London and Hertfordshire.",
+      "Specialist colorectal surgery by Mr Najib Daulatzai including colorectal cancer, inflammatory bowel disease, pouch surgery, diverticular disease, stoma surgery, and appendicectomy in London and Hertfordshire.",
     pageTitle: "Colorectal Surgery",
     intro:
       "Colorectal surgery addresses conditions of the colon and rectum, including cancer, inflammatory bowel disease, diverticular disease, and complex reconstructive procedures. Mr Najib Daulatzai offers robotic and laparoscopic techniques through NHS and private practice.",
@@ -113,11 +104,17 @@ export const procedureSpecialties: ProcedureSpecialty[] = [
         "Pouch Surgery (Ileal Pouch-Anal Anastomosis)",
       ),
       procedureCard("colorectal", "diverticular-disease", "Diverticular Disease"),
+      procedureCard(
+        "colorectal",
+        "stoma-formation-and-reversal",
+        "Stoma Formation and Reversal",
+      ),
+      procedureCard("colorectal", "appendicectomy", "Appendicectomy"),
     ],
   },
   {
     slug: "hernia",
-    label: "HERNIA",
+    label: "HERNIAS",
     metaTitle: "Hernia Repair Procedures",
     metaDescription:
       "Specialist hernia repair by Mr Najib Daulatzai including inguinal, femoral, umbilical, and incisional hernias using laparoscopic and open techniques.",
@@ -133,6 +130,23 @@ export const procedureSpecialties: ProcedureSpecialty[] = [
         "incisional-hernias",
         "Incisional Hernias & Abdominal Wall Reconstruction",
       ),
+    ],
+  },
+  {
+    slug: "proctology",
+    label: "PROCTOLOGY",
+    metaTitle: "Proctology Procedures",
+    metaDescription:
+      "Expert proctology care from Mr Najib Daulatzai including treatment for haemorrhoids, anal fissures, fistulas, and pilonidal disease in London and Hertfordshire.",
+    pageTitle: "Proctology",
+    intro:
+      "Proctology focuses on conditions affecting the anus, rectum, and surrounding tissues. Mr Najib Daulatzai provides comprehensive assessment and surgical management for a wide range of proctological conditions through both NHS and private practice.",
+    cards: [
+      procedureCard("proctology", "haemorrhoids", "Haemorrhoids"),
+      procedureCard("proctology", "anal-fissures", "Anal Fissures"),
+      procedureCard("proctology", "anal-fistulas", "Anal Fistulas"),
+      procedureCard("proctology", "pilonidal-disease", "Pilonidal Disease"),
+      procedureCard("proctology", "rectal-prolapse", "Rectal Prolapse"),
     ],
   },
   {
@@ -152,22 +166,17 @@ export const procedureSpecialties: ProcedureSpecialty[] = [
     ],
   },
   {
-    slug: "additional",
-    label: "ADDITIONAL",
-    metaTitle: "Additional Surgical Procedures",
+    slug: "robotic-minimally-invasive",
+    label: "ROBOTIC & MINIMALLY INVASIVE SURGERY",
+    shortLabel: "ROBOTIC & MIN. INVASIVE",
+    metaTitle: "Robotic & Minimally Invasive Surgery",
     metaDescription:
-      "Additional procedures with Mr Najib Daulatzai including stoma formation and reversal and appendicectomy in London and Hertfordshire.",
-    pageTitle: "Additional Procedures",
+      "Robotic and minimally invasive colorectal surgery with Mr Najib Daulatzai using da Vinci Xi and da Vinci 5 systems in London and Hertfordshire.",
+    pageTitle: "Robotic & Minimally Invasive Surgery",
     intro:
-      "Mr Najib Daulatzai provides selected additional general and colorectal surgical procedures through NHS and private practice, with a focus on minimally invasive technique and clear, patient-centred care.",
-    cards: [
-      procedureCard(
-        "additional",
-        "stoma-formation-and-reversal",
-        "Stoma Formation and Reversal",
-      ),
-      procedureCard("additional", "appendicectomy", "Appendicectomy"),
-    ],
+      "Mr Najib Daulatzai is multi-platform trained on the da Vinci Xi and da Vinci 5 robotic systems, offering robotic and laparoscopic colorectal surgery through NHS and private practice.",
+    cards: [],
+    guidePage: false,
   },
 ];
 
@@ -177,6 +186,19 @@ export const procedureSpecialtyMap = Object.fromEntries(
 
 export function getProcedureSpecialty(slug: string) {
   return procedureSpecialtyMap[slug as ProcedureSpecialtySlug] ?? null;
+}
+
+export function getProcedureSpecialtyHref(slug: ProcedureSpecialtySlug): string {
+  const specialty = procedureSpecialtyMap[slug];
+  if (specialty?.guidePage === false) {
+    return `/procedures#${slug}`;
+  }
+  return `/procedures/${slug}`;
+}
+
+export function isProcedureGuidePage(slug: string): boolean {
+  const specialty = getProcedureSpecialty(slug);
+  return specialty !== null && specialty.guidePage !== false;
 }
 
 export { getProcedureImage } from "./procedure-images";

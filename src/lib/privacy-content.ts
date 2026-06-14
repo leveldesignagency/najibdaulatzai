@@ -25,7 +25,8 @@ export const privacySections = [
     title: "Cookies and similar technologies",
     paragraphs: [
       "Strictly necessary cookies store your cookie preference so we do not show the consent banner on every visit.",
-      "Functional cookies may be set when you choose to load embedded Google Maps on location pages. These third-party services may place their own cookies. We only load map embeds if you accept functional cookies.",
+      "Embedded Google Maps on our location and contact pages load directly so you can find our clinics. Google may set its own cookies when a map is displayed.",
+      "Functional cookies apply when you choose to play embedded YouTube video on the Robotic Surgery page. These third-party services may place their own cookies.",
       "Analytics cookies are used only if you opt in. We use Vercel Web Analytics, a privacy-friendly service that helps us understand how visitors use the site (for example, which pages are viewed). Vercel Analytics does not build advertising profiles. Vercel Speed Insights monitors page performance and does not require analytics consent.",
       "We do not use advertising or social media tracking cookies on this website.",
     ],

@@ -11,7 +11,6 @@ export function ContactPageContent() {
           <li className="h-full">
             <LocationMapCard
               practiceType="nhs"
-              mapLayout="below"
               name={nhsLocation.name}
               lines={nhsLocation.lines}
               mapEmbed={nhsLocation.mapEmbed}
@@ -24,7 +23,6 @@ export function ContactPageContent() {
             <li key={location.name} className="h-full">
               <LocationMapCard
                 practiceType="private"
-                mapLayout="below"
                 name={location.name}
                 lines={location.lines}
                 mapEmbed={location.mapEmbed}

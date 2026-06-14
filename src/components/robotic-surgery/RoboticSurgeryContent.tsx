@@ -53,7 +53,7 @@ export function RoboticSurgeryContent() {
         </ScrollReveal>
 
         <ScrollReveal variant="fade-up" delay={160}>
-          <p className={`mt-8 max-w-3xl ${bodyClass}`}>
+          <p className={`mt-8 max-w-3xl ${bodyClass}`} data-speakable="summary">
             {roboticSurgeryIntro.paragraphs[0]}
           </p>
         </ScrollReveal>

@@ -1,10 +1,11 @@
 import type { Metadata } from "next";
 import { Suspense } from "react";
 import { SiteLoginForm } from "@/components/auth/SiteLoginForm";
+import { privatePreviewRobots } from "@/lib/seo/robots";
 
 export const metadata: Metadata = {
   title: "Private preview login",
-  robots: { index: false, follow: false },
+  robots: privatePreviewRobots,
 };
 
 export default function LoginPage() {

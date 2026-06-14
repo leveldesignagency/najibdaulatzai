@@ -69,7 +69,7 @@ export const benefitsSection = {
 export const trainingSection = {
   heading: "Experience and training",
   paragraphs: [
-    "Mr Daulatzai completed advanced fellowship training at Frimley Park Hospital, specialising in advanced laparoscopic and robotic colorectal surgery, following colorectal fellowship training at St Mark's Hospital London in complex cancer, intestinal failure, and inflammatory bowel disease.",
+    "Mr Daulatzai completed advanced fellowship training, specialising in robotic and laparoscopic colorectal surgery, and undertook further subspecialty training in complex colorectal cancer, intestinal failure, and inflammatory bowel disease.",
     "He performs robotic colorectal surgery within multidisciplinary teams for cancer and benign disease, with private consultations and operations at leading London and Hertfordshire hospitals.",
   ],
 } as const;

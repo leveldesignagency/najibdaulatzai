@@ -9,9 +9,19 @@ const wixLegacyRedirects = [
   { source: "/blank-1-1-1-1", destination: "/contact", permanent: true },
 ] as const;
 
+/** Old /articles paths (Wix or mistaken links) → clinical articles index */
+const articlesRedirects = [
+  { source: "/articles", destination: "/blog", permanent: true },
+  { source: "/articles/:slug*", destination: "/blog/:slug*", permanent: true },
+] as const;
+
+const procedureRedirects = [
+  { source: "/procedures/additional", destination: "/procedures/colorectal", permanent: true },
+] as const;
+
 const nextConfig: NextConfig = {
   async redirects() {
-    return [...wixLegacyRedirects];
+    return [...wixLegacyRedirects, ...articlesRedirects, ...procedureRedirects];
   },
 };
 

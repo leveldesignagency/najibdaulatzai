@@ -1,16 +1,16 @@
 export const aboutBioParagraphs = [
-  "My name is Najib Daulatzai, and I am a Consultant General and Colorectal Surgeon practicing in London and Hertfordshire. I am dedicated to providing patient-centered care, ensuring that my patients' needs and preferences are at the forefront of their treatment journey.",
-  "As a specialist in minimally invasive surgery, including keyhole and robotic techniques, I strive to offer the most advanced and least invasive treatment options. I have extensive expertise in managing colorectal conditions, including colorectal cancer, benign bowel conditions such as inflammatory bowel disease and diverticular disease, perianal conditions (hemorrhoids, fistulas, fissures), and hernias. Additionally, I am an accredited endoscopist, performing colonoscopies and flexible sigmoidoscopies to investigate a range of bowel symptoms.",
-  "I completed my medical degree at University College Hospital London and underwent rigorous specialty surgical training. To further enhance my skills, I pursued fellowships at St. Mark's Hospital London, focusing on advanced colorectal cancer, intestinal failure, and inflammatory bowel disease, and at Frimley Park Hospital, specialising in advanced laparoscopic and robotic colorectal surgery.",
-  "In addition to my clinical qualifications, I hold a Master's degree in Surgical Sciences from University College London and an MD research degree from Imperial College London. I have authored numerous publications and presented at national and international conferences.",
-  "As your consultant, I prioritise open and empathetic communication, actively listening to your concerns and involving you in the decision-making process. I believe that a collaborative approach leads to better outcomes and a more positive patient experience. My goal is to provide personalised, comprehensive care tailored to your unique needs.",
+  "My name is Najib Daulatzai, and I am a Consultant General and Colorectal Surgeon practising in London and Hertfordshire, with specialist expertise in robotic and minimally invasive surgery. I am one of a small number of colorectal surgeons in the UK who is multi-platform trained, operating on both the da Vinci Xi and da Vinci 5 (DV5) robotic systems as a routine part of my practice.",
+  "My clinical interests span the full breadth of colorectal and general surgery, including colorectal cancer, inflammatory bowel disease, diverticular disease, and perianal conditions such as haemorrhoids, fissures, and fistulas.. I also perform hernia repairs using robotic techniques and am an accredited endoscopist, carrying out diagnostic and surveillance colonoscopy and flexible sigmoidoscopy.",
+  "I completed my medical degree at University College Hospital London and undertook specialist colorectal surgical fellowships at St Mark's Hospital London and Frimley Park Hospital, gaining extensive experience in complex colorectal cancer, inflammatory bowel disease, and advanced robotic and laparoscopic surgery. I hold a Master's degree in Surgical Sciences from University College London and an MD (Research) from Imperial College London, and have authored numerous publications and presented at national and international conferences.",
+  "I hold an NHS consultant post at West Hertfordshire Teaching Hospitals NHS Trust, where I also serve as NELA (National Emergency Laparotomy Audit) Lead. I see private patients at Spire Bushey Hospital, The Wellington Hospital, and HCA Golders Green Outpatients.",
+  "I consult in English, Pashto, and Farsi, and welcome patients from all backgrounds. Self-pay patients are very welcome — please contact the practice directly for fee information.",
 ] as const;
 
 export const credentialInstitutions = [
   {
     name: "University College London",
     shortName: "UCL",
-    logo: "/logos/credentials/ucl.svg",
+    logo: "/Logos/credentials/ucl.svg",
     width: 280,
     height: 88,
   },
@@ -31,40 +31,40 @@ export const credentialInstitutions = [
   {
     name: "Royal College of Surgeons of England",
     shortName: "Royal College of Surgeons",
-    logo: "/logos/credentials/rcs.svg",
+    logo: "/Logos/credentials/rcs.svg",
     width: 251,
     height: 98,
   },
 ] as const;
 
 export const valuesIntro =
-  "Our practice is dedicated to providing exceptional surgical care with a patient-centered approach. We specialise in a range of colorectal and general surgical procedures, utilising the latest techniques and technologies to ensure the best outcomes for our patients";
+  "I am a consultant colorectal and general surgeon with a straightforward aim: to offer each patient clear advice, careful surgery, and support through recovery. Whether your care is NHS or private, my focus is on listening properly, explaining your options in plain language, and using robotic and minimally invasive techniques where they will benefit you most.";
 
 export const aboutValues = [
   {
-    title: "Patient-Centered Care",
+    title: "Patient-Centred Care",
     description:
-      "We prioritise the needs and well-being of our patients, ensuring that each individual receives personalised and compassionate care. Our approach involves listening to our patients' concerns, thoroughly explaining treatment options, and involving them in decision-making processes.",
+      "I take time to understand your symptoms, concerns, and goals. Every consultation includes honest discussion of investigation and treatment options, so you can make informed decisions with confidence.",
   },
   {
-    title: "Excellence and Innovation",
+    title: "Excellence in Robotic & Minimally Invasive Surgery",
     description:
-      "We are committed to maintaining the highest standards of surgical excellence. By integrating advanced minimally invasive and robotic surgical techniques, we aim to offer superior precision, reduced recovery times, and minimized complications.",
+      "I am multi-platform trained on the da Vinci Xi and da Vinci 5 systems and use advanced laparoscopic and robotic techniques routinely for colorectal and general surgical procedures, aiming for precise surgery and a faster return to normal life.",
   },
   {
-    title: "Integrity and Transparency",
+    title: "Integrity & Transparency",
     description:
-      "We believe in building trust through honesty and openness. Our team is dedicated to providing clear communication, transparent treatment plans, and ethical care practices.",
+      "I explain diagnoses, risks, and likely outcomes clearly. There are no hidden steps in your pathway — you will know what to expect before, during, and after surgery.",
   },
   {
-    title: "Collaboration and Teamwork",
+    title: "Team-Based Care",
     description:
-      "Our multidisciplinary team works closely together to provide comprehensive care. We collaborate with other healthcare professionals to ensure our patients receive the best possible treatment and support throughout their surgical journey.",
+      "Complex colorectal care works best as a team effort. I collaborate closely with gastroenterologists, oncologists, radiologists, anaesthetists, and specialist nurses across NHS and private pathways.",
   },
   {
-    title: "Continuous Improvement",
+    title: "Commitment to Recovery",
     description:
-      "We are dedicated to continuous learning and improvement. By staying abreast of the latest medical advancements and incorporating innovative practices, we strive to enhance patient care and outcomes.",
+      "Surgery is only part of your journey. I plan operations with recovery in mind and provide structured follow-up, including stoma nurse support and coordinated cancer care where needed.",
   },
 ] as const;
 

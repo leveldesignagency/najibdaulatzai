@@ -87,14 +87,13 @@ export const patientFaqMap = Object.fromEntries(
 
 /** Three relevant FAQs per procedure specialty page */
 export const procedureSpecialtyFaqIds: Record<
-  "proctology" | "colorectal" | "hernia" | "endoscopy" | "additional",
+  import("@/lib/procedures").ProcedureGuideSpecialtySlug,
   readonly string[]
 > = {
   proctology: ["gp-referral-private", "first-consultation", "time-off-work"],
   colorectal: ["stoma", "time-off-work", "how-quickly-seen"],
   hernia: ["time-off-work", "private-insurance", "first-consultation"],
   endoscopy: ["colonoscopy-prep", "first-consultation", "how-quickly-seen"],
-  additional: ["stoma", "gp-referral-private", "self-funding"],
 };
 
 export function getFaqsByIds(ids: readonly string[]): PatientFaq[] {

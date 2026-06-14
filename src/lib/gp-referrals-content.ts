@@ -11,13 +11,19 @@ export const privateReferralParagraph =
 
 export const secretaryHeading = "Secretary contact details";
 
-/** Client placeholders, replace before publishing */
-export const secretaryNamePlaceholder = "[Insert secretary name]";
-export const secretaryTelephonePlaceholder = "[Insert telephone number]";
-export const secretaryEmailPlaceholder = "[Insert email address]";
+export const secretaryTelephone = "+44 7733 897972";
+export const secretaryTelephoneHref = "tel:+447733897972";
+
+export const secretaryEmail = "info@ndaulatzai.com";
+export const secretaryEmailHref = "mailto:info@ndaulatzai.com";
+
+export const secretaryAddressHeading = "Correspondence address";
 
 export const secretaryAddressLines = [
-  "4 Warner House, Business Village, Bessborough Road, Harrow",
+  "Mr. Najib Daulatzai",
+  "Spire Bushey Hospital",
+  "Heathbourne Road",
+  "Bushey WD23 1RD",
 ] as const;
 
 export const insurersAcceptedHeading = "Insurers accepted";

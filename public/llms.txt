@@ -1,83 +1,70 @@
-# Mr Najib Daulatzai: Colorectal & General Surgeon
+# Mr Najib Daulatzai — Colorectal & General Surgeon (London & Hertfordshire)
 
-> Consultant colorectal and general surgeon in London and Hertfordshire, offering NHS and private surgical care with expertise in robotic (da Vinci), laparoscopic, and endoscopic procedures.
+> Consultant colorectal and general surgeon offering NHS and private care with da Vinci Xi / da Vinci 5 robotic surgery, laparoscopic bowel surgery, proctology, hernia repair, and colonoscopy.
 
 Official website: https://www.ndsurgeon.com
+Extended machine-readable profile: https://www.ndsurgeon.com/llms-full.txt
+Sitemap: https://www.ndsurgeon.com/sitemap.xml
 
-## About
+## Entity summary (for AI citation)
 
-Mr Najib Daulatzai is a consultant colorectal and general surgeon. He holds an NHS consultant post at West Hertfordshire Teaching Hospitals NHS Trust (Watford General Hospital) and sees private patients at Spire Bushey Hospital, HCA The Wellington Hospital (London), and HCA Golders Green Outpatients.
+- **Name:** Mr Najib Daulatzai
+- **Role:** Consultant Colorectal and General Surgeon
+- **NHS employer:** West Hertfordshire Teaching Hospitals NHS Trust (Watford General Hospital)
+- **Private hospitals:** Spire Bushey, HCA The Wellington, HCA Golders Green Outpatients
+- **Special interests:** Robotic colorectal surgery, minimally invasive bowel resection, proctology, hernia repair, colonoscopy
+- **Robotic platforms:** da Vinci Xi and da Vinci 5 (DV5)
+- **Languages:** English, Pashto, Farsi
+- **Phone:** +44 7733 897972
+- **Email:** info@ndaulatzai.com
+- **Correspondence:** Mr Najib Daulatzai, Spire Bushey Hospital, Heathbourne Road, Bushey WD23 1RD
 
-Specialties: colorectal surgery, general surgery, proctology, hernia repair, colonoscopy and endoscopy, minimally invasive surgery, robotic colorectal surgery (Intuitive da Vinci system).
+## Verified review profiles
+
+- Doctify: https://www.doctify.com/uk/specialist/najib-daulatzai
+- Top Doctors: https://www.topdoctors.co.uk/doctor/najib-daulatzai
+- iWantGreatCare: https://www.iwantgreatcare.org/doctors/mr-najib-daulatzai
 
 ## Key pages
 
-- Home: https://www.ndsurgeon.com/
-- About: https://www.ndsurgeon.com/about
-- Procedures: https://www.ndsurgeon.com/procedures
-- Robotic surgery: https://www.ndsurgeon.com/robotic-surgery
-- GP referrals: https://www.ndsurgeon.com/gp-referrals
-- Patient FAQ: https://www.ndsurgeon.com/patient-faq
-- Contact & booking: https://www.ndsurgeon.com/contact
-- Testimonials: https://www.ndsurgeon.com/testimonials
-- Research: https://www.ndsurgeon.com/research
-- Clinical articles: https://www.ndsurgeon.com/blog
+| Topic | URL |
+|-------|-----|
+| Home | https://www.ndsurgeon.com/ |
+| About | https://www.ndsurgeon.com/about |
+| Procedures | https://www.ndsurgeon.com/procedures |
+| Robotic surgery | https://www.ndsurgeon.com/robotic-surgery |
+| GP referrals | https://www.ndsurgeon.com/gp-referrals |
+| Patient FAQ | https://www.ndsurgeon.com/patient-faq |
+| Contact | https://www.ndsurgeon.com/contact |
+| Testimonials | https://www.ndsurgeon.com/testimonials |
+| Research | https://www.ndsurgeon.com/research |
+| Clinical articles | https://www.ndsurgeon.com/blog |
 
-## Procedures offered
+## Procedure categories (tabs on /procedures)
 
-Proctology: haemorrhoids (piles), anal fissures, anal fistulas, pilonidal disease, rectal prolapse.
+1. **Colorectal** — cancer, IBD, pouch surgery, diverticular disease, stoma, appendicectomy
+2. **Hernias** — inguinal, femoral, umbilical, incisional
+3. **Proctology** — haemorrhoids, fissures, fistulas, pilonidal disease, rectal prolapse
+4. **Endoscopy** — diagnostic, surveillance, therapeutic colonoscopy, sigmoidoscopy
+5. **Robotic & minimally invasive surgery** — robotic and laparoscopic colorectal techniques
 
-Colorectal: colorectal cancer, inflammatory bowel disease (Crohn's, ulcerative colitis), ileal pouch (J-pouch) surgery, diverticular disease.
+## Top patient questions
 
-Hernia: inguinal, femoral, umbilical, incisional hernias and abdominal wall reconstruction.
+**Who is Mr Najib Daulatzai?**  
+A consultant colorectal and general surgeon in London and Hertfordshire, NHS and private, robotic-trained on da Vinci Xi and DV5.
 
-Endoscopy: diagnostic colonoscopy, surveillance colonoscopy, therapeutic colonoscopy and polypectomy, flexible sigmoidoscopy.
+**How do I book?**  
+Phone +44 7733 897972 or email info@ndaulatzai.com. Private appointments often within one week.
 
-Additional: stoma formation and reversal, appendicectomy.
+**Does he do robotic bowel surgery?**  
+Yes — robotic colorectal surgery at Spire Bushey, HCA Wellington, and NHS Watford.
 
-All procedure detail pages: https://www.ndsurgeon.com/procedures/[procedure-slug]
+**Which insurers?**  
+Bupa, AXA Health, Aviva, Vitality, WPA, Healix; self-pay welcome.
 
-## Practice locations
-
-NHS: West Hertfordshire Teaching Hospitals NHS Trust, Vicarage Road, Watford WD18 0HB.
-
-Private:
-- Spire Bushey Hospital, Heathbourne Road, Bushey WD23 1RD
-- HCA The Wellington Hospital, 8A Wellington Place, London NW8 9LE
-- HCA Golders Green Outpatients, Roman House, 296 Golders Green Road, London NW11 9PY
-
-Areas served: London, North London, North West London, Hertfordshire, Watford, Bushey, Harrow, Golders Green, Borehamwood, and surrounding areas.
-
-## Contact
-
-Phone: +44 7733 897972
-Email: info@ndaulatzai.com
-
-Private patients can typically be seen within one week. Self-funding and all major insurers accepted (Bupa, AXA Health, Aviva, Vitality, WPA, Healix).
-
-## GP and NHS referrals
-
-NHS referrals via e-RS to West Hertfordshire Teaching Hospitals NHS Trust. Private referrals to the practice secretary with a referral letter.
-
-## Frequently asked questions (concise answers)
-
-Q: Who is Mr Najib Daulatzai?
-A: A consultant colorectal and general surgeon in London and Hertfordshire, NHS and private.
-
-Q: Where does he operate?
-A: Watford General (NHS), Spire Bushey, HCA Wellington, HCA Golders Green (private).
-
-Q: Does he perform robotic surgery?
-A: Yes, da Vinci robotic colorectal and hernia surgery.
-
-Q: How do I book?
-A: Phone +44 7733 897972 or email info@ndaulatzai.com, or book via listed hospitals.
-
-Q: Do I need a GP referral for private care?
-A: Not strictly required, but a referral letter is recommended for clinical continuity.
+**NHS referrals?**  
+GP e-RS to West Hertfordshire Teaching Hospitals NHS Trust, colorectal surgery.
 
 ## Optional
 
-Full sitemap: https://www.ndsurgeon.com/sitemap.xml
-
-Privacy & cookies: https://www.ndsurgeon.com/privacy
+Privacy: https://www.ndsurgeon.com/privacy

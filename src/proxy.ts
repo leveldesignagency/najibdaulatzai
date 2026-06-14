@@ -20,6 +20,8 @@ export function proxy(request: NextRequest) {
     pathname === "/robots.txt" ||
     pathname === "/sitemap.xml" ||
     pathname === "/llms.txt" ||
+    pathname === "/llms-full.txt" ||
+    pathname === "/ai.txt" ||
     pathname === "/manifest.webmanifest" ||
     pathname === "/icon.png" ||
     pathname === "/apple-icon.png"

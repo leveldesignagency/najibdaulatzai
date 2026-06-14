@@ -46,12 +46,6 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.9,
     },
     {
-      url: `${siteConfig.url}/procedures/proctology`,
-      lastModified: new Date(),
-      changeFrequency: "monthly",
-      priority: 0.8,
-    },
-    {
       url: `${siteConfig.url}/procedures/colorectal`,
       lastModified: new Date(),
       changeFrequency: "monthly",
@@ -64,13 +58,13 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.8,
     },
     {
-      url: `${siteConfig.url}/procedures/endoscopy`,
+      url: `${siteConfig.url}/procedures/proctology`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,
     },
     {
-      url: `${siteConfig.url}/procedures/additional`,
+      url: `${siteConfig.url}/procedures/endoscopy`,
       lastModified: new Date(),
       changeFrequency: "monthly",
       priority: 0.8,

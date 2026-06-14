@@ -1,5 +1,6 @@
 import { FocalImage } from "@/components/ui/FocalImage";
 import { FaqAccordion } from "@/components/faq/FaqAccordion";
+import { ProcedureDetailJsonLd } from "@/components/seo/ProcedureDetailJsonLd";
 import { Footer } from "@/components/layout/Footer";
 import { SiteContainer } from "@/components/layout/SiteContainer";
 import { ProcedureHeroNav } from "@/components/procedures/ProcedureHeroNav";
@@ -14,7 +15,7 @@ const specialtyLabels: Record<ProcedureDetailPage["specialtySlug"], string> = {
   colorectal: "Colorectal Surgery",
   hernia: "Hernia Repair",
   endoscopy: "Endoscopy",
-  additional: "Additional Procedures",
+  "robotic-minimally-invasive": "Robotic & Minimally Invasive Surgery",
 };
 
 type ProcedureDetailViewProps = {
@@ -30,6 +31,7 @@ export function ProcedureDetailView({ page }: ProcedureDetailViewProps) {
 
   return (
     <>
+      <ProcedureDetailJsonLd page={page} />
       <header className="relative flex min-h-[40vh] w-full flex-col overflow-hidden bg-charcoal">
         <FocalImage
           src={page.heroImage}

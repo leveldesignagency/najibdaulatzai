@@ -17,7 +17,6 @@ export function BookCtaSection() {
           className="object-cover object-center"
           sizes="100vw"
           quality={75}
-          loading="lazy"
         />
 
         <div className="relative flex min-h-[360px] w-full flex-col lg:min-h-[480px] lg:flex-row">

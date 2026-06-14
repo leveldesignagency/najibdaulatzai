@@ -5,7 +5,7 @@ export const siteConfig = {
     "Mr Najib Daulatzai is a NHS and private consultant colorectal & general surgeon in London & Hertfordshire, specialising in robotic and minimally invasive surgery.",
   url: "https://www.ndsurgeon.com",
   locale: "en_GB",
-  phone: "+447733 897972",
+  phone: "+44 7733 897972",
   phoneHref: "tel:+447733897972",
   email: "info@ndaulatzai.com",
   emailHref: "mailto:info@ndaulatzai.com",
@@ -37,14 +37,6 @@ export const footerNavLinks = [
   { label: "GP REFERRALS", href: "/gp-referrals" },
   { label: "PATIENT FAQ", href: "/patient-faq" },
   { label: "CONTACT", href: "/contact" },
-] as const;
-
-export const values = [
-  "Patient-Centered Care",
-  "Excellence and Innovation",
-  "Integrity and Transparency",
-  "Collaboration and Teamwork",
-  "Continuous Improvement",
 ] as const;
 
 export const nhsLocation = {
@@ -85,21 +77,31 @@ export const faqItems = [
   {
     question: "Who is Mr Najib Daulatzai?",
     answer:
-      "Mr Najib Daulatzai is a consultant colorectal and general surgeon practising in London and Hertfordshire, offering surgical care through both NHS and private practice.",
+      "Mr Najib Daulatzai is a consultant colorectal and general surgeon in London and Hertfordshire, specialising in robotic (da Vinci Xi and da Vinci 5), laparoscopic, and endoscopic surgery through NHS and private practice.",
   },
   {
     question: "Where does Mr Najib Daulatzai practise?",
     answer:
-      "Mr Najib Daulatzai sees patients at West Hertfordshire Teaching Hospitals NHS Trust in Watford, and at private locations including HCA Golders Green Outpatients, Spire Bushey Hospital, and HCA The Wellington Hospital in London.",
+      "NHS: West Hertfordshire Teaching Hospitals NHS Trust, Vicarage Road, Watford WD18 0HB. Private: Spire Bushey Hospital, HCA The Wellington Hospital (London NW8), and HCA Golders Green Outpatients (London NW11).",
   },
   {
-    question: "What type of surgeon is Najib Daulatzai?",
+    question: "What conditions does Mr Najib Daulatzai treat?",
     answer:
-      "Najib Daulatzai is a colorectal and general surgeon, providing a range of surgical procedures through both the NHS and private practice.",
+      "Colorectal cancer, inflammatory bowel disease, diverticular disease, haemorrhoids, anal fissures and fistulas, hernias, and bowel symptoms requiring colonoscopy or surgery. He also performs stoma surgery and appendicectomy.",
   },
   {
     question: "How can I book an appointment with Mr Najib Daulatzai?",
     answer:
-      "You can book an appointment through the contact page or by reaching out to one of the listed NHS or private practice locations in London and Hertfordshire.",
+      "Phone +44 7733 897972 or email info@ndaulatzai.com. Private patients are usually seen within one week. NHS referrals are via GP e-RS to West Hertfordshire Teaching Hospitals NHS Trust.",
+  },
+  {
+    question: "Does Mr Najib Daulatzai perform robotic colorectal surgery?",
+    answer:
+      "Yes. Mr Daulatzai is multi-platform trained on the da Vinci Xi and da Vinci 5 robotic systems and performs robotic colorectal and hernia surgery at leading London and Hertfordshire hospitals.",
+  },
+  {
+    question: "Which insurers does Mr Najib Daulatzai accept?",
+    answer:
+      "Bupa, AXA Health, Aviva, Vitality, WPA, Healix, and self-funding patients. Contact the practice for fee information.",
   },
 ] as const;

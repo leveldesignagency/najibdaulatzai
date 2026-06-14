@@ -102,16 +102,25 @@ export const privateCareKeywords = [
   "private surgical consultation Hertfordshire",
 ] as const;
 
-/** AEO / voice-search style query phrases */
+/** AEO / voice-search / AI query phrases */
 export const aeoQueryKeywords = [
   "who is the best colorectal surgeon in London",
+  "colorectal surgeon near me London",
+  "colorectal surgeon near me Hertfordshire",
+  "colorectal surgeon Watford",
+  "private colorectal surgeon Bushey",
+  "robotic colorectal surgeon London",
+  "da Vinci colorectal surgeon Hertfordshire",
   "how to book a private colorectal surgeon",
   "do I need a GP referral for private surgery",
   "what is robotic colorectal surgery",
+  "private colonoscopy London",
+  "piles treatment London",
+  "hernia surgeon London private",
   "how long is recovery after bowel surgery",
   "where does Mr Daulatzai operate",
-  "colorectal surgeon near me London",
-  "colorectal surgeon near me Hertfordshire",
+  "Mr Najib Daulatzai reviews",
+  "colorectal surgeon Doctify London",
 ] as const;
 
 /** Homepage, broadest keyword set */

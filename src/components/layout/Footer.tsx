@@ -45,15 +45,7 @@ export function Footer({ includeBookCta = true }: FooterProps) {
               <CookieSettingsButton />
             </div>
             <p className="text-xs tracking-[0.08em] text-white/60">
-              © 2026 by{" "}
-              <a
-                href="https://leveldesignagency.com"
-                target="_blank"
-                rel="noopener noreferrer"
-                className="font-medium text-white/60 transition-colors duration-300 hover:text-[#e30613]"
-              >
-                LEVEL DESIGN AGENCY LTD
-              </a>
+              © 2026 ndsurgeon.com
             </p>
           </div>
         </SiteContainer>

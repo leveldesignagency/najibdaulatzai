@@ -38,7 +38,7 @@ After deploy, enable **Analytics** and **Speed Insights** in the Vercel project 
    | `SITE_AUTH_PASSWORD` | *(see secure note below)* |
    | `SITE_AUTH_SESSION_TOKEN` | *(see secure note below)* |
 
-   Set `SITE_AUTH_ENABLED=false` when you are ready to launch publicly.
+   Set `SITE_AUTH_ENABLED=false` when you are ready to launch publicly. **Google cannot index the site while the login wall is enabled**, because crawlers are redirected to `/login`, which is correctly marked `noindex`.
 
    If you add forms or APIs later, set any additional vars under the same screen.
 

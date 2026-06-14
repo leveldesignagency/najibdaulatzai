@@ -3,10 +3,10 @@ import {
   getFaqsByIds,
   procedureSpecialtyFaqIds,
 } from "@/lib/patient-faq-content";
-import type { ProcedureSpecialtySlug } from "@/lib/procedures";
+import type { ProcedureGuideSpecialtySlug } from "@/lib/procedures";
 
 type ProcedureFaqSectionProps = {
-  specialtySlug: ProcedureSpecialtySlug;
+  specialtySlug: ProcedureGuideSpecialtySlug;
 };
 
 export function ProcedureFaqSection({ specialtySlug }: ProcedureFaqSectionProps) {
@@ -24,7 +24,7 @@ export function ProcedureFaqSection({ specialtySlug }: ProcedureFaqSectionProps)
         Frequently asked questions
       </h2>
       <p className="mt-3 max-w-2xl text-sm leading-relaxed text-charcoal/70">
-        Common questions about {specialtySlug === "additional" ? "these procedures" : "this area of care"}.
+        Common questions about this area of care.
         {" "}
         <a href="/patient-faq" className="font-medium text-charcoal underline-offset-4 hover:underline">
           View all patient FAQs

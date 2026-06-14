@@ -28,24 +28,21 @@ export function LocationsSection() {
         </ScrollReveal>
 
         <ul className="mt-14 grid gap-6 sm:grid-cols-2 lg:gap-8">
-          {locations.map(({ key, location, isNhs }, index) => (
+          {locations.map(({ key, location, isNhs }) => (
             <li key={key} className="h-full">
-              <ScrollReveal variant="fade-up" delay={100 + index * 100}>
-                <LocationMapCard
-                  theme="dark"
-                  practiceType={isNhs ? "nhs" : "private"}
-                  mapLayout="below"
-                  name={location.name}
-                  lines={location.lines}
-                  mapEmbed={location.mapEmbed}
-                  mapQuery={location.mapQuery}
-                  mapTitle={
-                    isNhs
-                      ? "Map showing West Hertfordshire Teaching Hospitals NHS Trust in Watford"
-                      : `Map showing ${location.name}`
-                  }
-                />
-              </ScrollReveal>
+              <LocationMapCard
+                theme="dark"
+                practiceType={isNhs ? "nhs" : "private"}
+                name={location.name}
+                lines={location.lines}
+                mapEmbed={location.mapEmbed}
+                mapQuery={location.mapQuery}
+                mapTitle={
+                  isNhs
+                    ? "Map showing West Hertfordshire Teaching Hospitals NHS Trust in Watford"
+                    : `Map showing ${location.name}`
+                }
+              />
             </li>
           ))}
         </ul>

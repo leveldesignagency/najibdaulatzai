@@ -3,34 +3,50 @@
 import { FocalImage } from "@/components/ui/FocalImage";
 import { useCallback, useEffect, useState } from "react";
 import { SiteContainer } from "@/components/layout/SiteContainer";
-import { MinimallyInvasiveSection } from "@/components/procedures/MinimallyInvasiveSection";
 import { ProceduresHeroNav } from "@/components/procedures/ProceduresHeroNav";
 import { ProceduresTabbedGrid } from "@/components/procedures/ProceduresTabbedGrid";
-import type { ProcedureSpecialtySlug } from "@/lib/procedures";
+import {
+  procedureSpecialtyMap,
+  type ProcedureSpecialtySlug,
+} from "@/lib/procedures";
 
 const heroImage = {
   src: "/images/procedures-home.jpg",
   alt: "Mr Najib Daulatzai beside da Vinci robotic surgical systems used for advanced colorectal procedures",
 } as const;
 
+function resolveSpecialtyFromHash(hash: string): ProcedureSpecialtySlug | null {
+  const slug = hash.replace(/^#/, "");
+  if (slug in procedureSpecialtyMap) {
+    return slug as ProcedureSpecialtySlug;
+  }
+  if (slug === "minimally-invasive") {
+    return "robotic-minimally-invasive";
+  }
+  return null;
+}
+
 export function ProceduresPageContent() {
   const [activeSpecialty, setActiveSpecialty] =
-    useState<ProcedureSpecialtySlug>("proctology");
-
-  const scrollToId = useCallback((id: string) => {
-    document.getElementById(id)?.scrollIntoView({ behavior: "smooth" });
-  }, []);
+    useState<ProcedureSpecialtySlug>("colorectal");
 
   const handleSpecialtyChange = useCallback((slug: ProcedureSpecialtySlug) => {
     setActiveSpecialty(slug);
+    window.history.replaceState(null, "", `#${slug}`);
   }, []);
 
   useEffect(() => {
-    const hash = window.location.hash.slice(1);
-    if (hash === "minimally-invasive") {
-      scrollToId(hash);
-    }
-  }, [scrollToId]);
+    const applyHash = () => {
+      const slug = resolveSpecialtyFromHash(window.location.hash);
+      if (slug) {
+        setActiveSpecialty(slug);
+      }
+    };
+
+    applyHash();
+    window.addEventListener("hashchange", applyHash);
+    return () => window.removeEventListener("hashchange", applyHash);
+  }, []);
 
   return (
     <>
@@ -62,18 +78,18 @@ export function ProceduresPageContent() {
           <ProceduresHeroNav
             activeSpecialty={activeSpecialty}
             onSpecialtyChange={handleSpecialtyChange}
-            onScrollTarget={scrollToId}
           />
         </div>
       </header>
 
       <div className="bg-white pb-20">
         <SiteContainer>
-          <div id="procedures-grid" className="scroll-mt-28 pt-16 lg:pt-20">
+          <div
+            id={activeSpecialty}
+            className="scroll-mt-28 pt-16 lg:pt-20"
+          >
             <ProceduresTabbedGrid activeSlug={activeSpecialty} />
           </div>
-
-          <MinimallyInvasiveSection />
         </SiteContainer>
       </div>
     </>

@@ -128,9 +128,9 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
                     className="mt-1 text-xs leading-snug text-charcoal/80 sm:text-sm"
                   >
                     We use strictly necessary cookies to remember your choices. With your
-                    permission, we load embedded Google Maps and privacy-friendly Vercel Web
-                    Analytics to understand how the site is used. We do not use advertising
-                    cookies. See our{" "}
+                    permission, we load embedded YouTube video on the Robotic Surgery
+                    page and privacy-friendly Vercel Web Analytics to understand how the
+                    site is used. We do not use advertising cookies. See our{" "}
                     <Link href="/privacy" className="underline underline-offset-2">
                       Privacy &amp; Cookies notice
                     </Link>{" "}
@@ -186,7 +186,7 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
                     <div>
                       <p className="font-medium text-charcoal">Functional</p>
                       <p className="mt-1 leading-relaxed">
-                        Allows embedded Google Maps on location pages.
+                        Allows embedded YouTube video on the Robotic Surgery page.
                       </p>
                     </div>
                     <label className="flex shrink-0 items-center gap-2">

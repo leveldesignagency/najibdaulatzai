@@ -1,9 +1,9 @@
 import type { ProcedureSnippetSlug } from "../procedure-snippets";
-import type { ProcedureSpecialtySlug } from "../index";
+import type { ProcedureGuideSpecialtySlug } from "../index";
 
 export type ProcedurePageConfig = {
   slug: ProcedureSnippetSlug;
-  specialtySlug: ProcedureSpecialtySlug;
+  specialtySlug: ProcedureGuideSpecialtySlug;
   title: string;
   navLabel: string;
   whatAreHeading: string;
@@ -166,7 +166,7 @@ export const procedurePageConfigs: ProcedurePageConfig[] = [
   },
   {
     slug: "stoma-formation-and-reversal",
-    specialtySlug: "additional",
+    specialtySlug: "colorectal",
     title: "Stoma Formation and Reversal",
     navLabel: "Stoma",
     whatAreHeading: "What is stoma formation and reversal?",
@@ -175,7 +175,7 @@ export const procedurePageConfigs: ProcedurePageConfig[] = [
   },
   {
     slug: "appendicectomy",
-    specialtySlug: "additional",
+    specialtySlug: "colorectal",
     title: "Appendicectomy",
     navLabel: "Appendicectomy",
     whatAreHeading: "What is an appendicectomy?",

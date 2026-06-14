@@ -9,39 +9,42 @@ import {
   SpecialtyArticle,
 } from "@/components/procedures/SpecialtyArticle";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { additionalSections } from "@/lib/procedures/additional-content";
 import { colorectalSections } from "@/lib/procedures/colorectal-content";
 import { endoscopySections } from "@/lib/procedures/endoscopy-content";
 import { herniaSections } from "@/lib/procedures/hernia-content";
 import { proctologySections } from "@/lib/procedures/proctology-content";
 import {
   getProcedureSpecialty,
+  isProcedureGuidePage,
   procedureSpecialties,
+  type ProcedureGuideSpecialtySlug,
   type ProcedureSpecialtySlug,
 } from "@/lib/procedures";
 import {
   getProcedureDetailPage,
   procedureDetailSlugs,
 } from "@/lib/procedures/procedure-pages";
+import { publicRobots } from "@/lib/seo/robots";
 
 type PageProps = {
   params: Promise<{ slug: string }>;
 };
 
 const sectionMap: Record<
-  ProcedureSpecialtySlug,
+  Exclude<ProcedureSpecialtySlug, "robotic-minimally-invasive">,
   { heading: string; paragraphs: string[] }[]
 > = {
-  proctology: proctologySections,
   colorectal: colorectalSections,
   hernia: herniaSections,
+  proctology: proctologySections,
   endoscopy: endoscopySections,
-  additional: additionalSections,
 };
 
 export function generateStaticParams() {
   return [
-    ...procedureSpecialties.map((specialty) => ({ slug: specialty.slug })),
+    ...procedureSpecialties
+      .filter((specialty) => specialty.guidePage !== false)
+      .map((specialty) => ({ slug: specialty.slug })),
     ...procedureDetailSlugs.map((slug) => ({ slug })),
   ];
 }
@@ -55,12 +58,13 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
       title: { absolute: detail.metaTitle },
       description: detail.metaDescription,
       alternates: { canonical: `/procedures/${detail.slug}` },
+      robots: publicRobots,
     };
   }
 
   const specialty = getProcedureSpecialty(slug);
 
-  if (!specialty) {
+  if (!specialty || specialty.guidePage === false) {
     return { title: "Procedures" };
   }
 
@@ -68,6 +72,7 @@ export async function generateMetadata({ params }: PageProps): Promise<Metadata>
     title: specialty.metaTitle,
     description: specialty.metaDescription,
     alternates: { canonical: `/procedures/${specialty.slug}` },
+    robots: publicRobots,
   };
 }
 
@@ -79,13 +84,18 @@ export default async function ProcedureSlugPage({ params }: PageProps) {
     return <ProcedureDetailView page={detail} />;
   }
 
+  if (!isProcedureGuidePage(slug)) {
+    notFound();
+  }
+
   const specialty = getProcedureSpecialty(slug);
 
   if (!specialty) {
     notFound();
   }
 
-  const sections = sectionMap[specialty.slug];
+  const sections =
+    sectionMap[specialty.slug as Exclude<ProcedureSpecialtySlug, "robotic-minimally-invasive">];
 
   return (
     <ProceduresPageShell title="Procedures">
@@ -105,7 +115,7 @@ export default async function ProcedureSlugPage({ params }: PageProps) {
 
       <div className="mt-16 border-t border-charcoal/10 pt-16">
         <SpecialtyArticle specialty={specialty} sections={sections} />
-        <ProcedureFaqSection specialtySlug={specialty.slug} />
+        <ProcedureFaqSection specialtySlug={specialty.slug as ProcedureGuideSpecialtySlug} />
       </div>
     </ProceduresPageShell>
   );
