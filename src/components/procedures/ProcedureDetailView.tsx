@@ -4,12 +4,12 @@ import { ProcedureDetailJsonLd } from "@/components/seo/ProcedureDetailJsonLd";
 import { Footer } from "@/components/layout/Footer";
 import { SiteContainer } from "@/components/layout/SiteContainer";
 import { ProcedureHeroNav } from "@/components/procedures/ProcedureHeroNav";
-import { BackNavButton } from "@/components/ui/BackNavButton";
+import { TextBackLink } from "@/components/ui/BackNavButton";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { scrollStagger } from "@/lib/scroll-stagger";
 import { getFaqsByIds } from "@/lib/patient-faq-content";
-import { procedureSpecialtyMap } from "@/lib/procedures";
+import { getProceduresTabHref, procedureSpecialtyMap } from "@/lib/procedures";
 import type { ProcedureDetailPage } from "@/lib/procedures/procedure-pages/types";
 
 const specialtyLabels: Record<ProcedureDetailPage["specialtySlug"], string> = {
@@ -49,26 +49,29 @@ export function ProcedureDetailView({ page }: ProcedureDetailViewProps) {
           aria-hidden="true"
         />
 
+        {page.heroImageCopyright ? (
+          <div className="absolute right-3 top-24 z-20 max-w-[11.5rem] rounded-sm border border-white/15 bg-charcoal/80 px-2.5 py-2 backdrop-blur-sm sm:right-5 sm:top-28 sm:max-w-[13rem] sm:px-3 sm:py-2.5">
+            <p className="text-[0.5625rem] leading-snug text-white/75 sm:text-[0.625rem]">
+              {page.heroImageCopyright}
+            </p>
+            <p className="mt-1 text-[0.5625rem] leading-snug text-white/55 sm:text-[0.625rem]">
+              Image courtesy of Intuitive Surgical, Inc.
+            </p>
+          </div>
+        ) : null}
+
         <div className="relative z-10 flex min-h-[40vh] w-full flex-col justify-end">
           <SiteContainer className="pt-28">
-            <BackNavButton
-              href={`/procedures/${page.specialtySlug}`}
-              ariaLabel={`Back to ${specialtyLabel}`}
+            <TextBackLink
+              href={getProceduresTabHref(page.specialtySlug)}
               theme="light"
-            />
+            >
+              Back to procedures
+            </TextBackLink>
             <h1 className="mt-6 max-w-3xl pb-8 text-4xl font-semibold tracking-tight text-white sm:text-5xl lg:text-6xl">
               {page.title}
             </h1>
           </SiteContainer>
-
-          {page.heroImageCopyright ? (
-            <p className="relative z-10 bg-charcoal/70 px-3 py-2 text-[0.625rem] leading-relaxed text-white/70 sm:px-4 sm:text-xs">
-              {page.heroImageCopyright}
-              <span className="mt-0.5 block text-white/55">
-                Image courtesy of Intuitive Surgical, Inc.
-              </span>
-            </p>
-          ) : null}
 
           <ProcedureHeroNav page={page} />
         </div>

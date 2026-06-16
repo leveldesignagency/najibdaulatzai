@@ -5,6 +5,8 @@ import { usePathname } from "next/navigation";
 import { useEffect, useState } from "react";
 import { createPortal } from "react-dom";
 import { SiteContainer } from "@/components/layout/SiteContainer";
+import { isProcedureGuidePage } from "@/lib/procedures";
+import { hasProcedureDetailPage } from "@/lib/procedures/procedure-pages";
 import { Logo } from "./Logo";
 import { MobileMenu } from "./MobileMenu";
 
@@ -12,7 +14,6 @@ const LIGHT_HEADER_PREFIXES = [
   "/about",
   "/research",
   "/testimonials",
-  "/procedures",
   "/robotic-surgery",
   "/blog",
   "/gp-referrals",
@@ -21,15 +22,32 @@ const LIGHT_HEADER_PREFIXES = [
   "/privacy",
 ];
 
+function hasHeroHeader(pathname: string): boolean {
+  if (pathname === "/" || pathname === "/procedures") {
+    return true;
+  }
+
+  const match = pathname.match(/^\/procedures\/([^/]+)$/);
+  return match ? hasProcedureDetailPage(match[1]) : false;
+}
+
 function useHeaderTheme() {
   const pathname = usePathname();
-  const isHome = pathname === "/";
-  const isLight = LIGHT_HEADER_PREFIXES.some(
-    (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
-  );
+  const heroHeader = hasHeroHeader(pathname);
+  const procedureSlug = pathname.startsWith("/procedures/")
+    ? pathname.slice("/procedures/".length)
+    : null;
+  const isProcedureGuide =
+    procedureSlug !== null && isProcedureGuidePage(procedureSlug);
+  const isLight =
+    !heroHeader &&
+    (LIGHT_HEADER_PREFIXES.some(
+      (prefix) => pathname === prefix || pathname.startsWith(`${prefix}/`),
+    ) ||
+      isProcedureGuide);
 
   return {
-    homeMenu: isHome,
+    heroHeader,
     isLight,
   };
 }
@@ -39,13 +57,13 @@ export function Header() {
   const [open, setOpen] = useState(false);
   const [mounted, setMounted] = useState(false);
   const [scrolled, setScrolled] = useState(false);
-  const { homeMenu, isLight } = useHeaderTheme();
+  const { heroHeader, isLight } = useHeaderTheme();
 
-  const showHeroMobileHeader = homeMenu && !open && !scrolled;
+  const showHeroHeaderStyle = heroHeader && !open && !scrolled;
   const showSolidHeader =
-    (isLight && !open) || (homeMenu && scrolled && !open);
-  const useLightTheme = isLight || open || (homeMenu && scrolled);
-  const useWhiteLogo = !useLightTheme && !showHeroMobileHeader;
+    (isLight && !open) || (heroHeader && scrolled && !open);
+  const useLightTheme = isLight || open || (heroHeader && scrolled);
+  const useWhiteLogo = !useLightTheme && !showHeroHeaderStyle;
 
   useEffect(() => {
     setMounted(true);
@@ -59,7 +77,7 @@ export function Header() {
   }, [open]);
 
   useEffect(() => {
-    if (!homeMenu) {
+    if (!heroHeader) {
       setScrolled(false);
       return;
     }
@@ -71,7 +89,7 @@ export function Header() {
     onScroll();
     window.addEventListener("scroll", onScroll, { passive: true });
     return () => window.removeEventListener("scroll", onScroll);
-  }, [homeMenu]);
+  }, [heroHeader]);
 
   if (pathname === "/login") {
     return null;
@@ -86,7 +104,7 @@ export function Header() {
       <header
         className={`site-header !fixed inset-x-0 top-0 z-[100] w-full ${
           showSolidHeader ? "site-header--solid" : ""
-        } ${showHeroMobileHeader ? "site-header--hero-home" : ""}`}
+        } ${showHeroHeaderStyle ? "site-header--hero-home" : ""}`}
       >
         <SiteContainer className="grid grid-cols-[2.75rem_1fr_2.75rem] items-center py-5 md:flex md:justify-between">
           <button
@@ -95,9 +113,9 @@ export function Header() {
             aria-expanded={open}
             onClick={() => setOpen((value) => !value)}
             className={`site-header__menu-btn group col-start-1 flex h-11 w-11 shrink-0 items-center justify-center transition hover:opacity-80 ${
-              useLightTheme && !showHeroMobileHeader
+              useLightTheme && !showHeroHeaderStyle
                 ? "text-charcoal"
-                : showHeroMobileHeader
+                : showHeroHeaderStyle
                   ? "text-charcoal md:text-white site-header__menu-btn--hero"
                   : "text-white"
             }`}
@@ -125,16 +143,16 @@ export function Header() {
             href="/"
             aria-label="Najib Daulatzai home"
             className={`site-header__logo col-start-2 justify-self-center md:col-start-auto md:ml-auto ${
-              useLightTheme && !showHeroMobileHeader
+              useLightTheme && !showHeroHeaderStyle
                 ? "text-charcoal"
-                : showHeroMobileHeader
+                : showHeroHeaderStyle
                   ? "text-charcoal md:text-white"
                   : "text-white"
             }`}
           >
             <Logo
               inverted={useWhiteLogo}
-              charcoal={showHeroMobileHeader}
+              charcoal={showHeroHeaderStyle}
               className="site-header__logo-img h-12 w-auto md:h-16"
             />
           </Link>

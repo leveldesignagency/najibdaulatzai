@@ -2,7 +2,6 @@ import { FocalImage } from "@/components/ui/FocalImage";
 import Link from "next/link";
 import { DaVinciGallery } from "@/components/robotic-surgery/DaVinciGallery";
 import { RoboticSurgeryVideo } from "@/components/robotic-surgery/RoboticSurgeryVideo";
-import { BackNavButton } from "@/components/ui/BackNavButton";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import {
@@ -38,16 +37,8 @@ export function RoboticSurgeryContent() {
   return (
     <div className="w-full">
       <header>
-        <ScrollReveal variant="fade-in">
-          <BackNavButton
-            href="/procedures"
-            ariaLabel="Back to procedures"
-            theme="dark"
-          />
-        </ScrollReveal>
-
         <ScrollReveal variant="fade-up" delay={80}>
-          <h1 className="mt-6 max-w-4xl text-4xl font-semibold tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
+          <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
             {roboticSurgeryIntro.heading}
           </h1>
         </ScrollReveal>

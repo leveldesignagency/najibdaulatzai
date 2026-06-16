@@ -46,3 +46,30 @@ export function BackNavButton({
     </Link>
   );
 }
+
+type TextBackLinkProps = {
+  href: string;
+  children: React.ReactNode;
+  theme?: "dark" | "light";
+  className?: string;
+};
+
+export function TextBackLink({
+  href,
+  children,
+  theme = "dark",
+  className = "",
+}: TextBackLinkProps) {
+  return (
+    <Link
+      href={href}
+      className={`inline-block text-xs font-medium uppercase tracking-[0.22em] transition-colors ${
+        theme === "light"
+          ? "text-white/75 hover:text-white"
+          : "text-charcoal/55 hover:text-charcoal"
+      } ${className}`.trim()}
+    >
+      {children}
+    </Link>
+  );
+}

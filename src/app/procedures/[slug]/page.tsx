@@ -9,12 +9,14 @@ import {
   SpecialtyArticle,
 } from "@/components/procedures/SpecialtyArticle";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { TextBackLink } from "@/components/ui/BackNavButton";
 import { colorectalSections } from "@/lib/procedures/colorectal-content";
 import { endoscopySections } from "@/lib/procedures/endoscopy-content";
 import { herniaSections } from "@/lib/procedures/hernia-content";
 import { proctologySections } from "@/lib/procedures/proctology-content";
 import {
   getProcedureSpecialty,
+  getProceduresTabHref,
   isProcedureGuidePage,
   procedureSpecialties,
   type ProcedureGuideSpecialtySlug,
@@ -98,12 +100,16 @@ export default async function ProcedureSlugPage({ params }: PageProps) {
     sectionMap[specialty.slug as Exclude<ProcedureSpecialtySlug, "robotic-minimally-invasive">];
 
   return (
-    <ProceduresPageShell title="Procedures">
-      <div className="mt-6">
+    <ProceduresPageShell>
+      <TextBackLink href={getProceduresTabHref(specialty.slug)}>
+        Back to procedures
+      </TextBackLink>
+
+      <div className="mt-8">
         <SectionHeading id="specialty-heading">{specialty.pageTitle}</SectionHeading>
       </div>
 
-      <div className="mt-10">
+      <div className="mt-8">
         <ProcedureTabNav activeSlug={specialty.slug} />
       </div>
 

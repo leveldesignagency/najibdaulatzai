@@ -188,10 +188,15 @@ export function getProcedureSpecialty(slug: string) {
   return procedureSpecialtyMap[slug as ProcedureSpecialtySlug] ?? null;
 }
 
+export function getProceduresTabHref(slug: ProcedureSpecialtySlug): string {
+  return `/procedures#${slug}`;
+}
+
+/** Long-form specialty guide (1000+ words) — not the main tabbed hub. */
 export function getProcedureSpecialtyHref(slug: ProcedureSpecialtySlug): string {
   const specialty = procedureSpecialtyMap[slug];
   if (specialty?.guidePage === false) {
-    return `/procedures#${slug}`;
+    return getProceduresTabHref(slug);
   }
   return `/procedures/${slug}`;
 }

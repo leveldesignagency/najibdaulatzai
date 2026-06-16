@@ -1,7 +1,7 @@
 "use client";
 
 import { FocalImage } from "@/components/ui/FocalImage";
-import { useCallback, useEffect, useState } from "react";
+import { useCallback, useEffect, useLayoutEffect, useState } from "react";
 import { SiteContainer } from "@/components/layout/SiteContainer";
 import { ProceduresHeroNav } from "@/components/procedures/ProceduresHeroNav";
 import { ProceduresTabbedGrid } from "@/components/procedures/ProceduresTabbedGrid";
@@ -33,6 +33,14 @@ export function ProceduresPageContent() {
   const handleSpecialtyChange = useCallback((slug: ProcedureSpecialtySlug) => {
     setActiveSpecialty(slug);
     window.history.replaceState(null, "", `#${slug}`);
+    document.getElementById(slug)?.scrollIntoView({ behavior: "smooth", block: "start" });
+  }, []);
+
+  useLayoutEffect(() => {
+    const slug = resolveSpecialtyFromHash(window.location.hash);
+    if (slug) {
+      setActiveSpecialty(slug);
+    }
   }, []);
 
   useEffect(() => {
@@ -43,10 +51,20 @@ export function ProceduresPageContent() {
       }
     };
 
-    applyHash();
     window.addEventListener("hashchange", applyHash);
     return () => window.removeEventListener("hashchange", applyHash);
   }, []);
+
+  useEffect(() => {
+    const slug = resolveSpecialtyFromHash(window.location.hash);
+    if (!slug) return;
+
+    const frame = requestAnimationFrame(() => {
+      document.getElementById(slug)?.scrollIntoView({ block: "start" });
+    });
+
+    return () => cancelAnimationFrame(frame);
+  }, [activeSpecialty]);
 
   return (
     <>

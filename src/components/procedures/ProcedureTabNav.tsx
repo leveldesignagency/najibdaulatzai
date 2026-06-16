@@ -3,47 +3,68 @@
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import {
-  getProcedureSpecialtyHref,
+  getProceduresTabHref,
   procedureSpecialties,
+  type ProcedureSpecialty,
 } from "@/lib/procedures";
 
 type ProcedureTabNavProps = {
   activeSlug?: string;
+  variant?: "light" | "dark";
 };
 
-export function ProcedureTabNav({ activeSlug }: ProcedureTabNavProps) {
+function TabLabel({ specialty }: { specialty: ProcedureSpecialty }) {
+  if (specialty.shortLabel) {
+    return (
+      <>
+        <span className="lg:hidden">{specialty.shortLabel}</span>
+        <span className="hidden lg:inline">{specialty.label}</span>
+      </>
+    );
+  }
+
+  return specialty.label;
+}
+
+const tabLayout =
+  "min-h-[3rem] w-full flex-1 border-b px-2 py-3 text-center text-[0.6875rem] font-semibold uppercase leading-snug tracking-[0.1em] transition-colors last:border-b-0 sm:min-w-[33.333%] sm:border-b-0 sm:border-r sm:px-3 sm:py-3.5 sm:text-xs sm:last:border-r-0 lg:min-w-0 lg:tracking-[0.12em]";
+
+export function ProcedureTabNav({
+  activeSlug,
+  variant = "light",
+}: ProcedureTabNavProps) {
   const pathname = usePathname();
+  const isDark = variant === "dark";
 
   return (
     <nav
       aria-label="Procedure specialties"
-      className="grid grid-cols-2 overflow-hidden rounded-sm sm:grid-cols-3 lg:grid-cols-5"
+      className={`flex w-full flex-col overflow-hidden sm:flex-row sm:flex-wrap lg:flex-nowrap ${
+        isDark ? "border-t border-white/25" : "border border-charcoal/15"
+      }`}
     >
       {procedureSpecialties.map((specialty) => {
         const isActive =
           activeSlug === specialty.slug ||
-          (pathname === "/procedures" && activeSlug === specialty.slug) ||
           pathname === `/procedures/${specialty.slug}`;
+
+        const activeClass = isDark
+          ? "bg-white text-charcoal"
+          : "bg-charcoal text-white";
+        const inactiveClass = isDark
+          ? "border-white/25 bg-charcoal/50 text-white hover:bg-white/15"
+          : "border-charcoal/15 bg-white text-charcoal/75 hover:bg-neutral-50 hover:text-charcoal";
 
         return (
           <Link
             key={specialty.slug}
-            href={getProcedureSpecialtyHref(specialty.slug)}
-            className={`px-3 py-4 text-center text-xs font-semibold uppercase leading-snug tracking-[0.12em] transition-colors sm:px-3 sm:text-sm lg:px-4 lg:tracking-[0.16em] ${
-              isActive
-                ? "bg-neutral-100 text-charcoal"
-                : "bg-charcoal text-white hover:bg-charcoal-dark"
-            }`}
+            href={getProceduresTabHref(specialty.slug)}
+            className={`flex items-center justify-center ${tabLayout} ${
+              isDark ? "border-r border-white/25 last:border-r-0" : "border-charcoal/15 sm:border-r"
+            } ${isActive ? activeClass : inactiveClass}`}
             aria-current={isActive ? "page" : undefined}
           >
-            {specialty.shortLabel ? (
-              <>
-                <span className="lg:hidden">{specialty.shortLabel}</span>
-                <span className="hidden lg:inline">{specialty.label}</span>
-              </>
-            ) : (
-              specialty.label
-            )}
+            <TabLabel specialty={specialty} />
           </Link>
         );
       })}

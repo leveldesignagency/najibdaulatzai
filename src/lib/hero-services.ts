@@ -1,10 +1,10 @@
 import {
-  getProcedureSpecialtyHref,
+  getProceduresTabHref,
   procedureSpecialties,
 } from "./procedures";
 
-/** Homepage hero service links — matches procedures page tab order */
+/** Homepage hero service links — main procedures hub tabs */
 export const heroServices = procedureSpecialties.map((specialty) => ({
   label: specialty.shortLabel ?? specialty.label,
-  href: getProcedureSpecialtyHref(specialty.slug),
+  href: getProceduresTabHref(specialty.slug),
 }));

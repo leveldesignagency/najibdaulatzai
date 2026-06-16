@@ -49,19 +49,12 @@ export function SpecialtyArticle({ specialty, sections }: SpecialtyArticleProps)
 
 export function ProceduresPageShell({
   children,
-  title,
 }: {
   children: React.ReactNode;
-  title: string;
 }) {
   return (
     <>
-      <PageShell>
-        <p className="text-xs font-medium uppercase tracking-[0.35em] text-charcoal/50">
-          {title}
-        </p>
-        {children}
-      </PageShell>
+      <PageShell>{children}</PageShell>
       <Footer />
     </>
   );
