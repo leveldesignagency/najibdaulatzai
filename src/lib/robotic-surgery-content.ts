@@ -97,7 +97,7 @@ export const roboticProcedureLinks: RoboticProcedureLink[] = [
   {
     title: "Pouch surgery",
     description:
-      "Ileal pouch-anal anastomosis (J-pouch) using robotic techniques for selected patients, including experience from St Mark's Hospital training.",
+      "Ileal pouch-anal anastomosis (J-pouch) using robotic techniques for selected patients, developed through advanced fellowship training.",
     href: "/procedures/pouch-surgery",
   },
   {
@@ -119,9 +119,6 @@ export const roboticProcedureLinks: RoboticProcedureLink[] = [
     href: "/procedures/inguinal-hernias",
   },
 ];
-
-export const locationsNote =
-  "Robotic colorectal surgery is undertaken at private hospitals including HCA The Wellington Hospital, Spire Bushey Hospital, and HCA Golders Green Outpatients for consultations, with NHS care at West Hertfordshire Teaching Hospitals NHS Trust, Watford.";
 
 export const ctaParagraph =
   "If you are considering robotic colorectal surgery in London or Hertfordshire, book a consultation to discuss whether a robotic approach is appropriate for your condition.";

@@ -37,6 +37,36 @@ async function exportMobileHero() {
 }
 
 await exportMobileHero();
+
+async function exportSocialShareImages() {
+  const src = "public/Social Share Najib.png";
+  if (!fs.existsSync(src)) return;
+
+  const out = "public/images/og";
+  fs.mkdirSync(out, { recursive: true });
+
+  await sharp(src)
+    .rotate()
+    .resize(1200, 630, { fit: "cover", position: "centre" })
+    .jpeg({ quality: 85, mozjpeg: true })
+    .toFile(`${out}/social-share-najib.jpg`);
+
+  await sharp(src)
+    .rotate()
+    .resize(1200, 1200, { fit: "cover", position: "centre" })
+    .jpeg({ quality: 85, mozjpeg: true })
+    .toFile(`${out}/social-share-najib-profile.jpg`);
+
+  await sharp(src)
+    .rotate()
+    .resize(1920, null, { withoutEnlargement: true, fit: "inside" })
+    .jpeg({ quality: 85, mozjpeg: true })
+    .toFile(`${out}/social-share-najib-wide.jpg`);
+
+  console.log("social-share OG images updated in public/images/og/");
+}
+
+await exportSocialShareImages();
 await optimizeInPlace("public/images/hero-consultation.jpg", 1920, 82);
 await optimizeInPlace("public/images/procedures-home.jpg", 1600, 80);
 

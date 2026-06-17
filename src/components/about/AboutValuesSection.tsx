@@ -12,21 +12,25 @@ export function AboutValuesSection() {
       background="charcoal"
     >
       <div className="grid gap-10 lg:grid-cols-2 lg:items-stretch lg:gap-16">
-        <ScrollReveal variant="fade-right">
-          <div className="flex flex-col">
+        <ScrollReveal variant="fade-right" className="h-full">
+          <div className="flex h-full flex-col">
             <SectionHeading id="about-values-heading" theme="light">
               Values
             </SectionHeading>
             <p className="mt-8 text-base leading-relaxed text-white/85 sm:mt-10 sm:text-lg lg:text-xl">
               {valuesIntro}
             </p>
-            <ScrollReveal variant="scale-up" delay={140} className="relative mt-8 aspect-[4/5] w-full overflow-hidden bg-charcoal-dark sm:mt-10 lg:aspect-auto lg:min-h-[240px] lg:flex-1">
+            <ScrollReveal
+              variant="scale-up"
+              delay={140}
+              className="relative mt-8 w-full overflow-hidden bg-charcoal-dark max-lg:aspect-[4/5] sm:mt-10 lg:min-h-0 lg:flex-1"
+            >
               <FocalImage
                 src="/images/about secondary.jpg"
                 alt="Mr Najib Daulatzai, consultant colorectal surgeon"
                 fill
                 className="object-cover"
-                sizes="(max-width: 1024px) 90vw, 40vw"
+                sizes="(max-width: 1024px) 90vw, 45vw"
               />
             </ScrollReveal>
           </div>

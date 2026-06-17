@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { pageDescriptions } from "./page-descriptions";
 import { pageTitles } from "./page-titles";
+import { defaultOgImage } from "./seo/entity";
 import { getGeoMetaTags } from "./seo/geo";
 import { homeKeywords } from "./seo/keywords";
 import { publicRobots } from "./seo/robots";
@@ -48,10 +49,11 @@ export const homeMetadata: Metadata = {
     description: pageDescriptions.home,
     images: [
       {
-        url: "/images/hero-consultation.jpg",
-        width: 1200,
-        height: 630,
-        alt: "Mr Najib Daulatzai, colorectal and general surgeon, consulting with a patient in his London and Hertfordshire practice",
+        url: defaultOgImage.path,
+        width: defaultOgImage.width,
+        height: defaultOgImage.height,
+        alt: defaultOgImage.alt,
+        type: "image/jpeg",
       },
     ],
   },
@@ -59,7 +61,7 @@ export const homeMetadata: Metadata = {
     card: "summary_large_image",
     title: pageTitles.home,
     description: pageDescriptions.home,
-    images: ["/images/hero-consultation.jpg"],
+    images: [defaultOgImage.path],
   },
   robots: publicRobots,
   other: {

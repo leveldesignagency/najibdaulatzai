@@ -1,5 +1,5 @@
 import { blogAuthor } from "@/lib/blog/author";
-import { seoEntityIds } from "@/lib/seo/entity";
+import { defaultOgImage, seoEntityIds, toSchemaImageObject } from "@/lib/seo/entity";
 import { siteConfig } from "@/lib/site-config";
 import type { BlogPost } from "@/lib/blog/types";
 
@@ -13,7 +13,9 @@ export function BlogPostJsonLd({ post }: BlogPostJsonLdProps) {
     "@type": "BlogPosting",
     headline: post.title,
     description: post.seoDescription,
-    ...(post.image ? { image: `${siteConfig.url}${post.image.src}` } : {}),
+    ...(post.image
+      ? { image: `${siteConfig.url}${post.image.src}` }
+      : { image: toSchemaImageObject(defaultOgImage) }),
     url: `${siteConfig.url}/blog/${post.slug}`,
     datePublished: post.publishedAt.toISOString(),
     dateModified: post.publishedAt.toISOString(),

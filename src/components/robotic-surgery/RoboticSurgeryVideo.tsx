@@ -6,9 +6,16 @@ import type { RoboticSurgeryVideoConfig } from "@/lib/robotic-surgery-content";
 type RoboticSurgeryVideoProps = {
   video: RoboticSurgeryVideoConfig;
   className?: string;
+  hideHeading?: boolean;
+  labelledBy?: string;
 };
 
-export function RoboticSurgeryVideo({ video, className = "" }: RoboticSurgeryVideoProps) {
+export function RoboticSurgeryVideo({
+  video,
+  className = "",
+  hideHeading = false,
+  labelledBy,
+}: RoboticSurgeryVideoProps) {
   const { functionalAllowed, openPreferences } = useCookieConsent();
   const hasYoutube = Boolean(video.youtubeId?.trim());
   const hasFile = Boolean(video.fileSrc?.trim());
@@ -17,16 +24,22 @@ export function RoboticSurgeryVideo({ video, className = "" }: RoboticSurgeryVid
   return (
     <section
       className={`${className}`.trim()}
-      aria-labelledby="robotic-surgery-video-heading"
+      aria-labelledby={labelledBy ?? (hideHeading ? undefined : "robotic-surgery-video-heading")}
     >
-      <h2
-        id="robotic-surgery-video-heading"
-        className="border-l-[3px] border-charcoal pl-4 text-2xl font-semibold tracking-tight text-charcoal lg:pl-5 lg:text-3xl"
-      >
-        {video.heading}
-      </h2>
+      {hideHeading ? null : (
+        <h2
+          id="robotic-surgery-video-heading"
+          className="border-l-[3px] border-charcoal pl-4 text-2xl font-semibold tracking-tight text-charcoal lg:pl-5 lg:text-3xl"
+        >
+          {video.heading}
+        </h2>
+      )}
       {video.caption ? (
-        <p className="mt-4 max-w-3xl text-base leading-relaxed text-charcoal/80 lg:text-lg">
+        <p
+          className={`max-w-3xl text-base leading-relaxed text-charcoal/80 lg:text-lg ${
+            hideHeading ? "" : "mt-4"
+          }`.trim()}
+        >
           {video.caption}
         </p>
       ) : null}

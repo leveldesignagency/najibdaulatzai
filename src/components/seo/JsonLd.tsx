@@ -7,14 +7,18 @@ import {
   homepageAeoFaqs,
 } from "@/lib/seo/aeo";
 import {
-  defaultOgImageUrl,
+  defaultOgImage,
   organizationAlternateNames,
   organizationName,
   physicianCredentials,
   physicianKnowsAbout,
   physicianLanguages,
+  physicianProfileImage,
   physicianSameAs,
+  physicianWideImage,
   seoEntityIds,
+  siteLogoImage,
+  toSchemaImageObject,
 } from "@/lib/seo/entity";
 import { locationToSchemaGeo, practiceLocations, servedAreas } from "@/lib/seo/geo";
 import { faqItems, menuLinks, siteConfig } from "@/lib/site-config";
@@ -35,8 +39,12 @@ export function JsonLd() {
       name: organizationName,
       alternateName: [...organizationAlternateNames],
       url: siteConfig.url,
-      logo: `${siteConfig.url}/Logos/Najib_Daulatzai_Logo.svg`,
-      image: defaultOgImageUrl,
+      logo: toSchemaImageObject(siteLogoImage),
+      image: [
+        toSchemaImageObject(defaultOgImage),
+        toSchemaImageObject(physicianProfileImage),
+        toSchemaImageObject(physicianWideImage),
+      ],
       description: siteConfig.description,
       telephone: siteConfig.phone,
       email: siteConfig.email,
@@ -65,7 +73,11 @@ export function JsonLd() {
       familyName: "Daulatzai",
       honorificPrefix: "Mr",
       url: siteConfig.url,
-      image: defaultOgImageUrl,
+      image: [
+        toSchemaImageObject(physicianProfileImage),
+        toSchemaImageObject(physicianWideImage),
+        toSchemaImageObject(defaultOgImage),
+      ],
       description: siteConfig.description,
       jobTitle: "Consultant Colorectal and General Surgeon",
       telephone: siteConfig.phone,
@@ -101,6 +113,7 @@ export function JsonLd() {
       inLanguage: "en-GB",
       publisher: { "@id": seoEntityIds.organization },
       about: { "@id": seoEntityIds.physician },
+      image: toSchemaImageObject(defaultOgImage),
     },
     {
       "@type": "ItemList",
@@ -135,10 +148,7 @@ export function JsonLd() {
         "@type": "SpeakableSpecification",
         cssSelector: ["h1", "[data-speakable='summary']"],
       },
-      primaryImageOfPage: {
-        "@type": "ImageObject",
-        url: defaultOgImageUrl,
-      },
+      primaryImageOfPage: toSchemaImageObject(defaultOgImage),
     },
     {
       "@type": "FAQPage",
@@ -231,6 +241,7 @@ export function JsonLd() {
         "Consultant colorectal and general surgeon in London and Hertfordshire with robotic and minimally invasive expertise.",
       inLanguage: "en-GB",
       mainEntity: { "@id": seoEntityIds.physician },
+      primaryImageOfPage: toSchemaImageObject(physicianProfileImage),
     },
     {
       "@type": "CollectionPage",

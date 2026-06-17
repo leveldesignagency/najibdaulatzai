@@ -36,7 +36,14 @@ export default function ResearchPage() {
           </div>
         </ScrollReveal>
 
-        <div className="mt-12 grid gap-6 sm:mt-16 lg:grid-cols-2">
+        <ScrollReveal variant="fade-up" delay={140}>
+          <p className="mt-12 max-w-4xl text-base leading-relaxed text-charcoal/85 sm:mt-16 sm:text-lg">
+            The following represents a selection of my published research and
+            peer-reviewed work.
+          </p>
+        </ScrollReveal>
+
+        <div className="mt-10 grid gap-6 sm:mt-12 lg:grid-cols-2">
           {researchPublications.map((publication, index) => (
             <ScrollReveal
               key={`${index}-${publication.citation.slice(0, 48)}`}

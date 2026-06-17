@@ -8,6 +8,7 @@ import {
   getBlogPostForMetadata,
 } from "@/lib/blog/get-posts";
 import { absolutePageTitle } from "@/lib/page-titles";
+import { defaultOgImage } from "@/lib/seo/entity";
 import { publicRobots, privatePreviewRobots } from "@/lib/seo/robots";
 import { siteConfig } from "@/lib/site-config";
 
@@ -48,6 +49,20 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
       type: "article",
       publishedTime: post.publishedAt.toISOString(),
       authors: ["Mr Najib Daulatzai"],
+      images: [
+        {
+          url: defaultOgImage.path,
+          width: defaultOgImage.width,
+          height: defaultOgImage.height,
+          alt: defaultOgImage.alt,
+        },
+      ],
+    },
+    twitter: {
+      card: "summary_large_image",
+      title: post.title,
+      description: post.seoDescription,
+      images: [defaultOgImage.path],
     },
   };
 }

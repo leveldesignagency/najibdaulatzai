@@ -1,6 +1,9 @@
 import { reviewPlatforms } from "@/lib/testimonials-content";
 import { siteConfig } from "@/lib/site-config";
 
+const physicianImageAlt =
+  "Mr Najib Daulatzai, consultant colorectal and general surgeon in London and Hertfordshire";
+
 /** Canonical entity IDs for JSON-LD @graph linking */
 export const seoEntityIds = {
   organization: `${siteConfig.url}/#medical-organization`,
@@ -63,11 +66,69 @@ export const organizationAlternateNames = [
   "ndsurgeon.com",
 ] as const;
 
-export const defaultOgImage = {
-  path: "/images/hero-consultation.jpg",
+export type SiteImageAsset = {
+  path: string;
+  width: number;
+  height: number;
+  alt: string;
+};
+
+/** 1200×630 — Open Graph, Twitter, link previews */
+export const defaultOgImage: SiteImageAsset = {
+  path: "/images/og/social-share-najib.jpg",
   width: 1200,
   height: 630,
-  alt: "Mr Najib Daulatzai, consultant colorectal and general surgeon in London and Hertfordshire",
-} as const;
+  alt: physicianImageAlt,
+};
+
+/** 1200×1200 — Google Business profile, Physician schema, knowledge panel */
+export const physicianProfileImage: SiteImageAsset = {
+  path: "/images/og/social-share-najib-profile.jpg",
+  width: 1200,
+  height: 1200,
+  alt: physicianImageAlt,
+};
+
+/** High-resolution portrait for rich results */
+export const physicianWideImage: SiteImageAsset = {
+  path: "/images/og/social-share-najib-wide.jpg",
+  width: 1920,
+  height: 1280,
+  alt: physicianImageAlt,
+};
+
+export const siteLogoImage: SiteImageAsset = {
+  path: "/Logos/Najib_Daulatzai_Logo.svg",
+  width: 512,
+  height: 128,
+  alt: "Najib Daulatzai — colorectal and general surgeon",
+};
 
 export const defaultOgImageUrl = `${siteConfig.url}${defaultOgImage.path}`;
+export const physicianProfileImageUrl = `${siteConfig.url}${physicianProfileImage.path}`;
+export const physicianWideImageUrl = `${siteConfig.url}${physicianWideImage.path}`;
+export const siteLogoImageUrl = `${siteConfig.url}${siteLogoImage.path}`;
+
+export function absoluteSiteImageUrl(path: string) {
+  return `${siteConfig.url}${path}`;
+}
+
+export function toSchemaImageObject(asset: SiteImageAsset) {
+  return {
+    "@type": "ImageObject" as const,
+    url: absoluteSiteImageUrl(asset.path),
+    width: asset.width,
+    height: asset.height,
+    caption: asset.alt,
+  };
+}
+
+const ogImageCatalog = new Map<string, SiteImageAsset>([
+  [defaultOgImage.path, defaultOgImage],
+  [physicianProfileImage.path, physicianProfileImage],
+  [physicianWideImage.path, physicianWideImage],
+]);
+
+export function getOgImageAsset(path: string): SiteImageAsset {
+  return ogImageCatalog.get(path) ?? defaultOgImage;
+}

@@ -2,6 +2,31 @@
 
 First-time deployment checklist for this Next.js 16 site.
 
+## Going live & Google indexing (read this first)
+
+The site code is already set to **`index, follow`** on all public pages. If a SEO audit reports **`noindex, nofollow`**, the usual cause is the **preview login wall**, not the page templates.
+
+While `SITE_AUTH_ENABLED=true` on Vercel:
+
+- Visitors and Google are redirected to `/login`
+- `/login` is correctly marked `noindex, nofollow` so Google will not index the login screen
+- **No marketing page can be indexed until the wall is removed**
+
+**To allow Google to index the site:** set `SITE_AUTH_ENABLED=false` in Vercel → Project → Settings → Environment Variables (Production), then **redeploy**. After that, submit `https://www.ndsurgeon.com/sitemap.xml` in [Google Search Console](https://search.google.com/search-console).
+
+Local `.env.example` already defaults `SITE_AUTH_ENABLED=false` for development.
+
+## Google Business Profile imagery
+
+When setting up Google Business, use the square profile image from the website:
+
+- **URL:** `https://www.ndsurgeon.com/images/og/social-share-najib-profile.jpg` (1200×1200)
+- **Link preview / social:** `https://www.ndsurgeon.com/images/og/social-share-najib.jpg` (1200×630)
+
+These are generated from `public/Social Share Najib.png` via `npm run optimize-images`.
+
+After creating the Google Business Profile, add its public URL to `physicianSameAs` in `src/lib/seo/entity.ts` so Google can connect the website and profile.
+
 ## Prerequisites
 
 - Node.js **20.9.0 or later** (required by Next.js 16)

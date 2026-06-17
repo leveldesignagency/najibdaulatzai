@@ -3,11 +3,35 @@ export type ResearchPublication = {
   journal: string;
   year: string;
   articleTitle: string;
+  articleUrl?: string;
   citation: string;
   summary: string;
 };
 
 export const researchPublications: ResearchPublication[] = [
+  {
+    category: "COLORECTAL SURGERY",
+    journal: "[Awaiting formal journal assignment]",
+    year: "2026",
+    articleTitle:
+      "Implementation and Evaluation of a Postoperative Virtual Hospital Pathway for Elective Colorectal Surgery: A Propensity-Matched Analysis",
+    citation:
+      "Whelan H, Thapa B, Massias S, Reza L, Johnson N, Kinross J, Daulatzai N, Patel V. Implementation and Evaluation of a Postoperative Virtual Hospital Pathway for Elective Colorectal Surgery: A Propensity-Matched Analysis. doi: https://doi.org/10.64898/2026.05.20.26353655",
+    summary:
+      "A propensity-matched analysis evaluating the safety, feasibility, and patient outcomes of a structured virtual hospital pathway introduced following elective colorectal surgery.",
+  },
+  {
+    category: "ROBOTIC SURGERY",
+    journal: "Journal of Robotic Surgery",
+    year: "2025",
+    articleTitle:
+      "Transitioning to da Vinci Xi for colorectal cancer surgery: a prospective cohort study of 102 cases from a UK centre with a structured robotic programme.",
+    articleUrl: "https://pubmed.ncbi.nlm.nih.gov/41021138/",
+    citation:
+      "Massias S, Vadhwana B, Rad AA, Reza L, Franklyn J, Hollingshead J, Daulatzai N, Patel V. Transitioning to da Vinci Xi for colorectal cancer surgery: a prospective cohort study of 102 cases from a UK centre with a structured robotic programme. J Robot Surg. 2025 Sep 29;19(1):644. doi: 10.1007/s11701-025-02832-1. PMID: 41021138. Free PMC article.",
+    summary:
+      "A prospective cohort study of 102 consecutive cases reporting the outcomes and learning curve associated with transitioning a structured robotic colorectal cancer programme to the da Vinci Xi platform.",
+  },
   {
     category: "COVID-19 & Cancer Services",
     journal: "British Journal of Surgery",

@@ -1,4 +1,5 @@
-import { FocalImage } from "@/components/ui/FocalImage";
+import { ParallaxImage } from "@/components/ui/ParallaxImage";
+import { ParallaxShift } from "@/components/ui/ParallaxShift";
 import Link from "next/link";
 import { DaVinciGallery } from "@/components/robotic-surgery/DaVinciGallery";
 import { RoboticSurgeryVideo } from "@/components/robotic-surgery/RoboticSurgeryVideo";
@@ -8,7 +9,6 @@ import {
   benefitsSection,
   ctaParagraph,
   daVinciSection,
-  locationsNote,
   roboticProcedureLinks,
   roboticSurgeryIntro,
   roboticSurgeryMainImage,
@@ -35,40 +35,31 @@ function ProseBlock({ paragraphs }: { paragraphs: readonly string[] }) {
 
 export function RoboticSurgeryContent() {
   return (
-    <div className="w-full">
+    <div className="w-full overflow-x-clip">
       <header>
         <ScrollReveal variant="fade-up" delay={80}>
           <h1 className="max-w-4xl text-4xl font-semibold tracking-tight text-charcoal sm:text-5xl lg:text-6xl">
             {roboticSurgeryIntro.heading}
           </h1>
         </ScrollReveal>
-
-        <ScrollReveal variant="fade-up" delay={160}>
-          <p className={`mt-8 max-w-3xl ${bodyClass}`} data-speakable="summary">
-            {roboticSurgeryIntro.paragraphs[0]}
-          </p>
-        </ScrollReveal>
       </header>
 
       <section
-        className="mt-14 grid items-start gap-10 lg:mt-16 lg:grid-cols-2 lg:gap-14"
+        className="mt-6 grid items-start gap-10 lg:mt-8 lg:grid-cols-2 lg:gap-14 xl:gap-16"
         aria-label="Introduction to robotic surgery"
       >
         <ScrollReveal variant="fade-right">
-          <ProseBlock paragraphs={roboticSurgeryIntro.paragraphs.slice(1)} />
+          <ProseBlock paragraphs={roboticSurgeryIntro.paragraphs} />
         </ScrollReveal>
 
         <ScrollReveal variant="fade-left" delay={120}>
-          <figure className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100 lg:aspect-[5/4]">
-            <FocalImage
-              src={roboticSurgeryMainImage.src}
-              alt={roboticSurgeryMainImage.alt}
-              fill
-              priority
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-          </figure>
+          <ParallaxImage
+            src={roboticSurgeryMainImage.src}
+            alt={roboticSurgeryMainImage.alt}
+            priority
+            withBackdrop={false}
+            sizes="(max-width: 1024px) 100vw, 46vw"
+          />
         </ScrollReveal>
       </section>
 
@@ -84,33 +75,37 @@ export function RoboticSurgeryContent() {
       </section>
 
       <section
-        className="mt-16 grid items-center gap-10 lg:mt-20 lg:grid-cols-2 lg:gap-14"
+        className="mt-16 grid items-start gap-10 lg:mt-20 lg:grid-cols-2 lg:gap-14 xl:gap-16"
         aria-labelledby="davinci-heading"
       >
         <ScrollReveal variant="fade-right" className="order-2 lg:order-1">
-          <figure className="relative aspect-[4/3] w-full overflow-hidden bg-neutral-100">
-            <FocalImage
-              src={roboticSurgerySecondaryImage.src}
-              alt={roboticSurgerySecondaryImage.alt}
-              fill
-              className="object-cover"
-              sizes="(max-width: 1024px) 100vw, 50vw"
-            />
-          </figure>
+          <ParallaxImage
+            src={roboticSurgerySecondaryImage.src}
+            alt={roboticSurgerySecondaryImage.alt}
+            withBackdrop={false}
+            invert
+            sizes="(max-width: 1024px) 100vw, 46vw"
+          />
         </ScrollReveal>
 
         <ScrollReveal variant="fade-left" delay={120} className="order-1 lg:order-2">
-          <h2 id="davinci-heading" className={sectionHeadingClass}>
-            {daVinciSection.heading}
-          </h2>
-          <div className="mt-8">
-            <ProseBlock paragraphs={daVinciSection.paragraphs} />
-          </div>
+          <ParallaxShift>
+            <h2 id="davinci-heading" className={sectionHeadingClass}>
+              {daVinciSection.heading}
+            </h2>
+            <div className="mt-8">
+              <ProseBlock paragraphs={daVinciSection.paragraphs} />
+            </div>
+          </ParallaxShift>
         </ScrollReveal>
       </section>
 
-      <ScrollReveal variant="fade-up" className="mt-16 lg:mt-20">
-        <RoboticSurgeryVideo video={roboticSurgeryVideo} />
+      <ScrollReveal variant="fade-up" className="mt-10 lg:mt-12">
+        <RoboticSurgeryVideo
+          video={roboticSurgeryVideo}
+          hideHeading
+          labelledBy="davinci-heading"
+        />
       </ScrollReveal>
 
       <section className="mt-16 lg:mt-20" aria-labelledby="benefits-heading">
@@ -136,28 +131,14 @@ export function RoboticSurgeryContent() {
         </ul>
       </section>
 
-      <section
-        className="mt-16 grid gap-10 lg:mt-20 lg:grid-cols-[1.2fr_0.8fr] lg:items-start lg:gap-14"
-        aria-labelledby="training-heading"
-      >
+      <section className="mt-16 lg:mt-20" aria-labelledby="training-heading">
         <ScrollReveal variant="fade-right">
           <h2 id="training-heading" className={sectionHeadingClass}>
             {trainingSection.heading}
           </h2>
-          <div className="mt-8">
+          <div className="mt-8 max-w-4xl">
             <ProseBlock paragraphs={trainingSection.paragraphs} />
           </div>
-        </ScrollReveal>
-
-        <ScrollReveal variant="fade-left" delay={120}>
-          <aside className="border border-charcoal/10 bg-charcoal p-6 text-white lg:p-8">
-            <p className="text-xs font-medium uppercase tracking-[0.35em] text-white/65">
-              Where surgery takes place
-            </p>
-            <p className="mt-4 text-base leading-relaxed text-white/90 lg:text-lg">
-              {locationsNote}
-            </p>
-          </aside>
         </ScrollReveal>
       </section>
 
@@ -199,11 +180,13 @@ export function RoboticSurgeryContent() {
 
       <ScrollReveal variant="fade-up">
         <section
-          className="mt-16 border border-charcoal/10 bg-neutral-50 p-8 lg:mt-20 lg:p-12"
+          className="mt-16 border border-charcoal/10 bg-neutral-50 p-8 max-md:text-center lg:mt-20 lg:p-12"
           aria-label="Book a consultation"
         >
-          <p className={`max-w-3xl ${bodyClass}`}>{ctaParagraph}</p>
-          <div className="mt-8 flex flex-wrap gap-4">
+          <p className={`max-w-3xl max-md:mx-auto md:mx-0 ${bodyClass}`}>
+            {ctaParagraph}
+          </p>
+          <div className="mt-8 flex flex-wrap justify-center gap-4 max-md:flex-col max-md:items-center md:justify-start">
             <Button href="/contact" variant="dark">
               Book a consultation
             </Button>

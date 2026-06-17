@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 import { siteConfig } from "../site-config";
-import { defaultOgImage as defaultOgImageAsset } from "./entity";
+import { defaultOgImage, getOgImageAsset } from "./entity";
 import { getGeoMetaTags } from "./geo";
 import { publicRobots, privatePreviewRobots } from "./robots";
 
@@ -25,12 +25,13 @@ export function buildPageMetadata({
   description,
   path,
   keywords,
-  ogImage = defaultOgImageAsset.path,
+  ogImage = defaultOgImage.path,
   ogImageAlt,
   noIndex = false,
 }: BuildPageMetadataOptions): Metadata {
   const canonical = path.startsWith("/") ? path : `/${path}`;
   const pageUrl = `${siteConfig.url}${canonical === "/" ? "" : canonical}`;
+  const ogImageAsset = getOgImageAsset(ogImage);
 
   return {
     title: { absolute: title },
@@ -47,9 +48,10 @@ export function buildPageMetadata({
       images: [
         {
           url: ogImage,
-          width: defaultOgImageAsset.width,
-          height: defaultOgImageAsset.height,
-          alt: ogImageAlt ?? title,
+          width: ogImageAsset.width,
+          height: ogImageAsset.height,
+          alt: ogImageAlt ?? ogImageAsset.alt,
+          type: ogImage.endsWith(".jpg") ? "image/jpeg" : undefined,
         },
       ],
     },
