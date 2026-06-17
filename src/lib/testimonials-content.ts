@@ -39,50 +39,62 @@ export const reviewPlatforms = [
 export const testimonials: Testimonial[] = [
   {
     quote:
-      "Mr Daulatzai was very informative about my condition at the time of first consultation and fully explained the procedure that would be undertaken and the immediate after effects of same. I could not have asked for anything more pre-surgery.",
-    dateLabel: "March 2025",
-    platform: "Doctify",
-  },
-  {
-    quote:
-      "A caring excellent consultant who made you feel confident in every aspect of the surgery you would have. Excellent aftercare also.",
-    dateLabel: "January 2025",
+      "The experience I had with Najib Daulatzai was excellent, prompt, informed, personable. Everything worked as it was meant to and when I had a question, it was resolved. The actual procedure was smooth with very little pain or difficulty afterwards.",
+    dateLabel: "May 2026",
     platform: "Top Doctors",
   },
   {
     quote:
-      "I was addressed very courteously. My condition was explained clearly, and all my questions were answered. I was examined, and an enlarged hernia bulge was noted. The consultant assured me he would do his best to get an early appointment, given my worsening condition.",
-    dateLabel: "November 2024",
-    platform: "iWantGreatCare",
-  },
-  {
-    quote:
-      "He is one of the best surgeon I ever met and he is very professional in his job, I am so glad that he was my Doctor. Thank you so much for all of that and help and support me during my procedures.",
-    dateLabel: "October 2024",
-    platform: "Doctify",
-  },
-  {
-    quote:
-      "Mr Najib Daulatzai is an exceptional doctor, highly knowledgeable, professional, and compassionate. I felt comfortable discussing my concerns with him, and he took the time to listen and address all my questions. I highly recommend.",
-    dateLabel: "September 2024",
+      "Very knowledgeable and explained the procedure very well. Great bedside manner.",
+    dateLabel: "May 2026",
     platform: "Top Doctors",
   },
   {
     quote:
-      "I am very happy that he was recommended to me. From the first consultation to the aftercare following my surgery, he has been very diligent and understanding. Very skilled surgeon. Also, his secretary and team are very helpful. Would recommend him without hesitation",
-    dateLabel: "2024",
+      "The Robotic surgery with the Intuitive Xi robot is truly fantastic and THEN to be discharged very safely into the care of a very professional virtual Ward at home is AMAZING; thank you",
+    dateLabel: "March 2026",
+    platform: "Doctify",
+  },
+  {
+    quote:
+      "My experience both with Mr Daulatzai and Bushey Spire Hospital was exemplary",
+    dateLabel: "March 2026",
+    platform: "Top Doctors",
+  },
+  {
+    quote:
+      "I had a very positive experience with Mr Daulatzai. He was welcoming, professional, and incredibly reassuring throughout the entire process. He took the time to explain everything clearly and made me feel comfortable and confident in my care. I'm very grateful for his support and would highly recommend him.",
+    dateLabel: "March 2026",
+    platform: "Top Doctors",
+  },
+  {
+    quote:
+      "I went to see Mr Daulatzai for a bowel issue, having seen 2 other specialists in the past. He gained my trust very quickly and thankfully, with the advice and treatment he has given me, I am now symptom free for the first time in 4 years. I am very grateful to him and his excellent team",
+    dateLabel: "March 2026",
+    platform: "Top Doctors",
+  },
+  {
+    quote:
+      "I'm very thankful for everything he has done. He is very knowledgeable and explains things very concisely and simply.",
+    dateLabel: "March 2026",
+    platform: "Doctify",
+  },
+  {
+    quote:
+      "Very clear explanation of next steps to recovery, delivered in a professional manner. It was a joy to have Mr Daulatzai as my consultant and surgeon. I would strongly recommend him to others and will definitely be going back later in the year! Thanks for everything you have done for me :)",
+    dateLabel: "February 2026",
     platform: "Doctify",
   },
   {
     quote:
       "I can never thank Mr Daulatzai and the whole team of NHS staff enough for the treatment I have received. The bowel screening programme has potentially saved my life. From day one everything was clearly explained to me with all options discussed. The time, care and thoughtfulness has been outstanding and I couldn't have hoped for more. Thank you all so much. I will be forever grateful.",
-    dateLabel: "2024",
+    dateLabel: "February 2026",
     platform: "Doctify",
   },
   {
     quote:
-      "Mr Daulatzai was wonderful in his professionalism and technical ability in treating my mother. His level of care, compassion and commitment are nothing I've seen in a clinician before. Truly exceptional",
-    dateLabel: "September 2023",
-    platform: "iWantGreatCare",
+      "Mr. Daulatzai has been caring for me for over 4 years, and I could not have asked for better care and consideration. He has been absolutely wonderful through the bad and the good, always shares clear info and clear steps in what is a complex journey. I really appreciate the gentle but confident manner.",
+    dateLabel: "February 2026",
+    platform: "Top Doctors",
   },
 ];
