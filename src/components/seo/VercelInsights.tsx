@@ -2,7 +2,6 @@
 
 import { Analytics } from "@vercel/analytics/react";
 import { SpeedInsights } from "@vercel/speed-insights/next";
-import { usePathname } from "next/navigation";
 import { useCookieConsent } from "@/components/cookies/CookieConsentProvider";
 
 /**
@@ -11,12 +10,7 @@ import { useCookieConsent } from "@/components/cookies/CookieConsentProvider";
  * Both are free on Vercel Hobby plan.
  */
 export function VercelInsights() {
-  const pathname = usePathname();
   const { preferences } = useCookieConsent();
-
-  if (pathname === "/login") {
-    return null;
-  }
 
   return (
     <>

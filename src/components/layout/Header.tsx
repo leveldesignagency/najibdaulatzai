@@ -91,10 +91,6 @@ export function Header() {
     return () => window.removeEventListener("scroll", onScroll);
   }, [heroHeader]);
 
-  if (pathname === "/login") {
-    return null;
-  }
-
   if (!mounted) {
     return null;
   }

@@ -4,17 +4,13 @@ First-time deployment checklist for this Next.js 16 site.
 
 ## Going live & Google indexing (read this first)
 
-The site code is already set to **`index, follow`** on all public pages. If a SEO audit reports **`noindex, nofollow`**, the usual cause is the **preview login wall**, not the page templates.
+The site is set to **`index, follow`** on all public pages. After deploy:
 
-While `SITE_AUTH_ENABLED=true` on Vercel:
+1. Confirm the site loads publicly (no login redirect).
+2. Submit `https://www.ndsurgeon.com/sitemap.xml` in [Google Search Console](https://search.google.com/search-console) (use a **Domain** property for `ndsurgeon.com`).
+3. Request indexing for the homepage via URL Inspection.
 
-- Visitors and Google are redirected to `/login`
-- `/login` is correctly marked `noindex, nofollow` so Google will not index the login screen
-- **No marketing page can be indexed until the wall is removed**
-
-**To allow Google to index the site:** set `SITE_AUTH_ENABLED=false` in Vercel → Project → Settings → Environment Variables (Production), then **redeploy**. After that, submit `https://www.ndsurgeon.com/sitemap.xml` in [Google Search Console](https://search.google.com/search-console).
-
-Local `.env.example` already defaults `SITE_AUTH_ENABLED=false` for development.
+If `SITE_AUTH_ENABLED` is still set on Vercel from an older deploy, **remove it** (or set to `false`) and redeploy so nothing blocks crawlers.
 
 ## Google Business Profile imagery
 
@@ -54,18 +50,7 @@ After deploy, enable **Analytics** and **Speed Insights** in the Vercel project 
    - Build command: `npm run build` (default)
    - Output: Next.js default
 
-3. **Environment variables** — add these under **Project → Settings → Environment Variables** for Production (and Preview if you want the wall on preview URLs too):
-
-   | Variable | Value |
-   |----------|--------|
-   | `SITE_AUTH_ENABLED` | `true` |
-   | `SITE_AUTH_USERNAME` | `najibwebsite` |
-   | `SITE_AUTH_PASSWORD` | *(see secure note below)* |
-   | `SITE_AUTH_SESSION_TOKEN` | *(see secure note below)* |
-
-   Set `SITE_AUTH_ENABLED=false` when you are ready to launch publicly. **Google cannot index the site while the login wall is enabled**, because crawlers are redirected to `/login`, which is correctly marked `noindex`.
-
-   If you add forms or APIs later, set any additional vars under the same screen.
+3. **Environment variables** — add any service keys under **Project → Settings → Environment Variables** when you wire up the contact form (e.g. `RESEND_API_KEY`). See `.env.example`.
 
 4. **Deploy** — Vercel runs `npm install` and `npm run build`. First build should succeed on Node 20+.
 
@@ -77,9 +62,7 @@ After deploy, enable **Analytics** and **Speed Insights** in the Vercel project 
 6. **Verify production URL** — `siteConfig.url` in `src/lib/site-config.ts` is set to `https://www.ndsurgeon.com`. Update only if the live domain differs.
 
 7. **Post-deploy checks**
-   - [ ] Unauthenticated visit redirects to `/login`
-   - [ ] Login with preview credentials opens the site
-   - [ ] Homepage loads over HTTPS
+   - [ ] Homepage loads over HTTPS without login
    - [ ] `/sitemap.xml` and `/robots.txt` accessible
    - [ ] `/llms.txt` accessible (GEO / AI discovery)
    - [ ] Cookie banner → Accept all → Vercel Analytics events in dashboard (may take a few minutes)
@@ -100,14 +83,6 @@ npm start    # optional smoke test on :3000
 - **Node.js Version**: 20.x (Settings → General)
 - **Region**: London (`lhr1`) if available, for UK visitors
 - **Preview deployments**: enabled for PR review
-
-## Temporary login wall (pre-launch)
-
-While `SITE_AUTH_ENABLED=true`, every page except `/login` and static assets requires a successful login. A session cookie lasts 30 days.
-
-**To go live:** set `SITE_AUTH_ENABLED=false` in Vercel environment variables and redeploy.
-
-**Local dev:** copy `.env.example` to `.env.local` and fill in `SITE_AUTH_PASSWORD` and `SITE_AUTH_SESSION_TOKEN` (generate a token with `openssl rand -hex 32`).
 
 ## SEO / GEO / AEO assets (already in repo)
 

@@ -1,7 +1,6 @@
 "use client";
 
 import Link from "next/link";
-import { usePathname } from "next/navigation";
 import {
   createContext,
   useCallback,
@@ -44,8 +43,6 @@ type CookieConsentProviderProps = {
 };
 
 export function CookieConsentProvider({ children }: CookieConsentProviderProps) {
-  const pathname = usePathname();
-  const isLoginPage = pathname === "/login";
   const [preferences, setPreferences] = useState<CookieConsentPreferences | null>(null);
   const [hasHydrated, setHasHydrated] = useState(false);
   const [showBanner, setShowBanner] = useState(false);
@@ -106,7 +103,7 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
     <CookieConsentContext.Provider value={value}>
       {children}
 
-      {hasHydrated && showBanner && !isLoginPage ? (
+      {hasHydrated && showBanner ? (
         <div
           role="dialog"
           aria-labelledby="cookie-consent-title"
