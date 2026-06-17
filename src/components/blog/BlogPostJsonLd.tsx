@@ -29,7 +29,7 @@ export function BlogPostJsonLd({ post }: BlogPostJsonLdProps) {
     publisher: {
       "@type": "MedicalOrganization",
       "@id": seoEntityIds.organization,
-      name: "Mr Najib Daulatzai: Colorectal & General Surgery",
+      name: "Mr Najib Daulatzai: Robotic, Colorectal & General Surgery",
       url: siteConfig.url,
     },
     inLanguage: "en-GB",

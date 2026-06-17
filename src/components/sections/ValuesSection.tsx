@@ -1,27 +1,31 @@
 import { SiteContainer } from "@/components/layout/SiteContainer";
+import { HomeSectionShell } from "@/components/sections/HomeSectionShell";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { scrollStagger } from "@/lib/scroll-stagger";
 import { SectionHeading } from "@/components/ui/SectionHeading";
 import { aboutValues, valuesIntro } from "@/lib/about-content";
+import { homeTypography } from "@/lib/home-typography";
 
 const valuesSummary = valuesIntro.split(". ")[0] + ".";
 
 export function ValuesSection() {
   return (
-    <section
-      id="values"
-      aria-labelledby="values-heading"
-      className="overflow-hidden bg-white py-20 lg:py-28"
-    >
-      <SiteContainer>
-        <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-16">
+    <HomeSectionShell id="values" aria-labelledby="values-heading" variant="muted">
+      <div className="home-section-divider mx-auto hidden max-w-5xl lg:block" aria-hidden="true" />
+
+      <SiteContainer className="lg:pt-2">
+        <div className="grid gap-12 lg:grid-cols-2 lg:items-start lg:gap-20">
           <ScrollReveal variant="fade-right">
             <div className="max-md:mx-auto max-md:text-center">
-              <SectionHeading id="values-heading" mobileCenter>
+              <SectionEyebrow>Philosophy</SectionEyebrow>
+              <SectionHeading id="values-heading" mobileCenter className="mt-3 lg:mt-4">
                 Our Values
               </SectionHeading>
-              <p className="mt-6 text-lg leading-relaxed text-charcoal/85 lg:mt-8 lg:text-xl">
+              <p
+                className={`mt-6 lg:mt-8 ${homeTypography.lead} ${homeTypography.leadDark}`}
+              >
                 {valuesSummary}
               </p>
               <div className="mt-8 max-md:flex max-md:justify-center lg:mt-10">
@@ -39,8 +43,10 @@ export function ValuesSection() {
                   variant={index % 2 === 0 ? "fade-left" : "scale-up"}
                   delay={scrollStagger(index, 75, 100)}
                 >
-                  <article className="group border border-charcoal/10 border-l-[3px] border-l-charcoal/40 bg-neutral-50/60 px-5 py-4 transition-all duration-300 hover:border-charcoal/20 hover:border-l-charcoal hover:bg-charcoal hover:shadow-md hover:shadow-charcoal/15 sm:px-6 sm:py-5">
-                    <h3 className="text-sm font-semibold uppercase leading-snug tracking-[0.08em] text-charcoal transition-colors duration-300 group-hover:text-white sm:text-base sm:leading-snug lg:text-[1.0625rem]">
+                  <article className="group border border-charcoal/10 border-l-[3px] border-l-charcoal/40 bg-white/70 px-5 py-4 shadow-sm shadow-charcoal/[0.03] backdrop-blur-sm transition-all duration-300 hover:border-charcoal/20 hover:border-l-charcoal hover:bg-charcoal hover:shadow-lg hover:shadow-charcoal/15 sm:px-6 sm:py-5 lg:px-7 lg:py-5">
+                    <h3
+                      className={`${homeTypography.eyebrow} text-charcoal transition-colors duration-300 group-hover:text-white`}
+                    >
                       {value.title}
                     </h3>
                   </article>
@@ -50,6 +56,6 @@ export function ValuesSection() {
           </ul>
         </div>
       </SiteContainer>
-    </section>
+    </HomeSectionShell>
   );
 }

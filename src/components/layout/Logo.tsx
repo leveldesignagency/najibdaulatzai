@@ -4,12 +4,11 @@ const LOGO_SRC = "/Logos/Najib_Daulatzai_Logo.svg";
 
 type LogoProps = {
   className?: string;
+  /** White logo on transparent hero headers (homepage, procedures hub, procedure heroes). */
   inverted?: boolean;
-  /** Forces logo to site charcoal (#4a4a4a) — used on mobile homepage hero. */
-  charcoal?: boolean;
 };
 
-export function Logo({ className = "", inverted = false, charcoal = false }: LogoProps) {
+export function Logo({ className = "", inverted = false }: LogoProps) {
   return (
     <Image
       src={LOGO_SRC}
@@ -17,7 +16,7 @@ export function Logo({ className = "", inverted = false, charcoal = false }: Log
       width={699}
       height={137}
       priority
-      className={`h-8 w-auto md:h-10 ${inverted ? "brightness-0 invert" : ""} ${charcoal ? "logo-tone-charcoal" : ""} ${className}`.trim()}
+      className={`h-8 w-auto md:h-10 ${inverted ? "brightness-0 invert" : ""} ${className}`.trim()}
     />
   );
 }

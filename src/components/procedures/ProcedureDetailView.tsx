@@ -1,3 +1,4 @@
+import { HeroImageCopyright } from "@/components/ui/HeroImageCopyright";
 import { FocalImage } from "@/components/ui/FocalImage";
 import { FaqAccordion } from "@/components/faq/FaqAccordion";
 import { ProcedureDetailJsonLd } from "@/components/seo/ProcedureDetailJsonLd";
@@ -50,14 +51,7 @@ export function ProcedureDetailView({ page }: ProcedureDetailViewProps) {
         />
 
         {page.heroImageCopyright ? (
-          <div className="absolute right-3 top-24 z-20 max-w-[11.5rem] rounded-sm border border-white/15 bg-charcoal/80 px-2.5 py-2 backdrop-blur-sm sm:right-5 sm:top-28 sm:max-w-[13rem] sm:px-3 sm:py-2.5">
-            <p className="text-[0.5625rem] leading-snug text-white/75 sm:text-[0.625rem]">
-              {page.heroImageCopyright}
-            </p>
-            <p className="mt-1 text-[0.5625rem] leading-snug text-white/55 sm:text-[0.625rem]">
-              Image courtesy of Intuitive Surgical, Inc.
-            </p>
-          </div>
+          <HeroImageCopyright notice={page.heroImageCopyright} />
         ) : null}
 
         <div className="relative z-10 flex min-h-[40vh] w-full flex-col justify-end">

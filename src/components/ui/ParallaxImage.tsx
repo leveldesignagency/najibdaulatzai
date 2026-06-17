@@ -18,6 +18,11 @@ type ParallaxImageProps = {
   withBackdrop?: boolean;
   /** Moves opposite to scroll for visual contrast between paired images. */
   invert?: boolean;
+  /** Portrait frame width (e.g. `94%`). */
+  portraitWidth?: string;
+  portraitMaxWidth?: string;
+  /** Extra image bleed inside portrait frame; lower = less tight crop. */
+  imageBleed?: string;
   className?: string;
 };
 
@@ -30,6 +35,9 @@ export function ParallaxImage({
   aspect = "landscape",
   withBackdrop = true,
   invert = false,
+  portraitWidth = "90%",
+  portraitMaxWidth = "26rem",
+  imageBleed = "-3%",
   className = "",
 }: ParallaxImageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -129,10 +137,14 @@ export function ParallaxImage({
           ) : null}
 
           <div
-            className="relative z-10 aspect-[3/4] w-[78%] min-w-[12rem] max-w-[20rem] overflow-hidden rounded-lg bg-neutral-100 shadow-[0_24px_48px_-12px_rgba(74,74,74,0.28)] ring-1 ring-charcoal/10 will-change-transform sm:w-[82%] sm:max-w-[22rem] lg:w-[80%] lg:max-w-[24rem]"
-            style={{ transform: `translate3d(0, ${foregroundShift}px, 0)` }}
+            className="relative z-10 aspect-[4/5] min-w-[12rem] overflow-hidden rounded-lg bg-neutral-100 shadow-[0_24px_48px_-12px_rgba(74,74,74,0.28)] ring-1 ring-charcoal/10 will-change-transform lg:max-w-none"
+            style={{
+              transform: `translate3d(0, ${foregroundShift}px, 0)`,
+              width: portraitWidth,
+              maxWidth: portraitMaxWidth,
+            }}
           >
-            <div className="absolute inset-[-8%]">
+            <div className="absolute" style={{ inset: imageBleed }}>
               <FocalImage
                 src={src}
                 alt={alt}

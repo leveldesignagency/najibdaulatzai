@@ -53,7 +53,7 @@ body {
   border-bottom: 1px solid rgba(74, 74, 74, 0.08);
 }
 
-/* Homepage hero — legibility on desktop only (mobile uses charcoal icons) */
+/* Homepage hero — white header chrome on dark hero imagery */
 @media (min-width: 768px) {
   .site-header__menu-btn--hero {
     filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55))
@@ -76,8 +76,14 @@ body {
     font-size: 18px;
   }
 
-  .site-header--hero-home .site-header__menu-btn {
-    color: var(--charcoal);
+  .site-header--hero-home .site-header__menu-btn--hero {
+    filter: drop-shadow(0 1px 2px rgba(0, 0, 0, 0.55))
+      drop-shadow(0 0 8px rgba(0, 0, 0, 0.35));
+  }
+
+  .site-header--hero-home .site-header__logo-img.brightness-0.invert {
+    filter: brightness(0) invert(1)
+      drop-shadow(0 1px 2px rgba(0, 0, 0, 0.45));
   }
 }
 
@@ -160,7 +166,7 @@ address {
 }
 
 .hero-image-mobile img {
-  object-position: center center !important;
+  object-position: 50% 42% !important;
 }
 
 @media (max-width: 767px) {
@@ -288,4 +294,74 @@ address {
 
 .hero-content-in--delay-3 {
   animation-delay: 0.58s;
+}
+
+/* ── Homepage section atmosphere (desktop-forward) ─────────────────────────── */
+
+.home-section--light {
+  background: linear-gradient(180deg, #ffffff 0%, #fafafa 42%, #ffffff 100%);
+}
+
+.home-section--muted {
+  background: linear-gradient(135deg, #f8f8f8 0%, #ffffff 48%, #f4f4f4 100%);
+}
+
+.home-section--dark {
+  background: linear-gradient(168deg, #505050 0%, var(--charcoal) 38%, var(--charcoal-dark) 100%);
+}
+
+@media (min-width: 1024px) {
+  .home-deco-ambient {
+    opacity: 1;
+  }
+
+  .home-deco-ambient--light {
+    background:
+      radial-gradient(ellipse 58% 48% at 8% 18%, rgba(74, 74, 74, 0.055), transparent 72%),
+      radial-gradient(ellipse 42% 36% at 92% 72%, rgba(74, 74, 74, 0.04), transparent 70%);
+  }
+
+  .home-deco-ambient--muted {
+    background:
+      radial-gradient(ellipse 50% 44% at 90% 12%, rgba(74, 74, 74, 0.05), transparent 68%),
+      radial-gradient(ellipse 46% 40% at 6% 82%, rgba(74, 74, 74, 0.045), transparent 72%);
+  }
+
+  .home-section-divider {
+    height: 1px;
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(74, 74, 74, 0.14) 20%,
+      rgba(74, 74, 74, 0.14) 80%,
+      transparent 100%
+    );
+  }
+
+  .home-section-divider--light {
+    background: linear-gradient(
+      90deg,
+      transparent 0%,
+      rgba(255, 255, 255, 0.16) 20%,
+      rgba(255, 255, 255, 0.16) 80%,
+      transparent 100%
+    );
+  }
+
+  .hero-desktop-vignette {
+    background: radial-gradient(
+      ellipse 85% 70% at 72% 42%,
+      transparent 35%,
+      rgba(47, 47, 47, 0.35) 100%
+    );
+  }
+
+  .procedures-deco-panel {
+    background-image: linear-gradient(
+      128deg,
+      rgba(255, 255, 255, 0.06) 0%,
+      transparent 38%,
+      rgba(255, 255, 255, 0.02) 100%
+    );
+  }
 }

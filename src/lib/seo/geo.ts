@@ -85,7 +85,7 @@ export function getGeoMetaTags(path = "/") {
       : "Hertfordshire, Watford, London",
     "geo.position": `${primaryGeoRegion.latitude};${primaryGeoRegion.longitude}`,
     ICBM: `${primaryGeoRegion.latitude}, ${primaryGeoRegion.longitude}`,
-    "DC.title": `${siteConfig.name}, Colorectal & General Surgeon`,
+    "DC.title": `${siteConfig.name}, Robotic, Colorectal and General Surgeon`,
   };
 }
 

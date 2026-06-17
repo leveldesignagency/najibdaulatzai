@@ -79,7 +79,7 @@ export function JsonLd() {
         toSchemaImageObject(defaultOgImage),
       ],
       description: siteConfig.description,
-      jobTitle: "Consultant Colorectal and General Surgeon",
+      jobTitle: "Consultant Robotic, Colorectal and General Surgeon",
       telephone: siteConfig.phone,
       email: siteConfig.email,
       medicalSpecialty: [

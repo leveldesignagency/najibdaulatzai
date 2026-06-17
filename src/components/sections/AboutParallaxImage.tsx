@@ -12,6 +12,10 @@ export function AboutParallaxImage() {
       aspect="portrait"
       priority
       withBackdrop={false}
+      focalPoint="43.7% 38%"
+      portraitWidth="94%"
+      portraitMaxWidth="28rem"
+      imageBleed="0%"
     />
   );
 }

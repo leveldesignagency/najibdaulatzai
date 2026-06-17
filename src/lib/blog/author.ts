@@ -1,6 +1,6 @@
 export const blogAuthor = {
   name: "Mr Najib Daulatzai",
-  role: "Consultant Colorectal and General Surgeon",
+  role: "Consultant Robotic, Colorectal and General Surgeon",
   image: "/about main.jpg",
   imageAlt:
     "Mr Najib Daulatzai, consultant colorectal and general surgeon in London and Hertfordshire",

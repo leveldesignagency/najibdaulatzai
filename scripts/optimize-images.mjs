@@ -18,8 +18,15 @@ async function optimizeInPlace(file, maxWidth, quality) {
 }
 
 async function exportMobileHero() {
-  const source = "public/images/images/mobile hero.png";
-  if (!fs.existsSync(source)) return;
+  const source =
+    ["public/mobile hero.png", "public/images/images/mobile hero.png"].find(
+      (path) => fs.existsSync(path),
+    ) ?? null;
+  if (!source) return;
+
+  if (source !== "public/images/images/mobile hero.png") {
+    fs.copyFileSync(source, "public/images/images/mobile hero.png");
+  }
 
   await sharp(source)
     .rotate()

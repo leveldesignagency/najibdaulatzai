@@ -192,6 +192,10 @@ export function getProceduresTabHref(slug: ProcedureSpecialtySlug): string {
   return `/procedures#${slug}`;
 }
 
+/** Procedures hub — minimally invasive panel (within robotic tab). */
+export const minimallyInvasiveSectionId = "minimally-invasive";
+export const minimallyInvasiveSectionHref = `/procedures#${minimallyInvasiveSectionId}`;
+
 /** Long-form specialty guide (1000+ words) — not the main tabbed hub. */
 export function getProcedureSpecialtyHref(slug: ProcedureSpecialtySlug): string {
   const specialty = procedureSpecialtyMap[slug];

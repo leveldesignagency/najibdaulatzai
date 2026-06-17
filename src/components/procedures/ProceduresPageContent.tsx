@@ -6,6 +6,7 @@ import { SiteContainer } from "@/components/layout/SiteContainer";
 import { ProceduresHeroNav } from "@/components/procedures/ProceduresHeroNav";
 import { ProceduresTabbedGrid } from "@/components/procedures/ProceduresTabbedGrid";
 import {
+  minimallyInvasiveSectionId,
   procedureSpecialtyMap,
   type ProcedureSpecialtySlug,
 } from "@/lib/procedures";
@@ -20,10 +21,31 @@ function resolveSpecialtyFromHash(hash: string): ProcedureSpecialtySlug | null {
   if (slug in procedureSpecialtyMap) {
     return slug as ProcedureSpecialtySlug;
   }
-  if (slug === "minimally-invasive") {
+  if (slug === minimallyInvasiveSectionId) {
     return "robotic-minimally-invasive";
   }
   return null;
+}
+
+function resolveScrollTargetFromHash(hash: string): string | null {
+  const slug = hash.replace(/^#/, "");
+  if (slug === minimallyInvasiveSectionId) {
+    return minimallyInvasiveSectionId;
+  }
+  if (slug in procedureSpecialtyMap) {
+    return slug;
+  }
+  return null;
+}
+
+function scrollToHashTarget() {
+  const scrollId = resolveScrollTargetFromHash(window.location.hash);
+  if (!scrollId) return;
+
+  document.getElementById(scrollId)?.scrollIntoView({
+    behavior: "smooth",
+    block: "start",
+  });
 }
 
 export function ProceduresPageContent() {
@@ -60,10 +82,14 @@ export function ProceduresPageContent() {
     if (!slug) return;
 
     const frame = requestAnimationFrame(() => {
-      document.getElementById(slug)?.scrollIntoView({ block: "start" });
+      requestAnimationFrame(scrollToHashTarget);
     });
+    const timeout = window.setTimeout(scrollToHashTarget, 150);
 
-    return () => cancelAnimationFrame(frame);
+    return () => {
+      cancelAnimationFrame(frame);
+      window.clearTimeout(timeout);
+    };
   }, [activeSpecialty]);
 
   return (

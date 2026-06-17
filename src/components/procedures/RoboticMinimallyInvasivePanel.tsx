@@ -34,8 +34,9 @@ export function RoboticMinimallyInvasivePanel() {
       </section>
 
       <section
+        id="minimally-invasive"
         aria-labelledby="minimally-invasive-tab-heading"
-        className="rounded-sm bg-neutral-50 px-6 py-12 sm:px-10 sm:py-14 lg:px-12 lg:py-16"
+        className="scroll-mt-28 rounded-sm bg-neutral-50 px-6 py-12 sm:px-10 sm:py-14 lg:px-12 lg:py-16"
       >
         <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] lg:gap-14 xl:gap-16">
           <div className="max-w-xl">

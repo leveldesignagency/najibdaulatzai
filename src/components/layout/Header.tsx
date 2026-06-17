@@ -63,7 +63,7 @@ export function Header() {
   const showSolidHeader =
     (isLight && !open) || (heroHeader && scrolled && !open);
   const useLightTheme = isLight || open || (heroHeader && scrolled);
-  const useWhiteLogo = !useLightTheme && !showHeroHeaderStyle;
+  const useHeroWhiteChrome = showHeroHeaderStyle && !open;
 
   useEffect(() => {
     setMounted(true);
@@ -111,8 +111,8 @@ export function Header() {
             className={`site-header__menu-btn group col-start-1 flex h-11 w-11 shrink-0 items-center justify-center transition hover:opacity-80 ${
               useLightTheme && !showHeroHeaderStyle
                 ? "text-charcoal"
-                : showHeroHeaderStyle
-                  ? "text-charcoal md:text-white site-header__menu-btn--hero"
+                : useHeroWhiteChrome
+                  ? "text-white site-header__menu-btn--hero"
                   : "text-white"
             }`}
           >
@@ -141,14 +141,13 @@ export function Header() {
             className={`site-header__logo col-start-2 justify-self-center md:col-start-auto md:ml-auto ${
               useLightTheme && !showHeroHeaderStyle
                 ? "text-charcoal"
-                : showHeroHeaderStyle
-                  ? "text-charcoal md:text-white"
+                : useHeroWhiteChrome
+                  ? "text-white"
                   : "text-white"
             }`}
           >
             <Logo
-              inverted={useWhiteLogo}
-              charcoal={showHeroHeaderStyle}
+              inverted={useHeroWhiteChrome}
               className="site-header__logo-img h-12 w-auto md:h-16"
             />
           </Link>

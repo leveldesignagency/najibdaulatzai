@@ -1,25 +1,29 @@
 import { SiteContainer } from "@/components/layout/SiteContainer";
 import { AboutParallaxImage } from "@/components/sections/AboutParallaxImage";
+import { HomeSectionShell } from "@/components/sections/HomeSectionShell";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { homeTypography } from "@/lib/home-typography";
 import Image from "next/image";
 
 export function AboutSection() {
   return (
-    <section
-      id="about"
-      aria-labelledby="about-heading"
-      className="overflow-hidden bg-white py-20 lg:py-28"
-    >
-      <SiteContainer className="grid items-center gap-12 lg:grid-cols-2 lg:gap-16">
+    <HomeSectionShell id="about" aria-labelledby="about-heading" variant="light">
+      <div className="home-section-divider mx-auto mb-0 hidden max-w-5xl lg:mb-0 lg:block" aria-hidden="true" />
+
+      <SiteContainer className="grid items-center gap-12 lg:grid-cols-2 lg:gap-20 lg:pt-4">
         <ScrollReveal variant="fade-right">
           <div className="max-md:text-center">
-            <SectionHeading id="about-heading" mobileCenter>
+            <SectionEyebrow>Consultant surgeon</SectionEyebrow>
+            <SectionHeading id="about-heading" mobileCenter className="mt-3 lg:mt-4">
               About Najib
             </SectionHeading>
 
-            <blockquote className="mt-10 text-lg leading-relaxed text-charcoal/85 lg:text-xl">
+            <blockquote
+              className={`mt-8 lg:mt-10 ${homeTypography.quote} ${homeTypography.quoteDark}`}
+            >
               &ldquo;Every patient deserves the highest standard of medical care,
               delivered with compassion and respect. My mission is to ensure each
               individual receives personalised, tailored care that makes them feel
@@ -28,7 +32,7 @@ export function AboutSection() {
             </blockquote>
 
             <ScrollReveal variant="fade-up" delay={140}>
-              <p className="mt-8 text-base font-medium text-charcoal">
+              <p className={`mt-8 ${homeTypography.meta} ${homeTypography.metaDark}`}>
                 Mr Najib Daulatzai
               </p>
             </ScrollReveal>
@@ -59,6 +63,6 @@ export function AboutSection() {
           <AboutParallaxImage />
         </ScrollReveal>
       </SiteContainer>
-    </section>
+    </HomeSectionShell>
   );
 }

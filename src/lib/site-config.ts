@@ -1,6 +1,6 @@
 export const siteConfig = {
   name: "Najib Daulatzai",
-  title: "Najib Daulatzai Colorectal & General Surgeon in London & Hertfordshire",
+  title: "Najib Daulatzai Robotic, Colorectal and General Surgeon in London & Hertfordshire",
   description:
     "Mr Najib Daulatzai is a NHS and private consultant colorectal & general surgeon in London & Hertfordshire, specialising in robotic and minimally invasive surgery.",
   url: "https://www.ndsurgeon.com",

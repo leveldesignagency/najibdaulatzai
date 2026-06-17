@@ -18,7 +18,7 @@ export const physicianSameAs = [
 
 export const physicianCredentials = [
   {
-    name: "Consultant Colorectal and General Surgeon",
+    name: "Consultant Robotic, Colorectal and General Surgeon",
     category: "Medical qualification",
   },
   {
@@ -58,7 +58,7 @@ export const physicianKnowsAbout = [
 export const physicianLanguages = ["English", "Pashto", "Farsi"] as const;
 
 export const organizationName =
-  "Mr Najib Daulatzai: Colorectal & General Surgery";
+  "Mr Najib Daulatzai: Robotic, Colorectal & General Surgery";
 
 export const organizationAlternateNames = [
   "Najib Daulatzai Colorectal Surgery",

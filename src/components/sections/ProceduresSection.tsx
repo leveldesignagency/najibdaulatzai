@@ -2,7 +2,9 @@ import { FocalImage } from "@/components/ui/FocalImage";
 import { SiteContainer } from "@/components/layout/SiteContainer";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
+import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { homeTypography } from "@/lib/home-typography";
 
 export function ProceduresSection() {
   return (
@@ -12,7 +14,7 @@ export function ProceduresSection() {
       className="relative min-h-[70vh] overflow-x-clip"
     >
       <div
-        className="absolute inset-y-0 left-0 hidden w-1/2 bg-charcoal lg:block"
+        className="procedures-deco-panel absolute inset-y-0 left-0 hidden w-1/2 bg-charcoal lg:block"
         aria-hidden="true"
       />
 
@@ -30,16 +32,28 @@ export function ProceduresSection() {
           quality={75}
           loading="lazy"
         />
+        <div
+          aria-hidden="true"
+          className="pointer-events-none absolute inset-0 hidden bg-gradient-to-l from-transparent via-transparent to-charcoal/25 lg:block"
+        />
       </ScrollReveal>
 
       <SiteContainer className="relative z-10 bg-charcoal py-20 lg:bg-transparent lg:py-28">
         <div className="grid items-center lg:min-h-[calc(70vh-10rem)] lg:grid-cols-2 lg:gap-16">
           <ScrollReveal variant="fade-right">
             <div className="max-w-xl max-md:mx-auto max-md:text-center">
-              <SectionHeading id="procedures-heading" theme="light" mobileCenter>
+              <SectionEyebrow theme="light">Surgical care</SectionEyebrow>
+              <SectionHeading
+                id="procedures-heading"
+                theme="light"
+                mobileCenter
+                className="mt-3 lg:mt-4"
+              >
                 Procedures
               </SectionHeading>
-              <p className="mt-8 text-base leading-relaxed text-white/85 sm:mt-10 sm:text-lg lg:text-xl">
+              <p
+                className={`mt-8 sm:mt-10 ${homeTypography.lead} ${homeTypography.leadLight}`}
+              >
                 We provide a range of surgical procedures through both the NHS and
                 private practice, all aimed at giving you the best possible
                 treatment.
