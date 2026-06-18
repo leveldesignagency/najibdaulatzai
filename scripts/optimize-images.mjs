@@ -32,7 +32,7 @@ async function exportMobileHero() {
     .rotate()
     .resize(1080, null, { withoutEnlargement: true, fit: "inside" })
     .webp({ quality: 78, effort: 4 })
-    .toFile("public/images/images/mobile-hero.webp");
+    .toFile("public/images/images/mobile-hero-2026.webp");
 
   await sharp(source)
     .rotate()
@@ -40,7 +40,7 @@ async function exportMobileHero() {
     .jpeg({ quality: 82, mozjpeg: true })
     .toFile("public/images/images/mobile-hero.jpg");
 
-  console.log("mobile-hero.webp + mobile-hero.jpg updated");
+  console.log("mobile-hero-2026.webp + mobile-hero.jpg updated");
 }
 
 await exportMobileHero();
