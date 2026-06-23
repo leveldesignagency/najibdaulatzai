@@ -166,7 +166,7 @@ address {
 }
 
 .hero-image-mobile img {
-  object-position: 50% 42% !important;
+  object-position: 50% 38% !important;
 }
 
 @media (max-width: 767px) {

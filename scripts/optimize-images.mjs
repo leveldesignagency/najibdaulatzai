@@ -18,29 +18,35 @@ async function optimizeInPlace(file, maxWidth, quality) {
 }
 
 async function exportMobileHero() {
+  const heroDir = "public/images/images";
+  const jpgPath = `${heroDir}/mobile-hero.jpg`;
+  const webpPath = `${heroDir}/mobile-hero.webp`;
   const source =
-    ["public/mobile hero.png", "public/images/images/mobile hero.png"].find(
-      (path) => fs.existsSync(path),
-    ) ?? null;
-  if (!source) return;
+    [
+      jpgPath,
+      `${heroDir}/mobile hero.png`,
+      "public/mobile hero.png",
+    ].find((file) => fs.existsSync(file)) ?? null;
 
-  if (source !== "public/images/images/mobile hero.png") {
-    fs.copyFileSync(source, "public/images/images/mobile hero.png");
-  }
+  if (!source) return;
 
   await sharp(source)
     .rotate()
     .resize(1080, null, { withoutEnlargement: true, fit: "inside" })
     .webp({ quality: 78, effort: 4 })
-    .toFile("public/images/images/mobile-hero-2026.webp");
+    .toFile(webpPath);
 
-  await sharp(source)
-    .rotate()
-    .resize(1080, null, { withoutEnlargement: true, fit: "inside" })
-    .jpeg({ quality: 82, mozjpeg: true })
-    .toFile("public/images/images/mobile-hero.jpg");
+  if (source !== jpgPath) {
+    await sharp(source)
+      .rotate()
+      .resize(1080, null, { withoutEnlargement: true, fit: "inside" })
+      .jpeg({ quality: 82, mozjpeg: true })
+      .toFile(jpgPath);
+  }
 
-  console.log("mobile-hero-2026.webp + mobile-hero.jpg updated");
+  console.log(
+    `mobile-hero.webp updated from ${path.basename(source)} (${(fs.statSync(webpPath).size / 1024).toFixed(0)}KB)`,
+  );
 }
 
 await exportMobileHero();

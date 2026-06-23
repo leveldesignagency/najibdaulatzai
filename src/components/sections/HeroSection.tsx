@@ -12,11 +12,11 @@ export function HeroSection() {
       <div className="absolute inset-0 overflow-hidden">
         <div className="hero-image-mobile absolute inset-0 md:hidden">
           <FocalImage
-            src="/images/images/mobile-hero-2026.webp"
+            src="/images/images/mobile-hero.webp"
             alt="Mr Najib Daulatzai, colorectal and general surgeon in London and Hertfordshire, seated at his desk in professional attire"
             fill
             priority
-            focalPoint="50% 42%"
+            focalPoint="50% 38%"
             className="object-cover"
             sizes="100vw"
             quality={85}
