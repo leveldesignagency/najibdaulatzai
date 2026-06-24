@@ -126,8 +126,8 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
                   >
                     We use strictly necessary cookies to remember your choices. With your
                     permission, we load embedded YouTube video on the Robotic Surgery
-                    page and privacy-friendly Vercel Web Analytics to understand how the
-                    site is used. We do not use advertising cookies. See our{" "}
+                    page and Google Analytics 4 plus Vercel Web Analytics to understand
+                    how the site is used. We do not use advertising cookies. See our{" "}
                     <Link href="/privacy" className="underline underline-offset-2">
                       Privacy &amp; Cookies notice
                     </Link>{" "}
@@ -200,8 +200,9 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
                     <div>
                       <p className="font-medium text-charcoal">Analytics</p>
                       <p className="mt-1 leading-relaxed">
-                        Privacy-friendly Vercel Web Analytics to measure page views and
-                        navigation. No advertising profiles.
+                        Google Analytics 4 and privacy-friendly Vercel Web Analytics to
+                        measure page views, navigation, and important actions such as
+                        phone and contact link clicks. No advertising profiles.
                       </p>
                     </div>
                     <label className="flex shrink-0 items-center gap-2">
