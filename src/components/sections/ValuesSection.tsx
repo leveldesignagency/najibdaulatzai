@@ -45,7 +45,7 @@ export function ValuesSection() {
                 >
                   <article className="group border border-charcoal/10 border-l-[3px] border-l-charcoal/40 bg-white/70 px-5 py-4 shadow-sm shadow-charcoal/[0.03] backdrop-blur-sm transition-all duration-300 hover:border-charcoal/20 hover:border-l-charcoal hover:bg-charcoal hover:shadow-lg hover:shadow-charcoal/15 sm:px-6 sm:py-5 lg:px-7 lg:py-5">
                     <h3
-                      className={`${homeTypography.eyebrow} text-charcoal transition-colors duration-300 group-hover:text-white`}
+                      className={`${homeTypography.valueTitle} text-charcoal transition-colors duration-300 group-hover:text-white`}
                     >
                       {value.title}
                     </h3>
