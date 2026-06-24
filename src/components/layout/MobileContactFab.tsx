@@ -1,6 +1,7 @@
 "use client";
 
 import { useEffect, useId, useRef, useState } from "react";
+import { trackEvent } from "@/lib/analytics/gtag";
 import { whatsAppHref } from "@/lib/contact-content";
 import { siteConfig } from "@/lib/site-config";
 
@@ -115,6 +116,7 @@ export function MobileContactFab() {
     <nav
       ref={rootRef}
       aria-label="Quick contact"
+      data-analytics-context="mobile-fab"
       className="fixed bottom-5 right-4 z-[90] md:hidden"
     >
       <div
@@ -159,7 +161,15 @@ export function MobileContactFab() {
         aria-expanded={open}
         aria-controls={panelId}
         aria-label={open ? "Close contact options" : "Open contact options"}
-        onClick={() => setOpen((current) => !current)}
+        onClick={() =>
+          setOpen((current) => {
+            const next = !current;
+            trackEvent(next ? "fab_open" : "fab_close", {
+              page_path: window.location.pathname,
+            });
+            return next;
+          })
+        }
         className={`${fabActionClass} border border-white/20 bg-charcoal/70 shadow-lg shadow-charcoal/30 backdrop-blur-xl`}
       >
         {open ? <CloseIcon /> : <ChatIcon />}

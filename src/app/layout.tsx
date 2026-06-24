@@ -1,9 +1,11 @@
 import type { Metadata, Viewport } from "next";
 import { DM_Sans } from "next/font/google";
+import { Suspense } from "react";
 import { CookieConsentProvider } from "@/components/cookies/CookieConsentProvider";
 import { Header } from "@/components/layout/Header";
 import { MobileContactFab } from "@/components/layout/MobileContactFab";
 import { JsonLd } from "@/components/seo/JsonLd";
+import { GoogleAnalytics } from "@/components/seo/GoogleAnalytics";
 import { VercelInsights } from "@/components/seo/VercelInsights";
 import { homeMetadata } from "@/lib/metadata";
 import "./globals.css";
@@ -34,6 +36,9 @@ export default function RootLayout({
         <CookieConsentProvider>
           <JsonLd />
           <VercelInsights />
+          <Suspense fallback={null}>
+            <GoogleAnalytics />
+          </Suspense>
           <Header />
           {children}
           <MobileContactFab />

@@ -29,16 +29,39 @@ After creating the Google Business Profile, add its public URL to `physicianSame
 - A [Vercel](https://vercel.com) account (Hobby plan is free)
 - Git repository connected to Vercel (GitHub, GitLab, or Bitbucket)
 
-## Vercel Analytics & Speed Insights
+## Vercel Analytics, Speed Insights & Google Analytics 4
 
-Both packages are installed and configured:
-
-| Product | Package | Cost on Hobby | Cookie consent |
-|---------|---------|---------------|----------------|
+| Product | Package / setup | Cost on Hobby | Cookie consent |
+|---------|-----------------|---------------|----------------|
 | **Speed Insights** | `@vercel/speed-insights` | Free | Always on (no ad cookies) |
 | **Web Analytics** | `@vercel/analytics` | Free | Opt-in via cookie banner |
+| **Google Analytics 4** | `NEXT_PUBLIC_GA_MEASUREMENT_ID` | Free | Opt-in via cookie banner |
 
-After deploy, enable **Analytics** and **Speed Insights** in the Vercel project dashboard under **Analytics** — no API keys required for the default integration.
+### Vercel (no API keys)
+
+After deploy, enable **Analytics** and **Speed Insights** in the Vercel project dashboard under **Analytics**.
+
+### Google Analytics 4 (required for CTA / call / FAB tracking)
+
+1. Go to [Google Analytics](https://analytics.google.com) → **Admin** → **Create property** for `ndsurgeon.com`.
+2. Create a **Web** data stream for `https://www.ndsurgeon.com`.
+3. Copy the **Measurement ID** (format `G-XXXXXXXXXX`).
+4. In Vercel: **Project → Settings → Environment Variables** → add:
+   - Name: `NEXT_PUBLIC_GA_MEASUREMENT_ID`
+   - Value: your `G-XXXXXXXXXX` ID
+   - Environments: Production (and Preview if you want staging data)
+5. **Redeploy** the site (env vars only apply after a new deploy).
+6. Visit the live site, click **Accept all** on the cookie banner, then browse and click a phone link or Book Now button.
+7. In GA4: **Reports → Realtime** — you should see activity within ~30 seconds.
+8. Mark these as **Key events** in GA4 (**Admin → Events → Mark as key event**):
+   - `phone_click`
+   - `email_click`
+   - `whatsapp_click`
+   - `cta_click`
+   - `fab_open`
+   - `fab_close`
+
+Events are only sent when visitors opt in to analytics cookies (UK GDPR). Phone/email clicks are tracked when the link is tapped — not whether the call completed.
 
 ## Deploy steps
 
@@ -50,7 +73,9 @@ After deploy, enable **Analytics** and **Speed Insights** in the Vercel project 
    - Build command: `npm run build` (default)
    - Output: Next.js default
 
-3. **Environment variables** — add any service keys under **Project → Settings → Environment Variables** when you wire up the contact form (e.g. `RESEND_API_KEY`). See `.env.example`.
+3. **Environment variables** — add under **Project → Settings → Environment Variables**:
+   - `NEXT_PUBLIC_GA_MEASUREMENT_ID` — GA4 Measurement ID (`G-XXXXXXXXXX`) for call/CTA/FAB tracking
+   - Contact form keys when wired up (e.g. `RESEND_API_KEY`). See `.env.example`.
 
 4. **Deploy** — Vercel runs `npm install` and `npm run build`. First build should succeed on Node 20+.
 
@@ -66,6 +91,8 @@ After deploy, enable **Analytics** and **Speed Insights** in the Vercel project 
    - [ ] `/sitemap.xml` and `/robots.txt` accessible
    - [ ] `/llms.txt` accessible (GEO / AI discovery)
    - [ ] Cookie banner → Accept all → Vercel Analytics events in dashboard (may take a few minutes)
+   - [ ] GA4 Realtime shows page views after accepting cookies (requires `NEXT_PUBLIC_GA_MEASUREMENT_ID`)
+   - [ ] GA4 Realtime shows `phone_click` or `cta_click` when testing Book Now / Call links
    - [ ] Speed Insights data appears in Vercel dashboard
    - [ ] Google Search Console: submit sitemap `https://www.ndsurgeon.com/sitemap.xml`
 
