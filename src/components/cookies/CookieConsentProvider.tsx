@@ -20,6 +20,7 @@ import {
 type CookieConsentContextValue = {
   preferences: CookieConsentPreferences | null;
   hasAnswered: boolean;
+  hasHydrated: boolean;
   functionalAllowed: boolean;
   analyticsAllowed: boolean;
   acceptAll: () => void;
@@ -89,6 +90,7 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
     () => ({
       preferences,
       hasAnswered: preferences !== null,
+      hasHydrated,
       functionalAllowed: preferences?.functional ?? false,
       analyticsAllowed: preferences?.analytics ?? false,
       acceptAll,
@@ -96,7 +98,7 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
       savePreferences,
       openPreferences,
     }),
-    [preferences, acceptAll, rejectNonEssential, savePreferences, openPreferences],
+    [preferences, hasHydrated, acceptAll, rejectNonEssential, savePreferences, openPreferences],
   );
 
   return (

@@ -1,7 +1,7 @@
 "use client";
 
 import { usePathname, useSearchParams } from "next/navigation";
-import { useEffect } from "react";
+import { useEffect, useRef } from "react";
 import { useCookieConsent } from "@/components/cookies/CookieConsentProvider";
 import { trackLinkClick } from "@/lib/analytics/link-tracking";
 import {
@@ -11,25 +11,32 @@ import {
 } from "@/lib/analytics/gtag";
 
 export function GoogleAnalytics() {
-  const { analyticsAllowed } = useCookieConsent();
+  const { analyticsAllowed, hasHydrated } = useCookieConsent();
   const pathname = usePathname();
   const searchParams = useSearchParams();
+  const initialPageViewSent = useRef(false);
 
   useEffect(() => {
-    if (!isGaConfigured()) return;
+    if (!isGaConfigured() || !hasHydrated) return;
     updateAnalyticsConsent(analyticsAllowed);
-  }, [analyticsAllowed]);
+  }, [analyticsAllowed, hasHydrated]);
 
   useEffect(() => {
-    if (!isGaConfigured() || !analyticsAllowed) return;
+    if (!isGaConfigured() || !hasHydrated || !analyticsAllowed) return;
 
     const query = searchParams.toString();
     const url = query ? `${pathname}?${query}` : pathname;
+
+    if (pathname === "/" && !initialPageViewSent.current) {
+      initialPageViewSent.current = true;
+      return;
+    }
+
     trackPageView(url);
-  }, [analyticsAllowed, pathname, searchParams]);
+  }, [analyticsAllowed, hasHydrated, pathname, searchParams]);
 
   useEffect(() => {
-    if (!isGaConfigured() || !analyticsAllowed) return;
+    if (!isGaConfigured() || !hasHydrated || !analyticsAllowed) return;
 
     function handleClick(event: MouseEvent) {
       const target = event.target;
@@ -43,7 +50,7 @@ export function GoogleAnalytics() {
 
     document.addEventListener("click", handleClick, true);
     return () => document.removeEventListener("click", handleClick, true);
-  }, [analyticsAllowed]);
+  }, [analyticsAllowed, hasHydrated]);
 
   return null;
 }
