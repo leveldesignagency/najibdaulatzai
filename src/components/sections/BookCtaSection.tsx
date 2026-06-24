@@ -1,11 +1,14 @@
 import { FocalImage } from "@/components/ui/FocalImage";
+import { InsuranceMarquee } from "@/components/shared/InsuranceMarquee";
 import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { bookCtaParagraph } from "@/lib/site-config";
 
 export function BookCtaSection() {
   return (
-    <section
+    <>
+      <InsuranceMarquee />
+      <section
       aria-labelledby="book-heading"
       className="relative w-full overflow-hidden"
     >
@@ -57,5 +60,6 @@ export function BookCtaSection() {
         </div>
       </div>
     </section>
+    </>
   );
 }

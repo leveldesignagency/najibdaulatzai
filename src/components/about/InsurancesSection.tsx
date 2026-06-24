@@ -1,9 +1,8 @@
-import Image from "next/image";
 import { PageSection } from "@/components/layout/PageSection";
+import { InsurerLogoGrid } from "@/components/shared/InsurerLogoGrid";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
-import { scrollStagger } from "@/lib/scroll-stagger";
 import { SectionHeading } from "@/components/ui/SectionHeading";
-import { insuranceProviders, selfPayLine } from "@/lib/about-content";
+import { selfPayLine } from "@/lib/about-content";
 
 export function InsurancesSection() {
   return (
@@ -20,28 +19,14 @@ export function InsurancesSection() {
         </p>
       </ScrollReveal>
 
-      <ul className="mt-10 grid grid-cols-1 divide-y divide-charcoal/10 sm:mt-14 lg:flex lg:divide-x lg:divide-y-0 lg:divide-charcoal/15">
-        {insuranceProviders.map((provider, index) => (
-          <li
-            key={provider.name}
-            className="flex items-center justify-center px-4 py-8 sm:px-6 lg:flex-1 lg:py-6"
-          >
-            <ScrollReveal
-              variant="scale-up"
-              delay={scrollStagger(index, 60, 140)}
-              className="flex h-16 w-full max-w-[180px] items-center justify-center sm:h-20 sm:max-w-[200px]"
-            >
-              <Image
-                src={provider.logo}
-                alt={`${provider.name} logo`}
-                width={provider.width}
-                height={provider.height}
-                className="max-h-full w-auto object-contain"
-              />
-            </ScrollReveal>
-          </li>
-        ))}
-      </ul>
+      <ScrollReveal variant="fade-up" delay={140}>
+        <InsurerLogoGrid
+          layout="row"
+          logoSize="featured"
+          spread
+          className="mt-10 sm:mt-14"
+        />
+      </ScrollReveal>
     </PageSection>
   );
 }

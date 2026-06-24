@@ -12,13 +12,13 @@ import { pageKeywords } from "@/lib/seo/keywords";
 export const metadata: Metadata = buildPageMetadata({
   title: pageTitles.blog,
   description: pageDescriptions.blog,
-  path: "/blog",
+  path: "/articles",
   keywords: pageKeywords.blog,
 });
 
 export const revalidate = 86400;
 
-export default function BlogPage() {
+export default function ArticlesPage() {
   const posts = getAllBlogPosts().map(toBlogListItem);
 
   return (

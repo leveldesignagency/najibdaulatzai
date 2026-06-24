@@ -2,6 +2,7 @@ import type { Metadata, Viewport } from "next";
 import { DM_Sans } from "next/font/google";
 import { CookieConsentProvider } from "@/components/cookies/CookieConsentProvider";
 import { Header } from "@/components/layout/Header";
+import { MobileContactFab } from "@/components/layout/MobileContactFab";
 import { JsonLd } from "@/components/seo/JsonLd";
 import { VercelInsights } from "@/components/seo/VercelInsights";
 import { homeMetadata } from "@/lib/metadata";
@@ -35,6 +36,7 @@ export default function RootLayout({
           <VercelInsights />
           <Header />
           {children}
+          <MobileContactFab />
         </CookieConsentProvider>
       </body>
     </html>

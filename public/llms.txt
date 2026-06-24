@@ -38,7 +38,7 @@ Sitemap: https://www.ndsurgeon.com/sitemap.xml
 | Contact | https://www.ndsurgeon.com/contact |
 | Testimonials | https://www.ndsurgeon.com/testimonials |
 | Research | https://www.ndsurgeon.com/research |
-| Clinical articles | https://www.ndsurgeon.com/blog |
+| Clinical articles | https://www.ndsurgeon.com/articles |
 
 ## Procedure categories (tabs on /procedures)
 

@@ -69,14 +69,14 @@ export function HeroSection() {
                 scroll={false}
                 className="font-semibold text-white underline decoration-white/70 underline-offset-[0.2em] transition hover:decoration-white"
               >
-                minimally invasive
+                Minimally Invasive
               </Link>{" "}
               and{" "}
               <Link
                 href="/robotic-surgery"
                 className="font-semibold text-white underline decoration-white/70 underline-offset-[0.2em] transition hover:decoration-white"
               >
-                robotic surgery
+                Robotic Surgery
               </Link>
             </p>
 

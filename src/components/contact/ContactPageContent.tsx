@@ -3,7 +3,6 @@ import { nhsLocation, privateLocations } from "@/lib/site-config";
 import { LocationMapCard } from "@/components/locations/LocationMapCard";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { scrollStagger } from "@/lib/scroll-stagger";
-import { ContactForm } from "./ContactForm";
 
 export function ContactPageContent() {
   const locations = [
@@ -50,12 +49,6 @@ export function ContactPageContent() {
           </div>
         </ScrollReveal>
       </section>
-
-      <ScrollReveal variant="fade-up" delay={120}>
-        <div className="max-w-3xl">
-          <ContactForm />
-        </div>
-      </ScrollReveal>
     </div>
   );
 }

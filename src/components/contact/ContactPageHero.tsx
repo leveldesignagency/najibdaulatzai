@@ -1,3 +1,4 @@
+import { InsurerLogoGrid } from "@/components/shared/InsurerLogoGrid";
 import { FocalImage } from "@/components/ui/FocalImage";
 import {
   contactEmail,
@@ -25,14 +26,25 @@ export function ContactPageHero() {
       <SiteContainer className="py-10 sm:py-12 lg:py-16">
         <div className="grid items-center gap-10 lg:grid-cols-2 lg:gap-12 xl:gap-16">
           <ScrollReveal variant="fade-right">
-            <header className="max-w-xl">
-              <SectionHeading id="contact-heading">Contact</SectionHeading>
-              <p className="mt-5 text-base leading-relaxed text-charcoal/85 sm:mt-6 sm:text-lg lg:mt-8 lg:text-xl">
-                {contactIntro}
-              </p>
+            <header>
+              <div className="max-w-xl">
+                <SectionHeading id="contact-heading">Contact</SectionHeading>
+                <p className="mt-5 text-base leading-relaxed text-charcoal/85 sm:mt-6 sm:text-lg lg:mt-8 lg:text-xl">
+                  {contactIntro}
+                </p>
+              </div>
+
+              <ScrollReveal variant="fade-up" delay={100}>
+                <div className="mt-8 w-full max-w-2xl sm:mt-10">
+                  <h2 className="max-w-xl text-lg font-semibold tracking-tight text-charcoal sm:text-xl">
+                    Insurances you are covered with!
+                  </h2>
+                  <InsurerLogoGrid layout="row" className="mt-4 sm:mt-5" />
+                </div>
+              </ScrollReveal>
 
               <ScrollReveal variant="fade-up" delay={140}>
-                <div className="mt-10 border-t border-charcoal/10 pt-8">
+                <div className="mt-10 max-w-xl border-t border-charcoal/10 pt-8">
                   <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/55">
                     Get in touch
                   </p>

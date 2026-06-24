@@ -12,7 +12,7 @@ import { defaultOgImage } from "@/lib/seo/entity";
 import { publicRobots, privatePreviewRobots } from "@/lib/seo/robots";
 import { siteConfig } from "@/lib/site-config";
 
-type BlogArticlePageProps = {
+type ArticlePageProps = {
   params: Promise<{ slug: string }>;
 };
 
@@ -22,7 +22,7 @@ export async function generateStaticParams() {
   return getAllBlogSlugs().map((slug) => ({ slug }));
 }
 
-export async function generateMetadata({ params }: BlogArticlePageProps): Promise<Metadata> {
+export async function generateMetadata({ params }: ArticlePageProps): Promise<Metadata> {
   const { slug } = await params;
   const post = getBlogPostForMetadata(slug);
 
@@ -40,12 +40,12 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
   return {
     title: absolutePageTitle(post.title),
     description: post.seoDescription,
-    alternates: { canonical: `/blog/${slug}` },
+    alternates: { canonical: `/articles/${slug}` },
     robots: publicRobots,
     openGraph: {
       title: post.title,
       description: post.seoDescription,
-      url: `${siteConfig.url}/blog/${slug}`,
+      url: `${siteConfig.url}/articles/${slug}`,
       type: "article",
       publishedTime: post.publishedAt.toISOString(),
       authors: ["Mr Najib Daulatzai"],
@@ -67,7 +67,7 @@ export async function generateMetadata({ params }: BlogArticlePageProps): Promis
   };
 }
 
-export default async function BlogArticlePage({ params }: BlogArticlePageProps) {
+export default async function ArticlePage({ params }: ArticlePageProps) {
   const { slug } = await params;
   const post = getBlogPost(slug);
 

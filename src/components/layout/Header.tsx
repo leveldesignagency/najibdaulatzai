@@ -15,7 +15,7 @@ const LIGHT_HEADER_PREFIXES = [
   "/research",
   "/testimonials",
   "/robotic-surgery",
-  "/blog",
+  "/articles",
   "/gp-referrals",
   "/patient-faq",
   "/contact",

@@ -5,8 +5,8 @@ import { Button } from "@/components/ui/Button";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { SectionEyebrow } from "@/components/ui/SectionEyebrow";
 import { SectionHeading } from "@/components/ui/SectionHeading";
+import { SignaturePlaceholder } from "@/components/ui/SignaturePlaceholder";
 import { homeTypography } from "@/lib/home-typography";
-import Image from "next/image";
 
 export function AboutSection() {
   return (
@@ -39,13 +39,7 @@ export function AboutSection() {
 
             <ScrollReveal variant="scale-up" delay={200}>
               <div className="mt-4 max-md:flex max-md:justify-center">
-                <Image
-                  src="/images/signature.svg"
-                  alt="Signature of Mr Najib Daulatzai"
-                  width={220}
-                  height={72}
-                  className="h-14 w-auto opacity-90"
-                />
+                <SignaturePlaceholder />
               </div>
             </ScrollReveal>
 

@@ -28,7 +28,7 @@ export default function GpReferralsPage() {
       />
       <PageShell>
         <SectionHeading id="gp-referrals-heading">GP Referrals</SectionHeading>
-        <div className="mt-10 sm:mt-14">
+        <div className="mt-8 sm:mt-10">
           <GpReferralsContent />
         </div>
       </PageShell>

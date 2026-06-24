@@ -61,7 +61,7 @@ London, North London, North West London, Hertfordshire, Watford, Bushey, Harrow,
 | Contact | https://www.ndsurgeon.com/contact | Booking and hospital contacts |
 | Testimonials | https://www.ndsurgeon.com/testimonials | Patient reviews |
 | Research | https://www.ndsurgeon.com/research | Publications |
-| Blog | https://www.ndsurgeon.com/blog | Clinical articles |
+| Articles | https://www.ndsurgeon.com/articles | Clinical articles |
 
 ---
 

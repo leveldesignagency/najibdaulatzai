@@ -40,7 +40,7 @@ export function ResearchPublicationCard({
   );
 
   return (
-    <article className="border border-charcoal/10 bg-neutral-50 p-6 lg:p-8">
+    <article className="flex h-full flex-col border border-charcoal/10 bg-neutral-50 p-6 lg:p-8">
       <p className="text-xs font-medium uppercase tracking-[0.3em] text-charcoal/50">
         {publication.category}
       </p>

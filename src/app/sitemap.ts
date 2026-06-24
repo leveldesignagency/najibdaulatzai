@@ -6,7 +6,7 @@ import { siteConfig } from "@/lib/site-config";
 export default function sitemap(): MetadataRoute.Sitemap {
   const blogEntries = getAllBlogPosts().flatMap((post) => [
     {
-      url: `${siteConfig.url}/blog/${post.slug}`,
+      url: `${siteConfig.url}/articles/${post.slug}`,
       lastModified: post.publishedAt,
       changeFrequency: "monthly" as const,
       priority: 0.75,
@@ -106,7 +106,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
       priority: 0.3,
     },
     {
-      url: `${siteConfig.url}/blog`,
+      url: `${siteConfig.url}/articles`,
       lastModified: new Date(),
       changeFrequency: "weekly",
       priority: 0.8,

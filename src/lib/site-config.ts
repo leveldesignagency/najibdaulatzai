@@ -11,6 +11,8 @@ export const siteConfig = {
   emailHref: "mailto:info@ndaulatzai.com",
 } as const;
 
+export const articlesPath = "/articles" as const;
+
 export const bookCtaParagraph =
   "Consultations are available through NHS and private practice at locations across London and Hertfordshire.";
 
@@ -18,7 +20,7 @@ export const menuLinks = [
   { label: "HOME", href: "/", icon: "home" as const },
   { label: "PROCEDURES", href: "/procedures" },
   { label: "ROBOTIC SURGERY", href: "/robotic-surgery" },
-  { label: "ARTICLES", href: "/blog" },
+  { label: "ARTICLES", href: articlesPath },
   { label: "ABOUT", href: "/about" },
   { label: "RESEARCH", href: "/research" },
   { label: "TESTIMONIALS", href: "/testimonials" },
@@ -30,7 +32,7 @@ export const menuLinks = [
 export const footerNavLinks = [
   { label: "PROCEDURES", href: "/procedures" },
   { label: "ROBOTIC SURGERY", href: "/robotic-surgery" },
-  { label: "ARTICLES", href: "/blog" },
+  { label: "ARTICLES", href: articlesPath },
   { label: "ABOUT", href: "/about" },
   { label: "RESEARCH", href: "/research" },
   { label: "TESTIMONIALS", href: "/testimonials" },

@@ -9,10 +9,10 @@ const wixLegacyRedirects = [
   { source: "/blank-1-1-1-1", destination: "/contact", permanent: true },
 ] as const;
 
-/** Old /articles paths (Wix or mistaken links) → clinical articles index */
-const articlesRedirects = [
-  { source: "/articles", destination: "/blog", permanent: true },
-  { source: "/articles/:slug*", destination: "/blog/:slug*", permanent: true },
+/** Legacy /blog paths → canonical /articles */
+const blogRedirects = [
+  { source: "/blog", destination: "/articles", permanent: true },
+  { source: "/blog/:slug*", destination: "/articles/:slug*", permanent: true },
 ] as const;
 
 const procedureRedirects = [
@@ -26,7 +26,7 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 420, 640],
   },
   async redirects() {
-    return [...wixLegacyRedirects, ...articlesRedirects, ...procedureRedirects];
+    return [...wixLegacyRedirects, ...blogRedirects, ...procedureRedirects];
   },
 };
 

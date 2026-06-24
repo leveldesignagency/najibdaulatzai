@@ -16,7 +16,7 @@ export function BlogPostJsonLd({ post }: BlogPostJsonLdProps) {
     ...(post.image
       ? { image: `${siteConfig.url}${post.image.src}` }
       : { image: toSchemaImageObject(defaultOgImage) }),
-    url: `${siteConfig.url}/blog/${post.slug}`,
+    url: `${siteConfig.url}/articles/${post.slug}`,
     datePublished: post.publishedAt.toISOString(),
     dateModified: post.publishedAt.toISOString(),
     author: {

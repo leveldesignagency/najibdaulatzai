@@ -8,7 +8,7 @@ export type ResearchPublication = {
   summary: string;
 };
 
-export const researchPublications: ResearchPublication[] = [
+export const researchPublicationsRaw: ResearchPublication[] = [
   {
     category: "COLORECTAL SURGERY",
     journal: "[Awaiting formal journal assignment]",
@@ -358,3 +358,7 @@ export const researchPublications: ResearchPublication[] = [
       "Review of a medical reference text for neurology fact finding in clinical practice.",
   },
 ];
+
+export const researchPublications: ResearchPublication[] = [...researchPublicationsRaw].sort(
+  (a, b) => Number(b.year) - Number(a.year) || a.articleTitle.localeCompare(b.articleTitle),
+);

@@ -21,8 +21,10 @@ type ParallaxImageProps = {
   /** Portrait frame width (e.g. `94%`). */
   portraitWidth?: string;
   portraitMaxWidth?: string;
-  /** Extra image bleed inside portrait frame; lower = less tight crop. */
+  /** Extra image bleed inside portrait frame; lower = tighter crop. */
   imageBleed?: string;
+  /** CSS scale applied to the foreground image (e.g. 1.25). */
+  imageScale?: number;
   className?: string;
 };
 
@@ -38,6 +40,7 @@ export function ParallaxImage({
   portraitWidth = "90%",
   portraitMaxWidth = "26rem",
   imageBleed = "-3%",
+  imageScale = 1,
   className = "",
 }: ParallaxImageProps) {
   const containerRef = useRef<HTMLDivElement>(null);
@@ -152,6 +155,7 @@ export function ParallaxImage({
                 priority={priority}
                 focalPoint={focalPoint}
                 className="object-cover object-center"
+                style={{ transform: `scale(${imageScale})` }}
                 sizes="(max-width: 1024px) 55vw, 28vw"
               />
             </div>

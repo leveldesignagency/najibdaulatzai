@@ -4,6 +4,7 @@ import { NewestRibbon } from "@/components/blog/NewestRibbon";
 import { getArticleExcerpt } from "@/lib/blog/excerpt";
 import { formatPublicationDate } from "@/lib/blog/schedule";
 import type { BlogPost } from "@/lib/blog/types";
+import { articlesPath } from "@/lib/site-config";
 
 type BlogPostCardProps = {
   post: BlogPost;
@@ -44,7 +45,7 @@ function BlogPostCardMedia({ post, aspectClass, sizes, priority, isNewest }: Car
 }
 
 export function BlogPostCard({ post, variant = "grid", isNewest = false }: BlogPostCardProps) {
-  const href = `/blog/${post.slug}`;
+  const href = `${articlesPath}/${post.slug}`;
   const dateLabel = formatPublicationDate(post.publishedAt);
 
   if (variant === "featured-stack") {
