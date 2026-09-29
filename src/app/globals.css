@@ -151,14 +151,13 @@ address {
   }
 
   50% {
-    transform: scale(1.08);
+    transform: scale(1.04);
   }
 }
 
 .hero-image-zoom {
   animation: hero-image-breathe 28s ease-in-out infinite;
   transform-origin: center;
-  will-change: transform;
 }
 
 .hero-image-zoom img {
@@ -269,8 +268,8 @@ address {
 
 @keyframes hero-content-in {
   from {
-    opacity: 0;
-    transform: translateY(1.25rem);
+    opacity: 0.01;
+    transform: translateY(0.75rem);
   }
 
   to {
@@ -280,20 +279,19 @@ address {
 }
 
 .hero-content-in {
-  animation: hero-content-in 1s cubic-bezier(0.22, 1, 0.36, 1) forwards;
-  opacity: 0;
+  animation: hero-content-in 0.7s cubic-bezier(0.22, 1, 0.36, 1) forwards;
 }
 
 .hero-content-in--delay-1 {
-  animation-delay: 0.18s;
+  animation-delay: 0.1s;
 }
 
 .hero-content-in--delay-2 {
-  animation-delay: 0.38s;
+  animation-delay: 0.2s;
 }
 
 .hero-content-in--delay-3 {
-  animation-delay: 0.58s;
+  animation-delay: 0.3s;
 }
 
 /* ── Homepage section atmosphere (desktop-forward) ─────────────────────────── */

@@ -9,17 +9,25 @@ import { siteConfig } from "@/lib/site-config";
 export function HeroSection() {
   return (
     <section className="relative min-h-screen overflow-hidden bg-charcoal pt-0">
+      {/* Only preload the hero that matches the viewport — avoids dual LCP competition. */}
+      <link
+        rel="preload"
+        as="image"
+        href="/images/images/mobile-hero.webp"
+        media="(max-width: 767px)"
+      />
       <div className="absolute inset-0 overflow-hidden">
         <div className="hero-image-mobile absolute inset-0 md:hidden">
           <FocalImage
             src="/images/images/mobile-hero.webp"
             alt="Mr Najib Daulatzai, colorectal and general surgeon in London and Hertfordshire, seated at his desk in professional attire"
             fill
-            priority
+            loading="eager"
+            fetchPriority="high"
             focalPoint="50% 38%"
             className="object-cover"
             sizes="100vw"
-            quality={85}
+            quality={80}
           />
         </div>
 
@@ -29,9 +37,11 @@ export function HeroSection() {
             alt="Mr Najib Daulatzai, colorectal and general surgeon in London and Hertfordshire, seated at his desk in professional attire"
             fill
             priority
+            fetchPriority="high"
             focalPoint="35.4% 42%"
             className="object-cover"
             sizes="100vw"
+            quality={75}
           />
         </div>
         <div

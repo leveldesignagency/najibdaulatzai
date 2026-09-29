@@ -1,7 +1,10 @@
+"use client";
+
 import {
   buildGoogleMapsEmbedUrl,
   buildGoogleMapsSearchUrl,
 } from "@/lib/google-maps-embed";
+import { useEffect, useRef, useState } from "react";
 
 type LocationMapEmbedProps = {
   mapTitle: string;
@@ -19,19 +22,53 @@ export function LocationMapEmbed({
 }: LocationMapEmbedProps) {
   const isDark = theme === "dark";
   const mapsSearchUrl = buildGoogleMapsSearchUrl(mapQuery);
+  const containerRef = useRef<HTMLDivElement>(null);
+  const [shouldLoad, setShouldLoad] = useState(false);
+
+  useEffect(() => {
+    const node = containerRef.current;
+    if (!node || shouldLoad) return;
+
+    if (!("IntersectionObserver" in window)) {
+      setShouldLoad(true);
+      return;
+    }
+
+    const observer = new IntersectionObserver(
+      (entries) => {
+        if (entries.some((entry) => entry.isIntersecting)) {
+          setShouldLoad(true);
+          observer.disconnect();
+        }
+      },
+      { rootMargin: "200px 0px" },
+    );
+
+    observer.observe(node);
+    return () => observer.disconnect();
+  }, [shouldLoad]);
 
   return (
-    <div className="flex h-full flex-col">
-      <iframe
-        title={mapTitle}
-        src={buildGoogleMapsEmbedUrl(mapQuery)}
-        loading="lazy"
-        referrerPolicy="no-referrer-when-downgrade"
-        className={`${iframeHeights} ${
-          isDark ? "grayscale-[20%] invert-[5%]" : ""
-        }`}
-        allowFullScreen
-      />
+    <div ref={containerRef} className="flex h-full flex-col">
+      {shouldLoad ? (
+        <iframe
+          title={mapTitle}
+          src={buildGoogleMapsEmbedUrl(mapQuery)}
+          loading="lazy"
+          referrerPolicy="no-referrer-when-downgrade"
+          className={`${iframeHeights} ${
+            isDark ? "grayscale-[20%] invert-[5%]" : ""
+          }`}
+          allowFullScreen
+        />
+      ) : (
+        <div
+          className={`${iframeHeights} ${
+            isDark ? "bg-white/10" : "bg-charcoal/5"
+          }`}
+          aria-hidden="true"
+        />
+      )}
       <a
         href={mapsSearchUrl}
         target="_blank"

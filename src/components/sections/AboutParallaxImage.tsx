@@ -10,7 +10,7 @@ export function AboutParallaxImage() {
       src={IMAGE_SRC}
       alt={IMAGE_ALT}
       aspect="portrait"
-      priority
+      sizes="(max-width: 1024px) 55vw, 28vw"
       withBackdrop={false}
       focalPoint="43.7% 38%"
       portraitWidth="94%"

@@ -17,6 +17,8 @@ const dmSans = DM_Sans({
   subsets: ["latin"],
   weight: ["400", "500", "600", "700"],
   display: "swap",
+  preload: true,
+  adjustFontFallback: true,
 });
 
 export const metadata: Metadata = homeMetadata;
@@ -37,7 +39,7 @@ export default function RootLayout({
       <body className="flex min-h-full flex-col overflow-x-clip bg-white text-charcoal">
         {isGaConfigured() ? (
           <>
-            <Script id="gtag-bootstrap" strategy="beforeInteractive">
+            <Script id="gtag-bootstrap" strategy="afterInteractive">
               {buildGtagBootstrapScript()}
             </Script>
             <Script
