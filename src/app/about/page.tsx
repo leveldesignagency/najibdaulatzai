@@ -1,6 +1,7 @@
 import type { Metadata } from "next";
 import { AboutBioSection } from "@/components/about/AboutBioSection";
 import { CredentialsSection } from "@/components/about/CredentialsSection";
+import { MembershipsSection } from "@/components/about/MembershipsSection";
 import { pageDescriptions } from "@/lib/page-descriptions";
 import { pageTitles } from "@/lib/page-titles";
 import { buildPageMetadata } from "@/lib/seo/build-page-metadata";
@@ -24,6 +25,7 @@ export default function AboutPage() {
       <PageShell>
         <AboutBioSection />
         <CredentialsSection />
+        <MembershipsSection />
       </PageShell>
       <InsurancesSection />
       <AboutValuesSection />

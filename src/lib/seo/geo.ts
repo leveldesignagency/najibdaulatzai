@@ -63,6 +63,18 @@ export const practiceLocations: GeoLocation[] = [
     longitude: -0.1941,
     serves: ["Golders Green", "Hendon", "Harrow", "North London", "North West London"],
   },
+  {
+    id: "cleveland-clinic-london",
+    name: "Cleveland Clinic London",
+    type: "Hospital",
+    streetAddress: "33 Grosvenor Place",
+    addressLocality: "London",
+    postalCode: "SW1X 7HY",
+    addressCountry: "GB",
+    latitude: 51.4994,
+    longitude: -0.1494,
+    serves: ["Belgravia", "Victoria", "Central London", "Westminster", "London"],
+  },
 ];
 
 export const primaryGeoRegion = {
@@ -125,6 +137,8 @@ export const servedAreas = [
   "Harrow",
   "Golders Green",
   "Hendon",
+  "Belgravia",
+  "Victoria",
   "St Albans",
   "Rickmansworth",
   "Hemel Hempstead",

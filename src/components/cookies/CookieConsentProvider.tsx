@@ -140,14 +140,14 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
                   <button
                     type="button"
                     onClick={acceptAll}
-                    className="whitespace-nowrap bg-charcoal px-3 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white transition hover:bg-charcoal-dark sm:px-4 sm:py-2.5 sm:text-xs sm:tracking-[0.16em]"
+                    className="whitespace-nowrap rounded-sm bg-charcoal px-3 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-white transition hover:bg-charcoal-dark sm:px-4 sm:py-2.5 sm:text-xs sm:tracking-[0.16em]"
                   >
                     Accept all
                   </button>
                   <button
                     type="button"
                     onClick={rejectNonEssential}
-                    className="whitespace-nowrap border border-charcoal/25 px-3 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-charcoal transition hover:border-charcoal/50 sm:px-4 sm:py-2.5 sm:text-xs sm:tracking-[0.16em]"
+                    className="whitespace-nowrap rounded-sm border border-charcoal/25 px-3 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-charcoal transition hover:border-charcoal/50 sm:px-4 sm:py-2.5 sm:text-xs sm:tracking-[0.16em]"
                   >
                     Reject non-essential
                   </button>
@@ -158,7 +158,7 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
                       setDraftAnalytics(preferences?.analytics ?? false);
                       setShowPreferences(true);
                     }}
-                    className="whitespace-nowrap border border-charcoal/25 px-3 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-charcoal transition hover:border-charcoal/50 sm:px-4 sm:py-2.5 sm:text-xs sm:tracking-[0.16em]"
+                    className="whitespace-nowrap rounded-sm border border-charcoal/25 px-3 py-2 text-[11px] font-medium uppercase tracking-[0.14em] text-charcoal transition hover:border-charcoal/50 sm:px-4 sm:py-2.5 sm:text-xs sm:tracking-[0.16em]"
                   >
                     Manage preferences
                   </button>
@@ -222,14 +222,14 @@ export function CookieConsentProvider({ children }: CookieConsentProviderProps) 
                   <button
                     type="button"
                     onClick={() => savePreferences(draftFunctional, draftAnalytics)}
-                    className="bg-charcoal px-5 py-3 text-sm font-medium uppercase tracking-[0.2em] text-white transition hover:bg-charcoal-dark"
+                    className="rounded-sm bg-charcoal px-5 py-3 text-sm font-medium uppercase tracking-[0.2em] text-white transition hover:bg-charcoal-dark"
                   >
                     Save preferences
                   </button>
                   <button
                     type="button"
                     onClick={() => setShowPreferences(false)}
-                    className="border border-charcoal/25 px-5 py-3 text-sm font-medium uppercase tracking-[0.2em] text-charcoal transition hover:border-charcoal/50"
+                    className="rounded-sm border border-charcoal/25 px-5 py-3 text-sm font-medium uppercase tracking-[0.2em] text-charcoal transition hover:border-charcoal/50"
                   >
                     Back
                   </button>

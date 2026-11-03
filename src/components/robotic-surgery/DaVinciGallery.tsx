@@ -22,7 +22,7 @@ function CollageCell({ image }: { image: DaVinciGalleryImage }) {
       aria-label={`${image.alt}, Intuitive Surgical press resources (opens in new tab)`}
     >
       <figure
-        className={`relative h-full w-full overflow-hidden ${
+        className={`media-rounded relative h-full w-full ${
           isAnchor ? "min-h-[220px] lg:min-h-[320px]" : isWide ? "min-h-[120px]" : "min-h-[140px]"
         }`}
         style={{ aspectRatio: isAnchor ? undefined : image.aspectRatio }}

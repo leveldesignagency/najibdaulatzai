@@ -17,7 +17,7 @@ export function ContactForm() {
               type="text"
               name="firstName"
               autoComplete="given-name"
-              className="border border-charcoal/20 bg-white px-4 py-3 text-base text-charcoal outline-none transition-colors focus:border-charcoal"
+              className="field-control rounded-sm border border-charcoal/20 bg-white px-4 py-3 text-base text-charcoal outline-none transition-colors focus:border-charcoal"
             />
           </label>
           <label className="grid gap-2 text-sm text-charcoal/80">
@@ -26,7 +26,7 @@ export function ContactForm() {
               type="text"
               name="lastName"
               autoComplete="family-name"
-              className="border border-charcoal/20 bg-white px-4 py-3 text-base text-charcoal outline-none transition-colors focus:border-charcoal"
+              className="field-control rounded-sm border border-charcoal/20 bg-white px-4 py-3 text-base text-charcoal outline-none transition-colors focus:border-charcoal"
             />
           </label>
         </div>
@@ -36,7 +36,7 @@ export function ContactForm() {
             type="email"
             name="email"
             autoComplete="email"
-            className="border border-charcoal/20 bg-white px-4 py-3 text-base text-charcoal outline-none transition-colors focus:border-charcoal"
+            className="field-control rounded-sm border border-charcoal/20 bg-white px-4 py-3 text-base text-charcoal outline-none transition-colors focus:border-charcoal"
           />
         </label>
         <label className="grid gap-2 text-sm text-charcoal/80">
@@ -44,13 +44,13 @@ export function ContactForm() {
           <textarea
             name="message"
             rows={5}
-            className="resize-y border border-charcoal/20 bg-white px-4 py-3 text-base text-charcoal outline-none transition-colors focus:border-charcoal"
+            className="field-control resize-y rounded-sm border border-charcoal/20 bg-white px-4 py-3 text-base text-charcoal outline-none transition-colors focus:border-charcoal"
           />
         </label>
         <div>
           <button
             type="submit"
-            className="inline-flex min-h-[48px] items-center justify-center border border-charcoal bg-charcoal px-8 py-3 text-sm font-medium uppercase tracking-[0.2em] text-white transition-colors hover:bg-charcoal/90"
+            className="btn-4 inline-flex min-h-[48px] items-center justify-center rounded-sm border border-charcoal bg-charcoal px-8 py-3 text-sm font-medium uppercase tracking-[0.2em] text-white transition-colors hover:bg-charcoal/90"
           >
             Submit
           </button>

@@ -15,7 +15,7 @@ export const homepageAeoFaqs: AeoFaqItem[] = [
     id: "who-is-najib-daulatzai",
     question: "Who is Mr Najib Daulatzai?",
     answer:
-      "Mr Najib Daulatzai is a consultant colorectal and general surgeon practising in London and Hertfordshire. He is multi-platform trained on the da Vinci Xi and da Vinci 5 robotic systems and holds an NHS consultant post at West Hertfordshire Teaching Hospitals NHS Trust. Private consultations are at Spire Bushey Hospital, HCA The Wellington Hospital, and HCA Golders Green Outpatients.",
+      "Mr Najib Daulatzai is a high-volume robotic surgeon and Lead for Colorectal Surgery at West Hertfordshire Teaching Hospitals NHS Trust, based at Watford General Hospital. He is proficient and fully accredited on both the da Vinci and CMR Versius robotic platforms. He sees and operates on private patients at Spire Bushey Hospital, HCA The Wellington Hospital and Cleveland Clinic London.",
     topics: ["surgeon", "credentials", "locations"],
   },
   {
@@ -50,7 +50,7 @@ export const homepageAeoFaqs: AeoFaqItem[] = [
     id: "nhs-private-both",
     question: "Does Mr Najib Daulatzai see NHS and private patients?",
     answer:
-      "Yes. Mr Najib Daulatzai holds an NHS consultant post at West Hertfordshire Teaching Hospitals NHS Trust in Watford and also sees private patients at Spire Bushey, HCA Wellington, and HCA Golders Green.",
+      "Yes. Mr Najib Daulatzai holds an NHS consultant post at West Hertfordshire Teaching Hospitals NHS Trust in Watford and also sees private patients at Spire Bushey, HCA Wellington, Cleveland Clinic London, and HCA Golders Green (appointments on request).",
     topics: ["NHS", "private care"],
   },
   {
@@ -112,7 +112,7 @@ export const roboticSurgeryAeoFaqs: AeoFaqItem[] = [
     id: "da-vinci-surgeon-london",
     question: "Where can I find a da Vinci colorectal surgeon in London?",
     answer:
-      "Mr Najib Daulatzai performs robotic colorectal surgery at Spire Bushey Hospital, HCA The Wellington Hospital, and within his NHS practice at Watford General Hospital. Contact the practice to discuss whether robotic surgery is appropriate for your condition.",
+      "Mr Najib Daulatzai performs robotic colorectal surgery at Spire Bushey Hospital, HCA The Wellington Hospital, Cleveland Clinic London, and within his NHS practice at Watford General Hospital. Contact the practice to discuss whether robotic surgery is appropriate for your condition.",
     topics: ["robotic surgery", "London", "locations"],
   },
 ];
@@ -129,7 +129,7 @@ export const conditionAeoFaqs: AeoFaqItem[] = [
     id: "private-colonoscopy-london",
     question: "Can I get a private colonoscopy in London with Mr Daulatzai?",
     answer:
-      "Yes. Mr Najib Daulatzai performs diagnostic, surveillance, and therapeutic colonoscopy privately at Spire Bushey Hospital, HCA The Wellington Hospital, and HCA Golders Green Outpatients. Contact the practice on +44 7733 897972 or info@ndaulatzai.com to arrange assessment.",
+      "Yes. Mr Najib Daulatzai performs diagnostic, surveillance, and therapeutic colonoscopy privately at Spire Bushey Hospital, HCA The Wellington Hospital, and Cleveland Clinic London, with outpatient appointments also available at HCA Golders Green on request. Contact the practice on +44 7733 897972 or info@ndaulatzai.com to arrange assessment.",
     topics: ["colonoscopy", "private care", "London"],
   },
   {

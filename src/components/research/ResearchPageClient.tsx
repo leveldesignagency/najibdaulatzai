@@ -49,7 +49,7 @@ function ResearchFilterCard({
   const hasActiveFilters = query.trim().length > 0 || selectedYear !== "all";
 
   return (
-    <aside className="rounded-sm border border-charcoal/10 bg-neutral-50/80 p-5 sm:p-6">
+    <aside className="surface-rounded border border-charcoal/10 bg-neutral-50/80 p-5 sm:p-6">
       <h2 className="text-lg font-semibold tracking-tight text-charcoal sm:text-xl">
         Find publications
       </h2>
@@ -80,7 +80,7 @@ function ResearchFilterCard({
             value={query}
             onChange={(event) => onQueryChange(event.target.value)}
             placeholder="Title, journal, topic…"
-            className="w-full rounded-sm border border-charcoal/15 bg-white py-2.5 pl-10 pr-4 text-base text-charcoal placeholder:text-charcoal/45 focus:border-charcoal/30 focus:outline-none focus:ring-2 focus:ring-charcoal/10"
+            className="field-control w-full rounded-sm border border-charcoal/15 bg-white py-2.5 pl-10 pr-4 text-base text-charcoal placeholder:text-charcoal/45 focus:border-charcoal/30 focus:outline-none focus:ring-2 focus:ring-charcoal/10"
           />
         </div>
       </div>
@@ -96,7 +96,7 @@ function ResearchFilterCard({
           id="research-year"
           value={selectedYear}
           onChange={(event) => onYearChange(event.target.value)}
-          className="mt-2 w-full rounded-sm border border-charcoal/15 bg-white px-4 py-2.5 text-base text-charcoal focus:border-charcoal/30 focus:outline-none focus:ring-2 focus:ring-charcoal/10"
+          className="field-control mt-2 w-full rounded-sm border border-charcoal/15 bg-white px-4 py-2.5 text-base text-charcoal focus:border-charcoal/30 focus:outline-none focus:ring-2 focus:ring-charcoal/10"
         >
           <option value="all">All years</option>
           {publicationYears.map((year) => (

@@ -38,7 +38,7 @@ export function BookCtaSection() {
               delay={120}
               className="relative z-10 flex w-full justify-center px-3 py-10 sm:px-4 sm:py-12 md:px-5 lg:justify-end lg:px-10 lg:py-24 lg:pr-16 xl:pr-24"
             >
-              <div className="max-w-md rounded-sm bg-white/88 px-4 py-5 text-center sm:bg-white/82 lg:bg-transparent lg:p-0 lg:text-right">
+              <div className="surface-rounded max-w-md bg-white/88 px-4 py-5 text-center sm:bg-white/82 lg:bg-transparent lg:p-0 lg:text-right">
                 <h2
                   id="book-heading"
                   className="text-3xl font-semibold leading-tight tracking-tight text-charcoal sm:text-4xl lg:text-5xl"

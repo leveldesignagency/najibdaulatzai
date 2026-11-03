@@ -23,7 +23,7 @@ export function AboutValuesSection() {
             <ScrollReveal
               variant="scale-up"
               delay={140}
-              className="relative mt-8 w-full overflow-hidden bg-charcoal-dark max-lg:aspect-[4/5] sm:mt-10 lg:min-h-0 lg:flex-1"
+              className="media-rounded relative mt-8 w-full bg-charcoal-dark max-lg:aspect-[4/5] sm:mt-10 lg:min-h-0 lg:flex-1"
             >
               <FocalImage
                 src="/images/about secondary.jpg"

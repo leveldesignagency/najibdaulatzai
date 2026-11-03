@@ -68,7 +68,7 @@ function FaqResultCard({
   return (
     <details
       open={defaultOpen}
-      className="group overflow-hidden border border-charcoal/10 bg-white shadow-sm transition-shadow open:shadow-md"
+      className="surface-rounded group overflow-hidden border border-charcoal/10 bg-white shadow-sm transition-shadow open:shadow-md"
     >
       <summary className="flex cursor-pointer list-none items-start justify-between gap-4 px-6 py-5 text-left font-medium text-charcoal transition-colors hover:bg-neutral-50 [&::-webkit-details-marker]:hidden sm:px-8 sm:py-6">
         <span className="flex flex-col gap-2">
@@ -187,7 +187,7 @@ function FaqSearchInput({
           onFocus={() => setIsOpen(true)}
           onKeyDown={handleKeyDown}
           placeholder="e.g. How quickly can I be seen privately?"
-          className="w-full border border-charcoal/15 bg-white px-5 py-4 text-base text-charcoal outline-none ring-charcoal/20 transition placeholder:text-charcoal/40 focus:border-charcoal/35 focus:ring-2 sm:px-6 sm:py-5 sm:text-lg"
+          className="field-control w-full rounded-sm border border-charcoal/15 bg-white px-5 py-4 text-base text-charcoal outline-none ring-charcoal/20 transition placeholder:text-charcoal/40 focus:border-charcoal/35 focus:ring-2 sm:px-6 sm:py-5 sm:text-lg"
           autoComplete="off"
           spellCheck
           aria-autocomplete="list"
@@ -206,7 +206,7 @@ function FaqSearchInput({
           id={listboxId}
           role="listbox"
           aria-label="Suggested questions"
-          className="absolute z-20 mt-1 max-h-72 w-full overflow-y-auto border border-charcoal/15 bg-white shadow-lg"
+          className="surface-rounded absolute z-20 mt-1 max-h-72 w-full overflow-y-auto border border-charcoal/15 bg-white shadow-lg"
         >
           {showStaticSuggestions
             ? faqSuggestedQueries.map((suggestion, index) => (
@@ -260,7 +260,7 @@ function FaqSearchInput({
       ) : null}
 
       {isOpen && trimmedQuery.length > 0 && suggestions.length === 0 ? (
-        <p className="absolute z-20 mt-1 w-full border border-charcoal/15 bg-white px-5 py-3 text-sm text-charcoal/60 shadow-lg">
+        <p className="surface-rounded absolute z-20 mt-1 w-full border border-charcoal/15 bg-white px-5 py-3 text-sm text-charcoal/60 shadow-lg">
           No matching questions. Try different words or browse all answers below.
         </p>
       ) : null}
@@ -291,7 +291,7 @@ export function PatientFaqEngine() {
     <div className="space-y-12 lg:space-y-16">
       <section
         aria-labelledby="faq-search-heading"
-        className="border border-charcoal/10 bg-neutral-50 px-5 py-10 sm:px-8 sm:py-12 lg:px-12 lg:py-14"
+        className="surface-rounded border border-charcoal/10 bg-neutral-50 px-5 py-10 sm:px-8 sm:py-12 lg:px-12 lg:py-14"
       >
         <div className="grid gap-10 lg:grid-cols-2 lg:items-start lg:gap-12 xl:gap-16">
           <div>
@@ -326,7 +326,7 @@ export function PatientFaqEngine() {
                   key={suggestion}
                   type="button"
                   onClick={() => setQuery(suggestion)}
-                  className="border border-charcoal/12 bg-white px-4 py-3 text-left text-sm leading-snug text-charcoal/75 transition hover:border-charcoal/30 hover:text-charcoal"
+                  className="rounded-sm border border-charcoal/12 bg-white px-4 py-3 text-left text-sm leading-snug text-charcoal/75 transition hover:border-charcoal/30 hover:text-charcoal"
                 >
                   {suggestion}
                 </button>
@@ -355,7 +355,7 @@ export function PatientFaqEngine() {
       {noLocalMatch ? (
         <section
           aria-labelledby="faq-no-match-heading"
-          className="border border-charcoal/10 bg-white px-6 py-10 sm:px-10 sm:py-12"
+          className="surface-rounded border border-charcoal/10 bg-white px-6 py-10 sm:px-10 sm:py-12"
         >
           <h2 id="faq-no-match-heading" className="text-2xl font-semibold text-charcoal sm:text-3xl">
             No matching answer on this site
@@ -437,7 +437,7 @@ export function PatientFaqEngine() {
 
       <section
         aria-labelledby="faq-google-fallback-heading"
-        className="grid gap-8 border border-charcoal/10 bg-charcoal px-6 py-10 text-white sm:px-10 sm:py-12 lg:grid-cols-[1.2fr_1fr] lg:items-center"
+        className="surface-rounded grid gap-8 border border-charcoal/10 bg-charcoal px-6 py-10 text-white sm:px-10 sm:py-12 lg:grid-cols-[1.2fr_1fr] lg:items-center"
       >
         <div>
           <h2 id="faq-google-fallback-heading" className="text-2xl font-semibold sm:text-3xl">
@@ -491,7 +491,7 @@ function CategoryButton({
       type="button"
       onClick={onClick}
       aria-pressed={active}
-      className={`border px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] transition sm:text-sm ${
+      className={`rounded-sm border px-4 py-2.5 text-xs font-semibold uppercase tracking-[0.16em] transition sm:text-sm ${
         active
           ? "border-charcoal bg-charcoal text-white"
           : "border-charcoal/15 bg-white text-charcoal/75 hover:border-charcoal/35 hover:text-charcoal"

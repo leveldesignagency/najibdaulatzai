@@ -29,6 +29,14 @@ export const physicianCredentials = [
     name: "MD (Research), Imperial College London",
     category: "degree",
   },
+  {
+    name: "Fellow / Member, Royal College of Surgeons of England",
+    category: "membership",
+  },
+  {
+    name: "Member, Association of Coloproctology of Great Britain and Ireland (ACPGBI)",
+    category: "membership",
+  },
 ] as const;
 
 export const physicianKnowsAbout = [

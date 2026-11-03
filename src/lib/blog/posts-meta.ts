@@ -141,4 +141,26 @@ export const blogPostsMeta: BlogPostMeta[] = [
       "Private colorectal surgery cost UK, self-pay bowel surgery pricing and insurance.",
     category: "Decision & comparison",
   },
+  {
+    slug: "itchy-bottom-causes-treatment",
+    title:
+      "Itchy Bottom (Pruritus Ani): Causes, Treatment and When to See a Specialist",
+    seoDescription:
+      "An itchy bottom is common and embarrassing, but usually treatable. A colorectal surgeon explains the common causes, simple steps that help, and when to get it checked.",
+    category: "Condition-led",
+  },
+  {
+    slug: "anal-fissure-pain-treatment",
+    title: "Anal Fissure: Why It Hurts and How It Heals",
+    seoDescription:
+      "Sharp pain when you poo, followed by a burning ache, is often caused by an anal fissure. A colorectal surgeon explains the symptoms, treatment and when surgery is needed.",
+    category: "Condition-led",
+  },
+  {
+    slug: "robotic-inguinal-hernia-repair-recovery",
+    title: "Robotic Inguinal Hernia Repair: What to Expect and Recovery",
+    seoDescription:
+      "Thinking about robotic hernia repair? A consultant robotic surgeon explains how the operation works, its benefits, and how long recovery takes after inguinal hernia surgery.",
+    category: "Procedure-led",
+  },
 ];

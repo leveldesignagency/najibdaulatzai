@@ -23,7 +23,7 @@ export const patientFaqs: PatientFaq[] = [
     id: "which-hospitals",
     question: "Which hospitals does Mr Daulatzai operate at?",
     answer: [
-      "Mr Daulatzai performs surgery at Spire Bushey Hospital, HCA The Wellington Hospital in London, and HCA Golders Green Outpatients. His NHS practice is based at West Hertfordshire Teaching Hospitals NHS Trust, Watford General Hospital.",
+      "Mr Daulatzai performs surgery at Spire Bushey Hospital, HCA The Wellington Hospital in London, and Cleveland Clinic London. Outpatient appointments are also available at HCA Golders Green on request. His NHS practice is based at West Hertfordshire Teaching Hospitals NHS Trust, Watford General Hospital.",
     ],
   },
   {
@@ -37,7 +37,7 @@ export const patientFaqs: PatientFaq[] = [
     id: "self-funding",
     question: "What if I don't have private medical insurance?",
     answer: [
-      "Self-funding patients are very welcome. Transparent pricing is available on request. Please contact the secretary for details of consultation and procedure fees.",
+      "Self-funding patients are very welcome. Self-pay fees are £250 for a new consultation and £180 for a follow-up. Please contact the secretary for details of procedure fees.",
     ],
   },
   {

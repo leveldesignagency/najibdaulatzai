@@ -1,4 +1,6 @@
+import { LocationBookingButton } from "@/components/locations/LocationBookingButton";
 import { LocationMapCard } from "@/components/locations/LocationMapCard";
+import { SelfPayLocationCta } from "@/components/locations/SelfPayLocationCta";
 import { SiteContainer } from "@/components/layout/SiteContainer";
 import { HomeSectionShell } from "@/components/sections/HomeSectionShell";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
@@ -55,6 +57,7 @@ export function LocationsSection() {
           {locations.map(({ key, location, isNhs }, index) => (
             <li key={key} className="h-full">
               <ScrollReveal
+                className="h-full"
                 variant={index % 2 === 0 ? "fade-up" : "scale-up"}
                 delay={scrollStagger(index, 90, 120)}
               >
@@ -64,6 +67,7 @@ export function LocationsSection() {
                   practiceType={isNhs ? "nhs" : "private"}
                   name={location.name}
                   lines={location.lines}
+                  note={"note" in location ? location.note : undefined}
                   mapEmbed={location.mapEmbed}
                   mapQuery={location.mapQuery}
                   mapTitle={
@@ -71,10 +75,28 @@ export function LocationsSection() {
                       ? "Map showing West Hertfordshire Teaching Hospitals NHS Trust in Watford"
                       : `Map showing ${location.name}`
                   }
+                  bookingAction={
+                    !isNhs && "booking" in location ? (
+                      <LocationBookingButton
+                        theme="dark"
+                        label={location.booking.label}
+                        href={location.booking.href}
+                      />
+                    ) : undefined
+                  }
                 />
               </ScrollReveal>
             </li>
           ))}
+          <li className="h-full">
+            <ScrollReveal
+              className="h-full"
+              variant="scale-up"
+              delay={scrollStagger(locations.length, 90, 120)}
+            >
+              <SelfPayLocationCta theme="dark" mobileCenter />
+            </ScrollReveal>
+          </li>
         </ul>
       </SiteContainer>
     </HomeSectionShell>

@@ -1,3 +1,4 @@
+import Link from "next/link";
 import type { ReactNode } from "react";
 
 type Block =
@@ -56,6 +57,59 @@ function parseBlocks(markdown: string): Block[] {
   return blocks;
 }
 
+function renderInlineMarkdown(text: string, keyPrefix: string): ReactNode[] {
+  const nodes: ReactNode[] = [];
+  const linkPattern = /\[([^\]]+)\]\(([^)]+)\)/g;
+  let lastIndex = 0;
+  let match: RegExpExecArray | null;
+  let partIndex = 0;
+
+  while ((match = linkPattern.exec(text)) !== null) {
+    if (match.index > lastIndex) {
+      nodes.push(text.slice(lastIndex, match.index));
+    }
+
+    const label = match[1];
+    const href = match[2];
+    const isExternal = href.startsWith("http://") || href.startsWith("https://");
+    const className =
+      "font-medium text-charcoal underline decoration-charcoal/30 underline-offset-4 transition-colors hover:decoration-charcoal";
+
+    if (isExternal) {
+      nodes.push(
+        <a
+          key={`${keyPrefix}-a-${partIndex}`}
+          href={href}
+          target="_blank"
+          rel="noopener noreferrer"
+          className={className}
+        >
+          {label}
+        </a>,
+      );
+    } else {
+      nodes.push(
+        <Link
+          key={`${keyPrefix}-a-${partIndex}`}
+          href={href}
+          className={className}
+        >
+          {label}
+        </Link>,
+      );
+    }
+
+    lastIndex = match.index + match[0].length;
+    partIndex += 1;
+  }
+
+  if (lastIndex < text.length) {
+    nodes.push(text.slice(lastIndex));
+  }
+
+  return nodes.length > 0 ? nodes : [text];
+}
+
 export function renderBlogMarkdown(markdown: string): ReactNode[] {
   return parseBlocks(markdown).map((block, index) => {
     if (block.type === "heading") {
@@ -75,8 +129,10 @@ export function renderBlogMarkdown(markdown: string): ReactNode[] {
           key={`ul-${index}`}
           className="mt-6 list-disc space-y-2 pl-6 text-base leading-relaxed text-charcoal/85 lg:text-lg"
         >
-          {block.items.map((item) => (
-            <li key={item.slice(0, 40)}>{item}</li>
+          {block.items.map((item, itemIndex) => (
+            <li key={`${index}-${itemIndex}-${item.slice(0, 24)}`}>
+              {renderInlineMarkdown(item, `li-${index}-${itemIndex}`)}
+            </li>
           ))}
         </ul>
       );
@@ -87,7 +143,7 @@ export function renderBlogMarkdown(markdown: string): ReactNode[] {
         key={`p-${index}`}
         className="mt-6 text-base leading-relaxed text-charcoal/85 lg:text-lg"
       >
-        {block.text}
+        {renderInlineMarkdown(block.text, `p-${index}`)}
       </p>
     );
   });

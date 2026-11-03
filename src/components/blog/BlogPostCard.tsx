@@ -29,7 +29,7 @@ function BlogPostCardMedia({ post, aspectClass, sizes, priority, isNewest }: Car
   if (!post.image) return null;
 
   return (
-    <div className={`relative w-full shrink-0 overflow-hidden bg-neutral-100 ${aspectClass}`}>
+    <div className={`media-rounded relative w-full shrink-0 bg-neutral-100 ${aspectClass}`}>
       {isNewest ? <NewestRibbon /> : null}
       <FocalImage
         src={post.image.src}
@@ -51,7 +51,7 @@ export function BlogPostCard({ post, variant = "grid", isNewest = false }: BlogP
   if (variant === "featured-stack") {
     return (
       <Link href={href} className={cardLinkClass}>
-        <article className="relative flex h-full flex-col overflow-hidden border border-charcoal/10 bg-white transition group-hover:border-charcoal/25 group-hover:shadow-md">
+        <article className="surface-rounded relative flex h-full flex-col overflow-hidden border border-charcoal/10 bg-white transition group-hover:border-charcoal/25 group-hover:shadow-md">
           {isNewest && !post.image ? <NewestRibbon /> : null}
           <BlogPostCardMedia
             post={post}
@@ -90,7 +90,7 @@ export function BlogPostCard({ post, variant = "grid", isNewest = false }: BlogP
 
     return (
       <Link href={href} className={cardLinkClass}>
-        <article className="relative flex h-full min-h-0 flex-col overflow-hidden border border-charcoal/10 bg-white transition group-hover:border-charcoal/25 group-hover:shadow-md">
+        <article className="surface-rounded relative flex h-full min-h-0 flex-col overflow-hidden border border-charcoal/10 bg-white transition group-hover:border-charcoal/25 group-hover:shadow-md">
           {isNewest && !post.image ? <NewestRibbon /> : null}
           <BlogPostCardMedia
             post={post}
@@ -126,7 +126,7 @@ export function BlogPostCard({ post, variant = "grid", isNewest = false }: BlogP
 
   return (
     <Link href={href} className={cardLinkClass}>
-      <article className="relative flex h-full flex-col overflow-hidden border border-charcoal/10 bg-white transition group-hover:border-charcoal/20 group-hover:shadow-md">
+      <article className="surface-rounded relative flex h-full flex-col overflow-hidden border border-charcoal/10 bg-white transition group-hover:border-charcoal/20 group-hover:shadow-md">
         {isNewest && !post.image ? <NewestRibbon /> : null}
         <BlogPostCardMedia
           post={post}

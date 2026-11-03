@@ -10,7 +10,7 @@ export function ProcedureCard({ card }: ProcedureCardProps) {
   return (
     <Link
       href={card.href}
-      className="procedure-card group relative block min-h-[220px] overflow-hidden sm:min-h-[260px] lg:min-h-[280px]"
+      className="procedure-card surface-rounded group relative block min-h-[220px] overflow-hidden sm:min-h-[260px] lg:min-h-[280px]"
     >
       <div className="absolute inset-0 overflow-hidden">
         <FocalImage

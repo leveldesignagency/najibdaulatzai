@@ -32,9 +32,9 @@ const patientFaqMeta: Record<
 > = {
   "gp-referral-private": { category: "booking", keywords: ["self-refer", "referral letter"] },
   "how-quickly-seen": { category: "booking", keywords: ["appointment", "waiting time", "availability"] },
-  "which-hospitals": { category: "hospitals", keywords: ["Watford", "Bushey", "Wellington", "Golders Green"] },
+  "which-hospitals": { category: "hospitals", keywords: ["Watford", "Bushey", "Wellington", "Cleveland Clinic", "Golders Green"] },
   "private-insurance": { category: "insurance", keywords: ["Bupa", "AXA", "Aviva", "Vitality", "WPA", "Healix"] },
-  "self-funding": { category: "insurance", keywords: ["pay", "fees", "cost", "price"] },
+  "self-funding": { category: "insurance", keywords: ["pay", "fees", "cost", "price", "£250", "£180", "self-pay"] },
   "first-consultation": { category: "booking", keywords: ["appointment", "what to expect", "initial visit"] },
   "colonoscopy-prep": { category: "surgery", keywords: ["bowel prep", "colonoscopy", "preparation"] },
   "time-off-work": { category: "surgery", keywords: ["recovery", "return to work", "healing"] },

@@ -71,7 +71,7 @@ function SideImage({
 }: SideImageProps) {
   return (
     <figure
-      className={`relative ${aspectClass} w-full min-w-0 overflow-hidden rounded-sm bg-neutral-100 shadow-sm`}
+      className={`media-rounded relative ${aspectClass} w-full min-w-0 bg-neutral-100 shadow-sm`}
     >
       <FocalImage
         src={src}
@@ -134,7 +134,7 @@ export function GpReferralsContent() {
       <ReferralsSection id="how-to-refer-heading" heading={howToReferHeading} delay={100}>
         <div className="grid gap-5 sm:grid-cols-2 sm:gap-6">
           <ScrollReveal variant="fade-up" delay={120}>
-            <article className="h-full rounded-sm border border-charcoal/10 bg-neutral-50/80 p-5 sm:p-6">
+            <article className="surface-rounded h-full border border-charcoal/10 bg-neutral-50/80 p-5 sm:p-6">
               <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-charcoal/55">
                 NHS referrals
               </h3>
@@ -142,7 +142,7 @@ export function GpReferralsContent() {
             </article>
           </ScrollReveal>
           <ScrollReveal variant="fade-up" delay={160}>
-            <article className="h-full rounded-sm border border-charcoal/10 bg-neutral-50/80 p-5 sm:p-6">
+            <article className="surface-rounded h-full border border-charcoal/10 bg-neutral-50/80 p-5 sm:p-6">
               <h3 className="text-sm font-semibold uppercase tracking-[0.16em] text-charcoal/55">
                 Private referrals
               </h3>
@@ -240,7 +240,7 @@ export function GpReferralsContent() {
         delay={scrollStagger(4, 100, 100)}
       >
         <ScrollReveal variant="fade-up" delay={scrollStagger(4, 120, 100)}>
-          <p className={`rounded-sm border border-charcoal/10 bg-neutral-50/80 p-5 sm:p-6 ${bodyTextClass}`}>
+          <p className={`surface-rounded border border-charcoal/10 bg-neutral-50/80 p-5 sm:p-6 ${bodyTextClass}`}>
             {urgentReferralsParagraph}
           </p>
         </ScrollReveal>

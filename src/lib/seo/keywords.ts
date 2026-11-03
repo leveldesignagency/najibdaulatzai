@@ -28,6 +28,8 @@ export const geoKeywords = [
   "HCA Wellington Hospital surgeon",
   "HCA Wellington colorectal surgeon",
   "HCA Golders Green surgeon",
+  "Cleveland Clinic London surgeon",
+  "Cleveland Clinic London colorectal surgeon",
   "Watford General Hospital colorectal surgeon",
   "West Hertfordshire Teaching Hospitals surgeon",
 ] as const;

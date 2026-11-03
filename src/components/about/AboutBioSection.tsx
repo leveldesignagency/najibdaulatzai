@@ -13,7 +13,7 @@ export function AboutBioSection() {
 
       <div className="mt-10 grid gap-8 sm:mt-14 sm:gap-10 lg:grid-cols-2 lg:items-stretch lg:gap-16">
         <ScrollReveal variant="scale-up" delay={120}>
-          <figure className="relative aspect-[3/4] w-full overflow-hidden lg:aspect-[4/5] lg:min-h-[20rem] lg:max-w-none">
+          <figure className="media-rounded relative aspect-[3/4] w-full lg:aspect-[4/5] lg:min-h-[20rem] lg:max-w-none">
             <FocalImage
               src="/images/about page.jpg"
               alt="Mr Najib Daulatzai, consultant colorectal and general surgeon in London and Hertfordshire"

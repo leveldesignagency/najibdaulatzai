@@ -4,7 +4,7 @@ import { blogAuthor } from "@/lib/blog/author";
 export function BlogAuthorCard() {
   return (
     <div className="flex items-center gap-5 border-t border-charcoal/10 pt-8">
-      <div className="relative h-20 w-20 shrink-0 overflow-hidden bg-neutral-100">
+      <div className="media-rounded relative h-20 w-20 shrink-0 bg-neutral-100">
         <FocalImage
           src={blogAuthor.image}
           alt={blogAuthor.imageAlt}

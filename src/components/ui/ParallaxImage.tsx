@@ -121,7 +121,7 @@ export function ParallaxImage({
           className="relative flex min-h-[20rem] w-full max-w-md items-center justify-center py-2 sm:min-h-[22rem] lg:max-w-none lg:min-h-[26rem]"
         >
           {withBackdrop ? (
-            <div className="pointer-events-none absolute inset-x-0 top-1/2 h-[62%] -translate-y-1/2 overflow-hidden rounded-2xl bg-neutral-100 sm:h-[64%]">
+            <div className="pointer-events-none absolute inset-x-0 top-1/2 h-[62%] -translate-y-1/2 overflow-hidden rounded-md bg-neutral-100 sm:h-[64%]">
               <div
                 className="absolute inset-[-20%] will-change-transform"
                 style={{ transform: `translate3d(0, ${backgroundShift}px, 0)` }}
@@ -140,7 +140,7 @@ export function ParallaxImage({
           ) : null}
 
           <div
-            className="relative z-10 aspect-[4/5] min-w-[12rem] overflow-hidden rounded-lg bg-neutral-100 shadow-[0_24px_48px_-12px_rgba(74,74,74,0.28)] ring-1 ring-charcoal/10 will-change-transform lg:max-w-none"
+            className="relative z-10 aspect-[4/5] min-w-[12rem] overflow-hidden rounded-md bg-neutral-100 shadow-[0_24px_48px_-12px_rgba(74,74,74,0.28)] ring-1 ring-charcoal/10 will-change-transform lg:max-w-none"
             style={{
               transform: `translate3d(0, ${foregroundShift}px, 0)`,
               width: portraitWidth,
@@ -169,7 +169,7 @@ export function ParallaxImage({
     <div className={`relative w-full ${className}`.trim()}>
       <div ref={containerRef} className="relative w-full">
         {withBackdrop ? (
-          <div className="pointer-events-none absolute inset-x-[6%] top-0 hidden aspect-[4/3] overflow-hidden rounded-2xl bg-neutral-100 lg:block lg:aspect-[5/4]">
+          <div className="pointer-events-none absolute inset-x-[6%] top-0 hidden aspect-[4/3] overflow-hidden rounded-md bg-neutral-100 lg:block lg:aspect-[5/4]">
             <div
               className="absolute inset-[-18%] will-change-transform"
               style={{ transform: `translate3d(0, ${backgroundShift}px, 0)` }}
@@ -188,7 +188,7 @@ export function ParallaxImage({
         ) : null}
 
         <figure
-          className="relative z-10 m-0 aspect-[4/3] w-full overflow-hidden rounded-xl bg-neutral-100 shadow-[0_20px_44px_-16px_rgba(74,74,74,0.24)] ring-1 ring-charcoal/10 will-change-transform lg:aspect-[5/4] lg:rounded-2xl"
+          className="relative z-10 m-0 aspect-[4/3] w-full overflow-hidden rounded-md bg-neutral-100 shadow-[0_20px_44px_-16px_rgba(74,74,74,0.24)] ring-1 ring-charcoal/10 will-change-transform lg:aspect-[5/4]"
           style={{ transform: `translate3d(0, ${foregroundShift}px, 0)` }}
         >
           <div className="absolute inset-[-6%]">

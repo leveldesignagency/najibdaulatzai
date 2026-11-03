@@ -1,8 +1,10 @@
+import type { ReactNode } from "react";
 import { LocationMapEmbed } from "@/components/locations/LocationMapEmbed";
 
 type LocationMapCardProps = {
   name: string;
   lines: readonly string[];
+  note?: string;
   mapEmbed: string;
   mapQuery: string;
   mapTitle: string;
@@ -14,6 +16,7 @@ type LocationMapCardProps = {
   mapLayout?: "beside" | "below";
   practiceType?: "nhs" | "private";
   mobileCenter?: boolean;
+  bookingAction?: ReactNode;
 };
 
 const practiceLabels = {
@@ -24,6 +27,7 @@ const practiceLabels = {
 export function LocationMapCard({
   name,
   lines,
+  note,
   mapEmbed,
   mapQuery,
   mapTitle,
@@ -34,6 +38,7 @@ export function LocationMapCard({
   mapLayout = "beside",
   practiceType,
   mobileCenter = false,
+  bookingAction,
 }: LocationMapCardProps) {
   const isDark = theme === "dark";
   const addressOnly = showAddress && !showMap;
@@ -44,11 +49,6 @@ export function LocationMapCard({
       ? "p-6 backdrop-blur-sm lg:p-8"
       : "p-6 lg:p-8";
   const gridGap = compact ? "gap-4 lg:gap-5" : "gap-6 lg:gap-8";
-  const mapMinHeight = compact
-    ? "min-h-[140px] sm:min-h-[155px] lg:min-h-[170px]"
-    : stackMapBelow
-      ? "min-h-[160px] sm:min-h-[180px]"
-      : "min-h-[180px] sm:min-h-[200px] lg:min-h-[220px]";
 
   const layoutClass = stackMapBelow
     ? "flex flex-col gap-5"
@@ -58,20 +58,21 @@ export function LocationMapCard({
 
   const mobileCenterClass = mobileCenter ? "max-md:text-center" : "";
   const badgeClass = mobileCenter ? "max-md:mx-auto max-md:block max-md:w-fit" : "";
+  const buttonWrapClass = mobileCenter ? "max-md:flex max-md:justify-center" : "";
 
   return (
     <article
-      className={`${layoutClass} ${mobileCenterClass} ${
+      className={`surface-rounded h-full ${layoutClass} ${mobileCenterClass} ${
         isDark
-          ? `h-full border border-white/10 bg-white/5 ${shellPadding}`
+          ? `border border-white/10 bg-white/5 ${shellPadding}`
           : `border border-charcoal/10 bg-neutral-50 ${shellPadding}`
       }`}
     >
       {showAddress ? (
-        <div>
+        <div className="flex h-full flex-col">
           {practiceType ? (
             <p
-              className={`inline-block px-3 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.28em] ${badgeClass} ${
+              className={`w-fit self-start rounded-sm px-3 py-1.5 text-[0.6875rem] font-semibold uppercase tracking-[0.28em] ${badgeClass} ${
                 practiceType === "nhs"
                   ? isDark
                     ? "bg-[#005EB8] text-white"
@@ -106,11 +107,27 @@ export function LocationMapCard({
               </span>
             ))}
           </address>
+          {note ? (
+            <p
+              className={`mt-3 text-sm font-medium ${
+                isDark ? "text-white/70" : "text-charcoal/70"
+              }`}
+            >
+              {note}
+            </p>
+          ) : null}
+          {bookingAction ? (
+            <div className={`mt-6 ${buttonWrapClass}`}>{bookingAction}</div>
+          ) : null}
         </div>
       ) : null}
 
       {showMap ? (
-        <div className={`${showAddress && !stackMapBelow ? undefined : "space-y-3"} ${stackMapBelow ? "mt-auto" : ""}`}>
+        <div
+          className={`flex min-h-0 flex-col ${
+            showAddress && !stackMapBelow ? "h-full" : "space-y-3"
+          } ${stackMapBelow ? "mt-auto" : ""}`}
+        >
           {!showAddress ? (
             <h3
               className={`text-lg font-medium leading-snug lg:text-xl ${
@@ -121,9 +138,9 @@ export function LocationMapCard({
             </h3>
           ) : null}
           <div
-            className={`overflow-hidden border ${mapMinHeight} ${
+            className={`media-rounded min-h-[180px] flex-1 border sm:min-h-[200px] lg:min-h-[220px] ${
               isDark
-                ? "rounded-sm border-white/10 shadow-2xl shadow-black/20"
+                ? "border-white/10 shadow-2xl shadow-black/20"
                 : "border-charcoal/10"
             }`}
           >

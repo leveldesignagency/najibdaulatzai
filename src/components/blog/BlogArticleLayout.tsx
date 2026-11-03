@@ -37,7 +37,7 @@ export function BlogArticleLayout({ post }: BlogArticleLayoutProps) {
         </div>
 
         {post.image ? (
-          <figure className="relative mt-10 aspect-[16/5] w-full overflow-hidden rounded-sm border border-charcoal/10 bg-neutral-100">
+          <figure className="media-rounded relative mt-10 aspect-[16/5] w-full border border-charcoal/10 bg-neutral-100">
             <FocalImage
               src={post.image.src}
               alt={post.image.alt}

@@ -20,6 +20,9 @@ export const BLOG_PUBLICATION_ORDER = [
   "private-colonoscopy-london",
   "do-i-need-a-referral-to-see-a-private-surgeon",
   "private-colorectal-surgery-cost-uk",
+  "itchy-bottom-causes-treatment",
+  "anal-fissure-pain-treatment",
+  "robotic-inguinal-hernia-repair-recovery",
 ] as const;
 
 export type BlogSlug = (typeof BLOG_PUBLICATION_ORDER)[number];

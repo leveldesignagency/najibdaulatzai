@@ -32,10 +32,10 @@ type BlogArticleFiltersProps = {
 };
 
 const fieldClass =
-  "h-11 min-w-0 border border-charcoal/15 bg-white px-3 text-sm text-charcoal outline-none transition placeholder:text-charcoal/45 focus:border-charcoal/40";
+  "field-control h-11 min-w-0 rounded-sm border border-charcoal/15 bg-white px-3 text-sm text-charcoal outline-none transition placeholder:text-charcoal/45 focus:border-charcoal/40";
 
 const iconButtonClass =
-  "flex h-11 w-11 shrink-0 items-center justify-center text-charcoal/70 transition hover:bg-neutral-50 hover:text-charcoal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-charcoal/40";
+  "flex h-11 w-11 shrink-0 items-center justify-center rounded-sm text-charcoal/70 transition hover:bg-neutral-50 hover:text-charcoal focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-[-2px] focus-visible:outline-charcoal/40";
 
 function SearchIcon({ className = "h-4 w-4" }: { className?: string }) {
   return (

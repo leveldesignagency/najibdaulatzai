@@ -44,7 +44,10 @@ export function ContactPageHero() {
               </ScrollReveal>
 
               <ScrollReveal variant="fade-up" delay={140}>
-                <div className="mt-10 max-w-xl border-t border-charcoal/10 pt-8">
+                <div
+                  id="get-in-touch"
+                  className="mt-10 max-w-xl scroll-mt-28 border-t border-charcoal/10 pt-8"
+                >
                   <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/55">
                     Get in touch
                   </p>
@@ -76,7 +79,7 @@ export function ContactPageHero() {
           </ScrollReveal>
 
           <ScrollReveal variant="scale-up" delay={180}>
-            <figure className="relative mx-auto aspect-[4/3] w-full max-w-lg overflow-hidden bg-neutral-100 lg:mx-0 lg:ml-auto lg:max-w-none">
+            <figure className="media-rounded relative mx-auto aspect-[4/3] w-full max-w-lg bg-neutral-100 lg:mx-0 lg:ml-auto lg:max-w-none">
               <FocalImage
                 src={contactHeroImage.src}
                 alt={contactHeroImage.alt}

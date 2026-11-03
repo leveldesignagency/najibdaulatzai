@@ -4,7 +4,7 @@ import type { BlogPostImage } from "./types";
 
 const BLOG_IMAGE_DIR = "/images/blog";
 
-/** File extension per article number (1–20), mix of jpg and png as supplied */
+/** File extension per article number in publication order */
 const blogArticleImageFiles: Record<number, string> = {
   1: "1.jpg",
   2: "2.jpg",
@@ -26,6 +26,9 @@ const blogArticleImageFiles: Record<number, string> = {
   18: "18.jpg",
   19: "19.jpg",
   20: "20.jpg",
+  21: "itchy-bottom.jpg",
+  22: "anal-fissure.jpg",
+  23: "robotic-hernia-davinci-5.jpg",
 };
 
 const blogArticleImageMeta: Record<
@@ -93,27 +96,41 @@ const blogArticleImageMeta: Record<
   "private-colorectal-surgery-cost-uk": {
     alt: "Mr Najib Daulatzai in the operating theatre with advanced surgical technology",
   },
+  "itchy-bottom-causes-treatment": {
+    alt: "Patient receiving supportive care while discussing symptoms that affect quality of life",
+  },
+  "anal-fissure-pain-treatment": {
+    alt: "Patient in a hospital bed speaking with the clinical team about treatment options",
+  },
+  "robotic-inguinal-hernia-repair-recovery": {
+    alt: "da Vinci 5 robotic surgical system: vision cart, surgeon console and patient cart",
+    objectPosition: "50% 50%",
+  },
 };
 
 function articleImageForNumber(
+  slug: BlogSlug,
   articleNumber: number,
-  meta: { alt: string; objectPosition?: string },
 ): BlogPostImage {
-  const file = blogArticleImageFiles[articleNumber];
+  const file = blogArticleImageFiles[articleNumber] ?? `${articleNumber}.jpg`;
+  const meta = blogArticleImageMeta[slug] ?? {
+    alt: `Clinical article image for ${slug.replace(/-/g, " ")}`,
+  };
+  const src = `${BLOG_IMAGE_DIR}/${file}`;
+
   return {
-    src: `${BLOG_IMAGE_DIR}/${file}`,
+    src,
     alt: meta.alt,
     objectPosition:
-      meta.objectPosition ??
-      getImageObjectPosition(`${BLOG_IMAGE_DIR}/${file}`),
+      meta.objectPosition ?? getImageObjectPosition(src),
   };
 }
 
-/** Featured image per article, numbered 1–20 in publication order */
+/** Featured image per article, numbered in publication order */
 export const blogPostImages: Record<string, BlogPostImage> = Object.fromEntries(
   BLOG_PUBLICATION_ORDER.map((slug, index) => [
     slug,
-    articleImageForNumber(index + 1, blogArticleImageMeta[slug]),
+    articleImageForNumber(slug, index + 1),
   ]),
 );
 

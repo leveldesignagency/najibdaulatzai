@@ -24,7 +24,7 @@ export function BackNavButton({
     <Link
       href={href}
       aria-label={ariaLabel}
-      className={`inline-flex h-11 w-11 shrink-0 items-center justify-center border transition ${themeStyles[theme]} ${className}`.trim()}
+      className={`inline-flex h-11 w-11 shrink-0 items-center justify-center rounded-sm border transition ${themeStyles[theme]} ${className}`.trim()}
     >
       <svg
         width="18"

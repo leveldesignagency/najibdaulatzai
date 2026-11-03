@@ -32,7 +32,7 @@ const variantStyles: Record<ButtonVariant, string> = {
 };
 
 const baseStyles =
-  "btn-4 relative inline-flex min-w-[160px] items-center justify-center overflow-hidden border px-8 py-3 text-sm font-semibold uppercase tracking-[0.12em] transition-colors duration-300 no-underline";
+  "btn-4 relative inline-flex min-w-[160px] items-center justify-center overflow-hidden rounded-sm border px-8 py-3 text-sm font-semibold uppercase tracking-[0.12em] transition-colors duration-300 no-underline";
 
 export function Button(props: ButtonProps) {
   const {
@@ -50,7 +50,8 @@ export function Button(props: ButtonProps) {
       href.startsWith("tel:") ||
       href.startsWith("mailto:") ||
       href.startsWith("http://") ||
-      href.startsWith("https://");
+      href.startsWith("https://") ||
+      href.includes("#");
 
     if (isNativeLink) {
       return (

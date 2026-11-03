@@ -18,7 +18,7 @@ export function FaqAccordion({ faqs, variant = "default" }: FaqAccordionProps) {
         <details
           key={faq.id}
           className={`group overflow-hidden border border-charcoal/10 bg-neutral-50 transition-colors open:bg-white ${
-            isCompact ? "rounded-sm" : "rounded-sm"
+            "surface-rounded"
           }`}
         >
           <summary

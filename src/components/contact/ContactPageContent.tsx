@@ -1,6 +1,7 @@
-import { privatePracticeBookingNote } from "@/lib/contact-content";
+import { ContactClinicDetails } from "@/components/contact/ContactClinicDetails";
 import { nhsLocation, privateLocations } from "@/lib/site-config";
 import { LocationMapCard } from "@/components/locations/LocationMapCard";
+import { SelfPayLocationCta } from "@/components/locations/SelfPayLocationCta";
 import { ScrollReveal } from "@/components/ui/ScrollReveal";
 import { scrollStagger } from "@/lib/scroll-stagger";
 
@@ -21,6 +22,7 @@ export function ContactPageContent() {
           {locations.map(({ key, location, isNhs }, index) => (
             <li key={key} className="h-full">
               <ScrollReveal
+                className="h-full"
                 variant={index % 2 === 0 ? "fade-up" : "scale-up"}
                 delay={scrollStagger(index, 90, 80)}
               >
@@ -28,6 +30,7 @@ export function ContactPageContent() {
                   practiceType={isNhs ? "nhs" : "private"}
                   name={location.name}
                   lines={location.lines}
+                  note={"note" in location ? location.note : undefined}
                   mapEmbed={location.mapEmbed}
                   mapQuery={location.mapQuery}
                   mapTitle={
@@ -39,15 +42,18 @@ export function ContactPageContent() {
               </ScrollReveal>
             </li>
           ))}
+          <li className="h-full">
+            <ScrollReveal
+              className="h-full"
+              variant="scale-up"
+              delay={scrollStagger(locations.length, 90, 80)}
+            >
+              <SelfPayLocationCta />
+            </ScrollReveal>
+          </li>
         </ul>
 
-        <ScrollReveal variant="blur-up" delay={200}>
-          <div className="mt-8 flex justify-center sm:mt-10">
-            <p className="max-w-3xl rounded-sm border border-charcoal/10 bg-neutral-100 px-6 py-5 text-center text-base leading-relaxed text-charcoal lg:px-8 lg:text-lg">
-              {privatePracticeBookingNote}
-            </p>
-          </div>
-        </ScrollReveal>
+        <ContactClinicDetails />
       </section>
     </div>
   );

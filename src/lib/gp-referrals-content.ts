@@ -29,7 +29,7 @@ export const secretaryAddressLines = [
 export const insurersAcceptedHeading = "Insurers accepted";
 
 export const insurersAcceptedParagraph =
-  "Mr Daulatzai is recognised by all major private medical insurers including Bupa, AXA Health, Aviva, Vitality, WPA, and Healix. Self-funding patients are also very welcome. Please contact the secretary for further information on fees.";
+  "Mr Daulatzai is recognised by all major private medical insurers including Bupa, AXA Health, Aviva, Vitality, WPA, and Healix. Self-funding patients are also very welcome. Self-pay fees are £250 for a new consultation and £180 for a follow-up.";
 
 export const conditionsHeading = "Conditions accepted for referral";
 

@@ -1,9 +1,26 @@
 export const aboutBioParagraphs = [
-  "My name is Najib Daulatzai, and I am a Consultant General and Colorectal Surgeon practising in London and Hertfordshire, with specialist expertise in robotic and minimally invasive surgery. I am one of a small number of colorectal surgeons in the UK who is multi-platform trained, operating on both the da Vinci Xi and da Vinci 5 (DV5) robotic systems as a routine part of my practice.",
-  "My clinical interests span the full breadth of colorectal and general surgery, including colorectal cancer, inflammatory bowel disease, diverticular disease, and perianal conditions such as haemorrhoids, fissures, and fistulas.. I also perform hernia repairs using robotic techniques and am an accredited endoscopist, carrying out diagnostic and surveillance colonoscopy and flexible sigmoidoscopy.",
-  "I completed my medical degree at University College Hospital London and undertook specialist colorectal surgical fellowships at St Mark's Hospital London and Frimley Park Hospital, gaining extensive experience in complex colorectal cancer, inflammatory bowel disease, and advanced robotic and laparoscopic surgery. I hold a Master's degree in Surgical Sciences from University College London and an MD (Research) from Imperial College London, and have authored numerous publications and presented at national and international conferences.",
-  "I hold an NHS consultant post at West Hertfordshire Teaching Hospitals NHS Trust, where I also serve as NELA (National Emergency Laparotomy Audit) Lead. I see private patients at Spire Bushey Hospital, The Wellington Hospital, and HCA Golders Green Outpatients.",
-  "I consult in English, Pashto, and Farsi, and welcome patients from all backgrounds. Self-pay patients are very welcome — please contact the practice directly for fee information.",
+  "I am a high-volume robotic surgeon and Lead for Colorectal Surgery at West Hertfordshire Teaching Hospitals NHS Trust, based at Watford General Hospital. I see and operate on private patients at Spire Bushey Hospital, HCA The Wellington Hospital and Cleveland Clinic London.",
+  "Most of my major surgery is robotic. I am proficient and fully accredited on both the da Vinci and CMR Versius robotic platforms, and use robotic surgery for bowel and rectal cancer, diverticular disease, inflammatory bowel disease and hernia repair. Smaller incisions usually mean less pain, a shorter stay and a quicker return to normal life. All cancer and complex cases are reviewed at a multidisciplinary team (MDT) meeting with oncologists, radiologists, pathologists and gastroenterologists.",
+  "I also treat common conditions that affect quality of life: haemorrhoids, anal fissures and fistulas, pilonidal disease and lumps such as lipomas and cysts, and I repair hernias using robotic or keyhole techniques. I also see patients with symptoms such as rectal bleeding, a change in bowel habit, abdominal pain, and anal pain or itching. As an accredited endoscopist, I can arrange prompt diagnostic and therapeutic colonoscopy where needed.",
+  "In the NHS I lead the colorectal virtual hospital, which lets suitable patients recover safely at home after bowel surgery and has cut the average hospital stay by three days. I also introduced prehabilitation to the trust, so patients are fitter going into surgery, and I have published widely, including on robotic surgery and enhanced recovery after bowel surgery. I am also the trust's lead for the National Emergency Laparotomy Audit (NELA).",
+  "I qualified from University College London and completed higher surgical training in the UK. I then held fellowships at St Mark's Hospital, the national bowel hospital, in complex colorectal cancer, intestinal failure and inflammatory bowel disease, and at Frimley Park Hospital in advanced laparoscopic and robotic colorectal surgery. I hold a Master's degree in Surgical Sciences from UCL and an MD (Research) degree from Imperial College London.",
+] as const;
+
+export const membershipOrganisations = [
+  {
+    name: "Royal College of Surgeons of England",
+    shortName: "RCS England",
+    logo: "/Logos/memberships/rcs.svg",
+    width: 251,
+    height: 98,
+  },
+  {
+    name: "Association of Coloproctology of Great Britain and Ireland",
+    shortName: "ACPGBI",
+    logo: "/Logos/memberships/acpgbi.png",
+    width: 325,
+    height: 85,
+  },
 ] as const;
 
 export const credentialInstitutions = [
@@ -68,8 +85,13 @@ export const aboutValues = [
   },
 ] as const;
 
+export const selfPayFees = {
+  newConsultation: 250,
+  followUp: 180,
+} as const;
+
 export const selfPayLine =
-  "Self-pay patients are welcome, pricing available on request.";
+  `Self-pay patients are welcome. New consultation £${selfPayFees.newConsultation}; follow-up £${selfPayFees.followUp}.`;
 
 export const insuranceProviders = [
   {

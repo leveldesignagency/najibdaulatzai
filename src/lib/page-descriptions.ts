@@ -1,6 +1,6 @@
 /** Client SEO meta descriptions (note 1.4), word for word */
 export const pageDescriptions = {
-  home: "Mr Najib Daulatzai is a NHS and private consultant colorectal & general surgeon in London & Hertfordshire, specialising in robotic and minimally invasive surgery.",
+  home: "Mr Najib Daulatzai is an NHS and private consultant colorectal & general surgeon in London & Hertfordshire, specialising in robotic and minimally invasive surgery.",
   about:
     "Learn about Mr Najib Daulatzai, a specialist colorectal surgeon with advanced fellowship training, offering personalised surgical care across London & Hertfordshire.",
   procedures:

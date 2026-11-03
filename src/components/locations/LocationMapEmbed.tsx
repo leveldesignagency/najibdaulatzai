@@ -12,9 +12,6 @@ type LocationMapEmbedProps = {
   theme?: "light" | "dark";
 };
 
-const iframeHeights =
-  "h-[180px] w-full border-0 sm:h-[200px] lg:h-[220px]";
-
 export function LocationMapEmbed({
   mapTitle,
   mapQuery,
@@ -49,21 +46,21 @@ export function LocationMapEmbed({
   }, [shouldLoad]);
 
   return (
-    <div ref={containerRef} className="flex h-full flex-col">
+    <div ref={containerRef} className="relative h-full min-h-[180px] w-full sm:min-h-[200px] lg:min-h-[220px]">
       {shouldLoad ? (
         <iframe
           title={mapTitle}
           src={buildGoogleMapsEmbedUrl(mapQuery)}
           loading="lazy"
           referrerPolicy="no-referrer-when-downgrade"
-          className={`${iframeHeights} ${
+          className={`absolute inset-0 h-full w-full border-0 ${
             isDark ? "grayscale-[20%] invert-[5%]" : ""
           }`}
           allowFullScreen
         />
       ) : (
         <div
-          className={`${iframeHeights} ${
+          className={`absolute inset-0 ${
             isDark ? "bg-white/10" : "bg-charcoal/5"
           }`}
           aria-hidden="true"
@@ -73,8 +70,8 @@ export function LocationMapEmbed({
         href={mapsSearchUrl}
         target="_blank"
         rel="noopener noreferrer"
-        className={`mt-2 text-[0.6875rem] font-medium uppercase tracking-[0.18em] underline-offset-2 hover:underline ${
-          isDark ? "text-white/70 hover:text-white" : "text-charcoal/60 hover:text-charcoal"
+        className={`absolute bottom-2 left-2 z-10 rounded-sm bg-white/90 px-2 py-1 text-[0.625rem] font-medium uppercase tracking-[0.18em] underline-offset-2 hover:underline ${
+          isDark ? "text-charcoal" : "text-charcoal/70 hover:text-charcoal"
         }`}
       >
         Open in Google Maps

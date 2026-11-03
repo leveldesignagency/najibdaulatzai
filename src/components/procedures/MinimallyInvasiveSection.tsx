@@ -11,7 +11,7 @@ export function MinimallyInvasiveSection() {
   return (
     <section
       id="minimally-invasive"
-      className="mt-16 rounded-sm bg-neutral-50 px-6 py-12 sm:px-10 sm:py-14 lg:mt-20 lg:px-12 lg:py-16 scroll-mt-28"
+      className="surface-rounded mt-16 bg-neutral-50 px-6 py-12 sm:px-10 sm:py-14 lg:mt-20 lg:px-12 lg:py-16 scroll-mt-28"
       aria-labelledby="minimally-invasive-heading"
     >
       <div className="grid items-center gap-10 lg:grid-cols-[minmax(0,1fr)_minmax(0,0.85fr)] lg:gap-14 xl:gap-16">
