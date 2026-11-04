@@ -46,6 +46,7 @@ export function ContactPageHero() {
               <ScrollReveal variant="fade-up" delay={140}>
                 <div
                   id="get-in-touch"
+                  data-analytics-context="contact_hero"
                   className="mt-10 max-w-xl scroll-mt-28 border-t border-charcoal/10 pt-8"
                 >
                   <p className="text-xs font-semibold uppercase tracking-[0.32em] text-charcoal/55">
@@ -54,12 +55,14 @@ export function ContactPageHero() {
                   <div className="mt-4 space-y-3">
                     <a
                       href={contactPhoneHref}
+                      data-analytics-action="phone"
                       className={`${contactLinkClass} block text-2xl lg:text-[1.75rem]`}
                     >
                       {contactPhone}
                     </a>
                     <a
                       href={contactEmailHref}
+                      data-analytics-action="email"
                       className={`${contactLinkClass} block text-xl lg:text-2xl`}
                     >
                       {contactEmail}
@@ -68,6 +71,7 @@ export function ContactPageHero() {
                       href={whatsAppHref}
                       target="_blank"
                       rel="noopener noreferrer"
+                      data-analytics-action="whatsapp"
                       className={`${contactLinkClass} inline-block text-base underline-offset-4 hover:underline`}
                     >
                       {whatsAppLabel}

@@ -74,7 +74,12 @@ export function SelfPayLocationCta({
       </div>
 
       <div className={`mt-6 lg:mt-8 ${buttonWrapClass}`}>
-        <Button href="/contact#get-in-touch" variant="light">
+        <Button
+          href="/contact#get-in-touch"
+          variant="light"
+          data-analytics-action="enquire"
+          data-analytics-location="Self-pay CTA"
+        >
           Enquire now
         </Button>
       </div>

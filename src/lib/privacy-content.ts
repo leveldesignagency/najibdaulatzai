@@ -27,7 +27,7 @@ export const privacySections = [
       "Strictly necessary cookies store your cookie preference so we do not show the consent banner on every visit.",
       "Embedded Google Maps on our location and contact pages load directly so you can find our clinics. Google may set its own cookies when a map is displayed.",
       "Functional cookies apply when you choose to play embedded YouTube video on the Robotic Surgery page. These third-party services may place their own cookies.",
-      "Analytics cookies are used only if you opt in. We use Google Analytics 4 to understand how visitors use the site (page views, button clicks, phone and email link taps, and similar interactions). We also use Vercel Web Analytics, a privacy-friendly service for aggregate page traffic. Neither service is used for advertising. Vercel Speed Insights monitors page performance and does not require analytics consent.",
+      "Analytics cookies are used only if you opt in. We use Google Analytics 4 to understand how visitors use the site (page views, booking and enquire clicks, phone, email and WhatsApp taps, and similar interactions). We also use Vercel Web Analytics, a privacy-friendly service for aggregate page traffic. Neither service is used for advertising. Vercel Speed Insights monitors page performance and does not require analytics consent.",
       "We do not use advertising or social media tracking cookies on this website.",
     ],
   },

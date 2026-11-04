@@ -81,6 +81,7 @@ export function LocationsSection() {
                         theme="dark"
                         label={location.booking.label}
                         href={location.booking.href}
+                        locationName={location.name}
                       />
                     ) : undefined
                   }
