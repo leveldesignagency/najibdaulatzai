@@ -54,6 +54,12 @@ export function Footer({ includeBookCta = true }: FooterProps) {
                 >
                   Privacy &amp; Cookies
                 </Link>
+                <a
+                  href="/sitemap.xml"
+                  className="text-xs uppercase tracking-[0.28em] text-white/85 transition hover:text-white"
+                >
+                  Sitemap
+                </a>
                 <CookieSettingsButton />
                 <p className="text-xs tracking-[0.08em] text-white/60">
                   © 2026 ndsurgeon.com

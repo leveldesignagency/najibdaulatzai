@@ -1,14 +1,5 @@
 import type { NextConfig } from "next";
 
-/** Legacy Wix placeholder slugs → clean routes (client note 1.1) */
-const wixLegacyRedirects = [
-  { source: "/blank", destination: "/procedures", permanent: true },
-  { source: "/blank-1", destination: "/about", permanent: true },
-  { source: "/blank-1-1", destination: "/research", permanent: true },
-  { source: "/blank-1-1-1", destination: "/testimonials", permanent: true },
-  { source: "/blank-1-1-1-1", destination: "/contact", permanent: true },
-] as const;
-
 /** Legacy /blog paths → canonical /articles */
 const blogRedirects = [
   { source: "/blog", destination: "/articles", permanent: true },
@@ -26,7 +17,7 @@ const nextConfig: NextConfig = {
     imageSizes: [16, 32, 48, 64, 96, 128, 256, 384, 420, 640],
   },
   async redirects() {
-    return [...wixLegacyRedirects, ...blogRedirects, ...procedureRedirects];
+    return [...blogRedirects, ...procedureRedirects];
   },
 };
 
